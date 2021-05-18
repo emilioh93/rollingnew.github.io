@@ -2,7 +2,7 @@ import React from "react";
 import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import { Container } from "react-bootstrap";
-import imgNoticia from "./img/imagenNoDisponible.png";
+import imgNoticia from '../img/imagenNoDisponible.png';
 
 
 const Seccion = (props) => {
