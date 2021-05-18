@@ -4,6 +4,18 @@
     width: 60%;
 }
 
+#logoLg {
+    width: 30%;
+}
+
+.logoLgImg {
+    width: 60%;
+}
+
+#logoSm {
+    display: none;
+}
+
 .nav-link {
     margin: 0px 10px;
 }
@@ -22,38 +34,18 @@
     box-shadow: 10px 10px 50px -15px rgba(0, 0, 0, 0.75);
 }
 
-.infoPrincipal {
-    position: absolute;
-    bottom: 0;
-    padding: 30px;
-}
-
-.fondo {
-    background-image: url(./img/portadaprueba.png);
-    padding: 200px 100px;
-    text-align: center;
-    background-position: center center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    position: relative;
-}
-
-.fondo:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
 
 /* TERMINA PRINCIPAL */
 
-.verde {
-    background-color: green;
+
+/* COMIENZA BANNER COVID */
+
+.anchoCovid {
+    width: 100%;
 }
+
+
+/* TERMINA BANNER COVID */
 
 
 /* MEDIA QUERIES */
@@ -62,6 +54,34 @@
 /* TELÉFONOS Y MÁS PEQUEÑOS*/
 
 @media (max-width: 767.98px) {
+    #logoSm {
+        display: block;
+        width: 30%;
+    }
+    #logoLg {
+        display: none;
+    }
+    .logo {
+        width: 30%;
+    }
+    .margenIzq {
+        margin: 0%;
+    }
+    .anchoCovid {
+        width: 100%;
+    }
+}
+
+
+/* TABLETS */
+
+@media (min-width: 768px) and (max-width: 1198px) {
+    #logoSm {
+        display: none;
+    }
+    #logoLg {
+        display: block;
+    }
     .margenIzq {
         margin: 0%;
     }

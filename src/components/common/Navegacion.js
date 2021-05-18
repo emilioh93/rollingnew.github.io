@@ -7,12 +7,14 @@ const Navegacion = () => {
   return (
     <Navbar bg="dark" expand="lg" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">
-          <img className="logo" src={logo} alt="" />
+        <Navbar.Brand id="logoLg" href="#home">
+          <img src={logo} alt="" className="logoLgImg" />
         </Navbar.Brand>
+        {/* Logo para mobile */}
+        <img id="logoSm" src={logo} alt="" />
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="ml-auto">
             <NavLink exact={true} to="/" className="nav-link">
               Inicio
             </NavLink>
