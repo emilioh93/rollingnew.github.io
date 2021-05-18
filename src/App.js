@@ -5,7 +5,7 @@ import Inicio from "./components/Inicio";
 import Navegacion from "./components/common/Navegacion";
 import Footer from "./components/common/Footer";
 import Principal from "./components/Principal";
-import Seccion from "./components/Seccion";
+import Categoria from "./components/Categoria";
 import Covid from "./components/Covid";
 
 function App() {
@@ -16,11 +16,10 @@ function App() {
         <Route exact path="/">
           <Inicio></Inicio>
           <Principal></Principal>
-          <Seccion titulo="Destacadas"></Seccion>
           <Covid></Covid>
-          <Seccion titulo="Economía"></Seccion>
-          <Seccion titulo="Política"></Seccion>
-          <Seccion titulo="Salud"></Seccion>
+          <Categoria titulo="Economía"></Categoria>
+          <Categoria titulo="Política"></Categoria>
+          <Categoria titulo="Salud"></Categoria>
         </Route>
       </Switch>
       <Footer></Footer>
