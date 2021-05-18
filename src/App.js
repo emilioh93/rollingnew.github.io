@@ -6,7 +6,8 @@ import Navegacion from "./components/common/Navegacion";
 import Footer from "./components/common/Footer";
 import Principal from "./components/Principal";
 import Seccion from "./components/Seccion";
-import covid from "../src/img/covid.png";
+import covid1 from "../src/img/covid1.png";
+import covid2 from "../src/img/covid2.png";
 import { Container } from "react-bootstrap";
 
 function App() {
@@ -20,8 +21,13 @@ function App() {
           <Seccion titulo="Destacadas"></Seccion>
           <Container>
             <img
-              src={covid}
-              className="w-100"
+              src={covid1}
+              className="w-50"
+              alt="Imagen informativa sobre COVID 19"
+            />
+            <img
+              src={covid2}
+              className="w-50"
               alt="Imagen informativa sobre COVID 19"
             />
           </Container>
