@@ -29,7 +29,7 @@ const Principal = () => {
     />
     <Carousel.Caption>
       <h3>¿Qué está pasando entre Palestina e Israel? Las claves para entender el conflicto</h3>
-      <p>El actual enfrentamiento entre el Ejército israelí y Hamás en la franja de Gaza alcanza un nivel de violencia no visto desde 2014</p>
+      <p className="ocultar">El actual enfrentamiento entre el Ejército israelí y Hamás en la franja de Gaza alcanza un nivel de violencia no visto desde 2014</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -41,7 +41,7 @@ const Principal = () => {
 
     <Carousel.Caption>
       <h3>Descubrieron el “talón de Aquiles” del coronavirus para evitar que se multiplique en el cuerpo</h3>
-      <p>Investigadores suizos e irlandeses hallaron un mecanismo por el que se podría inhibir la replicación del SARS-CoV-2 en el organismo.</p>
+      <p className="ocultar">Investigadores suizos e irlandeses hallaron un mecanismo por el que se podría inhibir la replicación del SARS-CoV-2 en el organismo.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -53,7 +53,7 @@ const Principal = () => {
 
     <Carousel.Caption>
       <h3>Estafas en el homebanking: dónde y cómo hacer la denuncia si fuiste engañado</h3>
-      <p>Los ciberdelitos tuvieron un importante incremento en el último año. Qué deben hacer las víctimas para hacer valer sus derechos</p>
+      <p className="ocultar">Los ciberdelitos tuvieron un importante incremento en el último año. Qué deben hacer las víctimas para hacer valer sus derechos</p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
