@@ -1,7 +1,9 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import Card from "react-bootstrap/Card";
-import portada from '../img/portadaprueba.png'
+import {Carousel} from 'react-bootstrap';
+import noticiaIsrael from '../img/israel1.jpeg';
+import noticiaDos from '../img/covid1.webp';
+import noticiaTres from '../img/ciberdelito.jpeg';
 
 const Principal = () => {
   return (
@@ -18,12 +20,43 @@ const Principal = () => {
           <Card.Text>Hace 1 hora</Card.Text>
         </Card.ImgOverlay>
       </Card> */}
-      <Card className="sombra bg-dark">
-        <Card.Body>
-          <h2 className="text-center display-6 text-light">Nueva marcha en reclamo por la inseguridad</h2>
-        </Card.Body>
-        <Card.Img variant="bottom" src={portada} className="w-100"/>
-      </Card>
+      <Carousel fade>
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src={noticiaIsrael}
+      alt="Israel1"
+    />
+    <Carousel.Caption>
+      <h3>¿Qué está pasando entre Palestina e Israel? Las claves para entender el conflicto</h3>
+      <p>El actual enfrentamiento entre el Ejército israelí y Hamás en la franja de Gaza alcanza un nivel de violencia no visto desde 2014</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src={noticiaDos}
+      alt="Covid1"
+    />
+
+    <Carousel.Caption>
+      <h3>Descubrieron el “talón de Aquiles” del coronavirus para evitar que se multiplique en el cuerpo</h3>
+      <p>Investigadores suizos e irlandeses hallaron un mecanismo por el que se podría inhibir la replicación del SARS-CoV-2 en el organismo.</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+  <Carousel.Item>
+    <img
+      className="d-block w-100"
+      src={noticiaTres}
+      alt="Third slide"
+    />
+
+    <Carousel.Caption>
+      <h3>Estafas en el homebanking: dónde y cómo hacer la denuncia si fuiste engañado</h3>
+      <p>Los ciberdelitos tuvieron un importante incremento en el último año. Qué deben hacer las víctimas para hacer valer sus derechos</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+</Carousel>
     </Container>
   );
 };
