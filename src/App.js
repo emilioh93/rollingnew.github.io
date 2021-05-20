@@ -17,9 +17,9 @@ function App() {
           <Inicio></Inicio>
           <Principal></Principal>
           <Covid></Covid>
-          <Categoria titulo="Economía"></Categoria>
-          <Categoria titulo="Política"></Categoria>
-          <Categoria titulo="Salud"></Categoria>
+          <Categoria titulo="Economía" className="fondoVerde"></Categoria>
+          <Categoria titulo="Política" className="fondoAmarillo"></Categoria>
+          <Categoria titulo="Salud" className="fondoCeleste"></Categoria>
         </Route>
       </Switch>
       <Footer></Footer>
