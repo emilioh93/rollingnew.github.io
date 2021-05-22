@@ -43,7 +43,7 @@ const Navegacion = () => {
               <NavLink exact={true} to="" className="nav-link ">
                 <strong className="margenIzq">Login</strong>
               </NavLink>
-              <NavLink exact={true} to="" className="nav-link">
+              <NavLink exact={true} to="/Suscripcion" className="nav-link">
                 <strong>Suscripción</strong>
               </NavLink>
           </Nav>

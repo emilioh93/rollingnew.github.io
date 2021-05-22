@@ -7,6 +7,7 @@ import Footer from "./components/common/Footer";
 import Principal from "./components/Principal";
 import Categoria from "./components/Categoria";
 import Covid from "./components/Covid";
+import Suscripcion from "./components/Suscripcion";
 
 function App() {
   return (
@@ -20,6 +21,9 @@ function App() {
           <Categoria titulo="Economía"></Categoria>
           <Categoria titulo="Política"></Categoria>
           <Categoria titulo="Salud"></Categoria>
+        </Route>
+        <Route exact path="/Suscripcion">
+          <Suscripcion></Suscripcion>
         </Route>
       </Switch>
       <Footer></Footer>
