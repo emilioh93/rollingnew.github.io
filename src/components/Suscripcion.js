@@ -16,7 +16,7 @@ const Suscripcion = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("desde submit");
-    console.log(nombre);
+    console.log(terminos);
 
     if (
       nombre.trim() !== "" &&
@@ -27,7 +27,8 @@ const Suscripcion = () => {
       localidad.trim() !== "" &&
       codigo !== "" &&
       telefono !== "" &&
-      email.trim() !== ""
+      email.trim() !== "" &&
+      terminos === 'on'
     ) {
       alert("los datos estan correctos");
       //mandar los datos al back
@@ -98,13 +99,13 @@ const Suscripcion = () => {
           ></Form.Control>
         </Form.Group>
         {/* Agregar terminos y condiciones */}
-        {/* <Form.Group className="my-3">
+        <Form.Group className="my-3">
           <Form.Check
             type="checkbox"
             label="Acepto los terminos y condiciones"
-            onChange={(e) => setNombre(e.target.value)}
+            onChange={(e) => setTerminos(e.target.value)}
           ></Form.Check>
-        </Form.Group> */}
+        </Form.Group>
         <Button type="submit">Enviar</Button>
       </Form>
     </div>
