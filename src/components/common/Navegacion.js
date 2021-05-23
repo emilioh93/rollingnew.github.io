@@ -72,7 +72,7 @@ const Navegacion = () => {
             <NavLink exact={true} to="/admin" className="nav-link">
               <strong className="margenIzq">Login</strong>
             </NavLink>
-            <NavLink exact={true} to="" className="nav-link">
+            <NavLink exact={true} to="/suscripcion" className="nav-link">
               <strong>Suscripción</strong>
             </NavLink>
           </Nav>

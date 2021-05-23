@@ -67,7 +67,7 @@ function App() {
         <Route exact path="/admin/categorias/nueva">
           <FormCategorias></FormCategorias>
          </Route> 
-        <Route exact path="/Suscripcion">
+        <Route exact path="/suscripcion">
           <Suscripcion></Suscripcion>
         </Route>
       </Switch>
