@@ -13,6 +13,7 @@ import AdminNoticias from "./components/AdminNoticias";
 import AdminCategorias from "./components/AdminCategorias";
 import FormNoticias from "./components/FormNoticias";
 import FormCategorias from "./components/FormCategorias";
+import Suscripcion from "./components/Suscripcion";
 
 function App() {
   return (
@@ -65,6 +66,9 @@ function App() {
         </Route>
         <Route exact path="/admin/categorias/nueva">
           <FormCategorias></FormCategorias>
+         </Route> 
+        <Route exact path="/Suscripcion">
+          <Suscripcion></Suscripcion>
         </Route>
       </Switch>
       <Footer></Footer>
