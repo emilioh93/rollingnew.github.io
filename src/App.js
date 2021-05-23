@@ -8,6 +8,11 @@ import Principal from "./components/Principal";
 import Categoria from "./components/Categoria";
 import Covid from "./components/Covid";
 import PaginaCategoria from "./components/PaginaCategoria";
+import Admin from "./components/Admin";
+import AdminNoticias from "./components/AdminNoticias";
+import AdminCategorias from "./components/AdminCategorias";
+import FormNoticias from "./components/FormNoticias";
+import FormCategorias from "./components/FormCategorias";
 
 function App() {
   return (
@@ -45,6 +50,21 @@ function App() {
         </Route>
         <Route exact path="/fotografia">
           <PaginaCategoria tituloCategoria="Fotografía"></PaginaCategoria>
+        </Route>
+        <Route exact path="/admin">
+          <Admin version="1.0"></Admin>
+        </Route>
+        <Route exact path="/admin/noticias">
+          <AdminNoticias></AdminNoticias>
+        </Route>
+        <Route exact path="/admin/noticias/nueva">
+          <FormNoticias></FormNoticias>
+        </Route>
+        <Route exact path="/admin/categorias">
+          <AdminCategorias></AdminCategorias>
+        </Route>
+        <Route exact path="/admin/categorias/nueva">
+          <FormCategorias></FormCategorias>
         </Route>
       </Switch>
       <Footer></Footer>

@@ -83,6 +83,9 @@
     .ocultar {
         display: none;
     }
+    .mtSM {
+        margin-top: 50px;
+    }
 }
 
 
