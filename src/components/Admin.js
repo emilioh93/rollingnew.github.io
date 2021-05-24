@@ -13,14 +13,14 @@ const Admin = (props) => {
         <NavLink
           className="mx-4 btn btn-primary btn-lg"
           exact={true}
-          to="/admin/noticias"
+          to="admin/noticias"
         >
           Administrar Noticias
         </NavLink>
         <NavLink
           className="mx-4 btn btn-success btn-lg"
           exact={true}
-          to="/admin/categorias"
+          to="admin/categorias"
         >
           Administrar Categorías
         </NavLink>

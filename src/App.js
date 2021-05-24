@@ -14,6 +14,7 @@ import AdminCategorias from "./components/AdminCategorias";
 import FormNoticias from "./components/FormNoticias";
 import FormCategorias from "./components/FormCategorias";
 import Suscripcion from "./components/Suscripcion";
+import Login from "./components/Login";
 
 function App() {
   return (
@@ -52,21 +53,28 @@ function App() {
         <Route exact path="/fotografia">
           <PaginaCategoria tituloCategoria="Fotografía"></PaginaCategoria>
         </Route>
-        <Route exact path="/admin">
+        <Route exact path='/login'>
+          <Login></Login>
+        </Route>
+
+        {/* path del admin */}
+        <Route exact path="/login/admin">
           <Admin version="1.0"></Admin>
         </Route>
-        <Route exact path="/admin/noticias">
+        <Route exact path="/login/admin/noticias">
           <AdminNoticias></AdminNoticias>
         </Route>
-        <Route exact path="/admin/noticias/nueva">
+        <Route exact path="/login/admin/noticias/nueva">
           <FormNoticias></FormNoticias>
         </Route>
-        <Route exact path="/admin/categorias">
+        <Route exact path="/login/admin/categorias">
           <AdminCategorias></AdminCategorias>
         </Route>
-        <Route exact path="/admin/categorias/nueva">
+        <Route exact path="/login/admin/categorias/nueva">
           <FormCategorias></FormCategorias>
          </Route> 
+        {/* fin del path */}
+         
         <Route exact path="/suscripcion">
           <Suscripcion></Suscripcion>
         </Route>
