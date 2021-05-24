@@ -11,26 +11,28 @@ const Suscripcion = () => {
   const [telefono, setTelefono] = useState(0);
   const [email, setEmail] = useState("");
   const [terminos, setTerminos] = useState();
-
+  const [validacion, setValidacion] = useState(false)
   //validacion del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("desde submit");
-    console.log(terminos);
 
     if (
-      nombre.trim() !== "" &&
-      apellido.trim() !== "" &&
-      direccion.trim() !== "" &&
-      direccion.trim() !== "" &&
-      localidad.trim() !== "" &&
-      localidad.trim() !== "" &&
-      codigo !== "" &&
-      telefono !== "" &&
-      email.trim() !== "" &&
-      terminos === 'on'
+      // nombre.trim() !== "" &&
+      // apellido.trim() !== "" &&
+      // direccion.trim() !== "" &&
+      // direccion.trim() !== "" &&
+      // localidad.trim() !== "" &&
+      // localidad.trim() !== "" &&
+      // codigo !== "" &&
+      // telefono !== "" &&
+      // email.trim() !== "" &&
+      //agregar de checkbox
+
+      setValidacion(true)
     ) {
       alert("los datos estan correctos");
+
       //mandar los datos al back
     } else {
       alert("llenar los campos requeridos");
@@ -40,7 +42,12 @@ const Suscripcion = () => {
 
   return (
     <div className="d-flex justify-content-center" id="fondo">
-      <Form className="my-5 w-50" onSubmit={handleSubmit}>
+      <Form
+        className="my-5 w-50"
+        onSubmit={handleSubmit}
+        validated={validacion}
+        noValidate
+      >
         <h1 className="text-center my-3">Formulario de Suscripcion</h1>
         <Form.Group className="my-3">
           <Form.Label>Nombre</Form.Label>
@@ -48,7 +55,12 @@ const Suscripcion = () => {
             type="text"
             placeholder="Juan"
             onChange={(e) => setNombre(e.target.value)}
+            required
           ></Form.Control>
+          <Form.Control.Feedback></Form.Control.Feedback>
+          <Form.Control.Feedback type="invalid">
+            Llenar el campo
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="my-3">
           <Form.Label>Apellido</Form.Label>
@@ -56,7 +68,11 @@ const Suscripcion = () => {
             type="text"
             placeholder="Perez"
             onChange={(e) => setApellido(e.target.value)}
+            required
           ></Form.Control>
+          <Form.Control.Feedback type="invalid">
+            Llenar el campo
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="my-3">
           <Form.Label>Direccion</Form.Label>
@@ -64,7 +80,11 @@ const Suscripcion = () => {
             type="text"
             placeholder="San Martin 456"
             onChange={(e) => setDireccion(e.target.value)}
+            required
           ></Form.Control>
+          <Form.Control.Feedback type="invalid">
+            Llenar el campo
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="my-3">
           <Form.Label>Localidad</Form.Label>
@@ -72,7 +92,11 @@ const Suscripcion = () => {
             type="text"
             placeholder="Yerba Buena"
             onChange={(e) => setLocalidad(e.target.value)}
+            required
           ></Form.Control>
+          <Form.Control.Feedback type="invalid">
+            Llenar el campo
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="my-3">
           <Form.Label>Codigo Postal</Form.Label>
@@ -80,7 +104,11 @@ const Suscripcion = () => {
             type="number"
             placeholder="4107"
             onChange={(e) => setCodigo(e.target.value)}
+            required
           ></Form.Control>
+          <Form.Control.Feedback type="invalid">
+            Llenar el campo
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="my-3">
           <Form.Label>Telefono</Form.Label>
@@ -88,25 +116,41 @@ const Suscripcion = () => {
             type="number"
             placeholder="381 4564553"
             onChange={(e) => setTelefono(e.target.value)}
+            required
           ></Form.Control>
+          <Form.Control.Feedback type="invalid">
+            Llenar el campo
+          </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="my-3">
           <Form.Label>Email</Form.Label>
           <Form.Control
-            type="email"
+            type="text"
             placeholder="JuanPerez@....."
             onChange={(e) => setEmail(e.target.value)}
+            required
           ></Form.Control>
+          <Form.Control.Feedback type="invalid">
+            Llenar el campo
+          </Form.Control.Feedback>
         </Form.Group>
         {/* Agregar terminos y condiciones */}
-        <Form.Group className="my-3">
-          <Form.Check
-            type="checkbox"
-            label="Acepto los terminos y condiciones"
-            onChange={(e) => setTerminos(e.target.value)}
-          ></Form.Check>
-        </Form.Group>
-        <Button type="submit">Enviar</Button>
+        {/* <div className="mb-3">
+          <div className="form-check">
+            <input
+              type="checkbox"
+              id="terminos"
+              className="form-check-input"
+              onChange={(e) => setTerminos(e.target.value)}
+            />
+            <label className="form-check-label">
+              Esta de acuerdo con los terminos y condiciones
+            </label>
+          </div>
+        </div> */}
+        <Button type="submit" className="my-3">
+          Enviar
+        </Button>
       </Form>
     </div>
   );
