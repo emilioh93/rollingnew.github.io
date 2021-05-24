@@ -13,7 +13,7 @@ const AdminNoticias = () => {
       <Link
           className="my-4 btn btn-success"
           exact={true}
-          to="/categorias/nueva"
+          to="categorias/nueva"
         >
           Agregar Categoría
         </Link>

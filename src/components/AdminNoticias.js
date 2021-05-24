@@ -12,7 +12,7 @@ const AdminNoticias = () => {
         <Link
           className="my-4 btn btn-primary"
           exact={true}
-          to="/noticias/nueva"
+          to="noticias/nueva"
         >
           Agregar Noticia
         </Link>
