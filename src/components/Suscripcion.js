@@ -11,7 +11,7 @@ const Suscripcion = () => {
   const [telefono, setTelefono] = useState(0);
   const [email, setEmail] = useState("");
   const [terminos, setTerminos] = useState();
-  const [validacion, setValidacion] = useState(false)
+  const [validacion, setValidacion] = useState(false);
   //validacion del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -135,19 +135,13 @@ const Suscripcion = () => {
           </Form.Control.Feedback>
         </Form.Group>
         {/* Agregar terminos y condiciones */}
-        {/* <div className="mb-3">
-          <div className="form-check">
-            <input
-              type="checkbox"
-              id="terminos"
-              className="form-check-input"
-              onChange={(e) => setTerminos(e.target.value)}
-            />
-            <label className="form-check-label">
-              Esta de acuerdo con los terminos y condiciones
-            </label>
-          </div>
-        </div> */}
+        <Form.Group>
+          <Form.Check
+            label="Acepto los terminos y condiciones"
+            feedback="Debe aceptar los terminos y condiciones"
+            required
+          ></Form.Check>
+        </Form.Group>
         <Button type="submit" className="my-3">
           Enviar
         </Button>
