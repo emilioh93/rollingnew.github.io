@@ -9,11 +9,7 @@ const AdminNoticias = () => {
     <Container className="my-5">
       <h2 className="text-center">Administrador de Noticias</h2>
       <div className="d-flex justify-content-end">
-        <Link
-          className="my-4 btn btn-primary"
-          exact={true}
-          to="noticias/nueva"
-        >
+        <Link className="my-4 btn btn-primary" exact={true} to="noticias/nueva">
           Agregar Noticia
         </Link>
       </div>
