@@ -1,11 +1,12 @@
 import { useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import Swal from "sweetalert2";
+import Image from "react-bootstrap/Image";
 
 const DetalleNoticia = (props) => {
   const [tituloNoticia, setTituloNoticia] = useState("");
   const [descripcionNoticia, setDescripcionNoticia] = useState("");
-  const [imagen, setImagen] = useState("");
+  const [imagen, setImagen] = useState(Image);
   const [detalle, setDetalle] = useState("");
   const [autor, setAutor] = useState("");
   const [fecha, setFecha] = useState("");
@@ -30,7 +31,7 @@ const DetalleNoticia = (props) => {
       imagen !== "" &&
       detalle !== "" &&
       autor !== "" &&
-      fecha !== ""&&
+      fecha !== "" &&
       categoria !== true
     ) {
       setError(false);
@@ -87,6 +88,19 @@ const DetalleNoticia = (props) => {
       <Container>
         <Form className="my-5" onSubmit={handleSubmit}>
           <h1 className="my-5 text-center">Agregar una nueva noticia</h1>
+          <Form.Group controlId="exampleForm.ControlSelect1">
+              <Form.Label>Categoría</Form.Label>
+              <Form.Control as="select">
+                <option>Actualidad</option>
+                <option>Espectáculos</option>
+                <option>Tecnología</option>
+                <option>Deportes</option>
+                <option>Economía</option>
+                <option>Salud</option>
+                <option>Política</option>
+                <option>Fotografía</option>
+              </Form.Control>
+            </Form.Group>
           <Form.Group>
             <Form.Label>Título de la noticia*</Form.Label>
             <Form.Control
@@ -103,7 +117,7 @@ const DetalleNoticia = (props) => {
               onChange={(e) => setDescripcionNoticia(e.target.value)}
             ></Form.Control>
           </Form.Group>
-          <h3 className="text-center my-3">Categoría</h3>
+          {/*<h3 className="text-center my-3">Categoría</h3>
           <div className="text-center my-4">
             <Form.Check
               inline
@@ -169,39 +183,40 @@ const DetalleNoticia = (props) => {
               value="fotografia"
               onChange={leerCategoria}
             ></Form.Check>
-            <Form.Group className="my-3">
-              <Form.Label>Imagen</Form.Label>
-              <Form.Control
-                type="img"
-                placeholder="Ingrese una imagen para la noticia"
-                onChange={(e) => setImagen(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group className="my-3">
-              <Form.Label>Detalle de la noticia*</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Escriba el detalle de su noticia."
-                onChange={(e) => setDetalle(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group className="my-3">
-              <Form.Label>Autor*</Form.Label>
-              <Form.Control
-                type="text"
-                placeholder="Ingrese el nombre del autor."
-                onChange={(e) => setAutor(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
-            <Form.Group className="my-3">
-              <Form.Label>Fecha de actualización de noticia*</Form.Label>
-              <Form.Control
-                type="date"
-                placeholder="Ingrese la fecha de actualización."
-                onChange={(e) => setFecha(e.target.value)}
-              ></Form.Control>
-            </Form.Group>
-          </div>
+          </div>*/}
+          <Form.Group className="my-3">
+            <Form.Label>Imagen</Form.Label>
+            <Form.Control
+              placeholder="Adjunte la imagen para su noticia."
+              onChange={(e) => setImagen(e.target.value)}
+            >
+              <Image src="" fluid></Image>
+            </Form.Control>
+          </Form.Group>
+          <Form.Group className="my-3">
+            <Form.Label>Detalle de la noticia*</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Escriba el detalle de su noticia."
+              onChange={(e) => setDetalle(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="my-3">
+            <Form.Label>Autor*</Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Ingrese el nombre del autor."
+              onChange={(e) => setAutor(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
+          <Form.Group className="my-3">
+            <Form.Label>Fecha de actualización de noticia*</Form.Label>
+            <Form.Control
+              type="date"
+              placeholder="Ingrese la fecha de actualización."
+              onChange={(e) => setFecha(e.target.value)}
+            ></Form.Control>
+          </Form.Group>
           <Button variant="danger" type="submit" className="w-100">
             Agregar noticia
           </Button>
