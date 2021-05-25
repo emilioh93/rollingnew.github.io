@@ -12,6 +12,8 @@ const DetalleNoticia = (props) => {
   const [categoria, setCategoria] = useState(false);
   const [error, setError] = useState(false);
 
+  const URL = process.env.REACT_APP_API_URL;
+
   const leerCategoria = (e) => {
     setCategoria(e.target.value);
   };
@@ -84,7 +86,7 @@ const DetalleNoticia = (props) => {
     <div>
       <Container>
         <Form className="my-5" onSubmit={handleSubmit}>
-          <h1 className="my-5">Agregar nuevo producto</h1>
+          <h1 className="my-5 text-center">Agregar una nueva noticia</h1>
           <Form.Group>
             <Form.Label>Título de la noticia*</Form.Label>
             <Form.Control
@@ -93,7 +95,7 @@ const DetalleNoticia = (props) => {
               onChange={(e) => setTituloNoticia(e.target.value)}
             ></Form.Control>
           </Form.Group>
-          <Form.Group>
+          <Form.Group className="my-3">
             <Form.Label>Bajada*</Form.Label>
             <Form.Control
               type="text"
@@ -101,7 +103,7 @@ const DetalleNoticia = (props) => {
               onChange={(e) => setDescripcionNoticia(e.target.value)}
             ></Form.Control>
           </Form.Group>
-          <h3 className="text-center mt-4">Categoría</h3>
+          <h3 className="text-center my-3">Categoría</h3>
           <div className="text-center my-4">
             <Form.Check
               inline
@@ -167,7 +169,7 @@ const DetalleNoticia = (props) => {
               value="fotografia"
               onChange={leerCategoria}
             ></Form.Check>
-            <Form.Group>
+            <Form.Group className="my-3">
               <Form.Label>Imagen</Form.Label>
               <Form.Control
                 type="img"
@@ -175,7 +177,7 @@ const DetalleNoticia = (props) => {
                 onChange={(e) => setImagen(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="my-3">
               <Form.Label>Detalle de la noticia*</Form.Label>
               <Form.Control
                 type="text"
@@ -183,7 +185,7 @@ const DetalleNoticia = (props) => {
                 onChange={(e) => setDetalle(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="my-3">
               <Form.Label>Autor*</Form.Label>
               <Form.Control
                 type="text"
@@ -191,7 +193,7 @@ const DetalleNoticia = (props) => {
                 onChange={(e) => setAutor(e.target.value)}
               ></Form.Control>
             </Form.Group>
-            <Form.Group>
+            <Form.Group className="my-3">
               <Form.Label>Fecha de actualización de noticia*</Form.Label>
               <Form.Control
                 type="date"
