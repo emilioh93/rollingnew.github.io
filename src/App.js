@@ -65,13 +65,13 @@ function App() {
         <Route exact path="/login/admin">
           <Admin version="1.0"></Admin>
         </Route>
-        <Route exact path="/login/admin/noticias">
+        <Route exact path="/login/admin/noticias/">
           <AdminNoticias></AdminNoticias>
         </Route>
         <Route exact path="/login/admin/noticias/nueva">
           <FormNoticias></FormNoticias>
         </Route>
-        <Route exact path="/login/admin/categorias">
+        <Route exact path="/login/admin/categorias/">
           <AdminCategorias></AdminCategorias>
         </Route>
         <Route exact path="/login/admin/categorias/nueva">

@@ -69,10 +69,10 @@ const Navegacion = () => {
                 </NavLink>
               </NavDropdown.Item>
             </NavDropdown>
-            <NavLink exact={true} to="/login" className="nav-link">
+            <NavLink exact={true} to="/login" id="login" className="nav-link">
               <strong className="margenIzq">Login</strong>
             </NavLink>
-            <NavLink exact={true} to="/suscripcion" className="nav-link">
+            <NavLink exact={true} to="/suscripcion" id="suscripcion" className="nav-link">
               <strong>Suscripción</strong>
             </NavLink>
           </Nav>
