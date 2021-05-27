@@ -7,7 +7,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 const FormCategorias = () => {
   return (
     <Container className="my-5">
-      <Link exact={true} to="../" className="nav-link">
+      <Link exact={true} to="/login/admin/categorias/" className="nav-link">
         <FontAwesomeIcon icon={faArrowLeft} className="me-2"></FontAwesomeIcon>
         Volver al administrador
       </Link>
