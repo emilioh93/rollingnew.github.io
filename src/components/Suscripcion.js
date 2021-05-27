@@ -56,8 +56,8 @@ const Suscripcion = () => {
       direccion.trim() !== "" &&
       localidad.trim() !== "" &&
       localidad.trim() !== "" &&
-      codigo !== "" &&
-      telefono !== "" &&
+      codigo > 0 &&
+      telefono > 0 &&
       email.trim() !== ""
     ) {
       setValidacion(false);
