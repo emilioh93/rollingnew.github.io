@@ -15,6 +15,7 @@ import FormNoticias from "./components/FormNoticias";
 import FormCategorias from "./components/FormCategorias";
 import Suscripcion from "./components/Suscripcion";
 import Login from "./components/Login";
+import Error404 from "./components/Error404";
 
 function App() {
   return (
@@ -55,6 +56,9 @@ function App() {
         </Route>
         <Route exact path='/login'>
           <Login></Login>
+        </Route>
+        <Route exact path="#">
+          <Error404></Error404>
         </Route>
 
         {/* path del admin */}
