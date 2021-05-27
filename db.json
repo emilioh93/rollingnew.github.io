@@ -2,8 +2,8 @@
     "noticias": [{
             "autor": "Armando Paredes",
             "fecha": "26/5/2021",
-            "titulo": "Espectáculos",
-            "categoria": "La palabra de Tinelli",
+            "titulo": "La palabra de Tinelli",
+            "categoria": "Espectáculos",
             "resumen": "Luego de que trascendiera la noticia de la ola de contagios de Covid-19 en Showmatch: La Academia 2021 (El Trece), fue el mismo Marcelo Tinelli quien emitió un comunicado, también compartido por LaFlia, en la que se defiende de las nuevas críticas y asegura que no hubo negligencia.",
             "contenido": "A raíz de las informaciones que circularon en las últimas horas, desde LaFlia queremos aclarar que los casos positivos de COVID-19 que involucran a trabajadores de la productora no se dieron de forma simultánea como producto de una negligencia, sino que han ido apareciendo alternadamente en las últimas semanas, incluso desde antes de que ShowMatch saliera al aire, y en cada caso hemos aplicado los protocolos de aislamiento recomendados, explicó Marcelo Tinelli a través de su cuenta oficial de Twitter.",
             "imgGrande": "https://www.contextotucuman.com//uploads/2021/05/26/13546_1.jpg",
@@ -12,8 +12,8 @@
         {
             "autor": "Macarena Alcantara",
             "fecha": "25/5/2021",
-            "titulo": "Salud",
-            "categoria": "Tenía 33 años y era madre de dos hijos, no sufría enfermedades preexistentes, la internaron por COVID y murió inesperadamente a los 20 días",
+            "titulo": "Tenía 33 años y era madre de dos hijos, no sufría enfermedades preexistentes, la internaron por COVID y murió inesperadamente a los 20 días",
+            "categoria": "Salud",
             "resumen": "Una nueva muerte joven y sin antecedentes de enfermedades de base conmueve al país: Ailén Florencia Actis murió el 19 de mayo pasado, tras 20 días de internación por coronavirus.",
             "contenido": "Florencia tenía 33 años, era mamá de dos pequeños de 8 y 10 años, y no sufría enfermedades preexistentes. Era diseñadora gráfica, docente en el Complejo Educativo del Club Lanús y estaba estudiando Derecho en la Universidad Nacional de Lomas de Zamora.",
             "imgGrande": "https://images.clarin.com/2021/05/26/ailen-y-su-pareja-oscar___EK7DFcdRn_720x0__1.jpg",
@@ -22,8 +22,8 @@
         {
             "autor": "Basilio Ceballos",
             "fecha": "24/5/2021",
-            "titulo": "Deportes",
-            "categoria": "Copa América: grieta entre albertistas y cristinistas sobre la sede argentina",
+            "titulo": "Copa América: grieta entre albertistas y cristinistas sobre la sede argentina",
+            "categoria": "Deportes",
             "resumen": "Lionel Messi y el resto del plantel argentino están llegando en estos días al predio de Ezeiza para participar en un campeonato que, 18 días antes, todavía no tiene determinadas las sedes.",
             "contenido": "Desde que el presidente Alberto Fernández postuló por radio al país para organizar en soledad la Copa América, se sumaron voces en favor y en contra.El propio frente de gobierno no tiene bien en claro si quiere mostrarle al continente que puede albergar al torneo de selecciones más antiguo del mundo. La voluntad política de algunos sectores se choca contra la situación epidemiológica, que convenció al propio Fernández a confinar por nueve días a la mayoría de los argentinos.",
             "imgGrande": "https://www.contextotucuman.com//uploads/2021/05/26/73297_AA_AA_aa_copa.jpg",

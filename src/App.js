@@ -21,7 +21,7 @@ import {useState, useEffect} from 'react';
 
 function App() {
   const URL = process.env.REACT_APP_API_URL;
-  const [noticia, setNoticia] = useState([]);
+  const [noticias, setNoticias] = useState([]);
 
   const consultarAPI = async()=>{
     try {
@@ -30,7 +30,7 @@ function App() {
       if (respuesta.status === 200) {
         // Guardar datos en el state
         const datos = await respuesta.json();
-        setNoticia(datos);
+        setNoticias(datos);
       } else {
         
       }
@@ -90,7 +90,7 @@ function App() {
           <Admin version="1.0"></Admin>
         </Route>
         <Route exact path="/login/admin/noticias/">
-          <AdminNoticias></AdminNoticias>
+          <AdminNoticias noticias={noticias}></AdminNoticias>
         </Route>
         <Route exact path="/login/admin/noticias/nueva">
           <FormNoticias consultarAPI={consultarAPI}></FormNoticias>
