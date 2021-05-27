@@ -16,8 +16,33 @@ import FormCategorias from "./components/FormCategorias";
 import Suscripcion from "./components/Suscripcion";
 import Login from "./components/Login";
 import Error404 from "./components/Error404";
+import DetalleNoticia from "./components/DetalleNoticia";
+import {useState, useEffect} from 'react';
+
 
 function App() {
+  const URL = process.env.REACT_APP_API_URL;
+  const [noticia, setNoticia] = useState([]);
+
+  const consultarAPI = async()=>{
+    try {
+      const respuesta = await fetch(URL);
+      console.log(respuesta);
+      if (respuesta.status === 200) {
+        // Guardar datos en el state
+        const datos = await respuesta.json();
+        setNoticia(datos);
+      } else {
+        
+      }
+
+    } catch (error) {
+    console.log(error);
+      
+    }
+  }
+
+
   return (
     <Router>
       <Navegacion></Navegacion>
@@ -54,6 +79,9 @@ function App() {
         <Route exact path="/fotografia">
           <PaginaCategoria tituloCategoria="Fotografía"></PaginaCategoria>
         </Route>
+        <Route exact path="/noticias">
+          <DetalleNoticia></DetalleNoticia>
+        </Route>
         <Route exact path='/login'>
           <Login></Login>
         </Route>
@@ -65,13 +93,13 @@ function App() {
         <Route exact path="/login/admin">
           <Admin version="1.0"></Admin>
         </Route>
-        <Route exact path="/login/admin/noticias">
+        <Route exact path="/login/admin/noticias/">
           <AdminNoticias></AdminNoticias>
         </Route>
         <Route exact path="/login/admin/noticias/nueva">
-          <FormNoticias></FormNoticias>
+          <FormNoticias consultarAPI={consultarAPI}></FormNoticias>
         </Route>
-        <Route exact path="/login/admin/categorias">
+        <Route exact path="/login/admin/categorias/">
           <AdminCategorias></AdminCategorias>
         </Route>
         <Route exact path="/login/admin/categorias/nueva">
