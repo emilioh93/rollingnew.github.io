@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import "./Suscripcion.css";
+import Swal from "sweetalert2";
+import emailjs from "emailjs-com";
+import { init } from "emailjs-com";
 
 const Suscripcion = () => {
   const [nombre, setNombre] = useState("");
@@ -12,31 +15,65 @@ const Suscripcion = () => {
   const [email, setEmail] = useState("");
   const [terminos, setTerminos] = useState();
   const [validacion, setValidacion] = useState(false);
+
+  //email js
+  const enviarEmail = () => {
+    emailjs.init("user_fbZqDWU5ahJrkgKSQZGX0");
+
+    emailjs
+      .send("service_g5f91i6", "template_cnqp0a8", {
+        from_name: `${nombre} ${apellido}`,
+        to_name: `Administrador`,
+        message: `Nombre: ${nombre}, ${apellido}
+      Direccion: ${direccion}
+      Localidad: ${localidad}
+      Codigo Postal ${codigo}
+      Telefono: ${telefono}
+      Email ${email}`,
+      })
+      .then(
+        (response) => {
+          console.log(response);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
+  };
+
   //validacion del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
+    setValidacion(true);
     console.log("desde submit");
+    console.log(nombre.length);
+    console.log(validacion);
 
     if (
-      // nombre.trim() !== "" &&
-      // apellido.trim() !== "" &&
-      // direccion.trim() !== "" &&
-      // direccion.trim() !== "" &&
-      // localidad.trim() !== "" &&
-      // localidad.trim() !== "" &&
-      // codigo !== "" &&
-      // telefono !== "" &&
-      // email.trim() !== "" &&
-      //agregar de checkbox
-
-      setValidacion(true)
+      nombre.trim() !== "" &&
+      apellido.trim() !== "" &&
+      direccion.trim() !== "" &&
+      direccion.trim() !== "" &&
+      localidad.trim() !== "" &&
+      localidad.trim() !== "" &&
+      codigo !== "" &&
+      telefono !== "" &&
+      email.trim() !== ""
     ) {
-      alert("los datos estan correctos");
+      setValidacion(false);
+      Swal.fire(
+        "Perfecto, los datos fueron validados",
+        "En breve recibira un mail con la informacion",
+        "success"
+      );
 
-      //mandar los datos al back
+      enviarEmail();
     } else {
-      alert("llenar los campos requeridos");
-      //poner otro pensaje de error
+      Swal.fire({
+        icon: "error",
+        title: "Los datos no fueron validados",
+        text: "Llenar los campos indicados",
+      });
     }
   };
 
