@@ -16,7 +16,7 @@ const AdminNoticias = () => {
       <h2 className="text-center">Administrador de Categorías</h2>
       <div className="d-flex justify-content-end">
       <Link
-          className="my-4 btn btn-success"
+          className="my-4 btn btn-primary"
           exact={true}
           to="/login/admin/categorias/nueva/"
         >
