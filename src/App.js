@@ -18,6 +18,7 @@ import Login from "./components/Login";
 import Error404 from "./components/Error404";
 import DetalleNoticia from "./components/DetalleNoticia";
 import {useState, useEffect} from 'react';
+import Registro from "./components/Registro";
 
 
 function App() {
@@ -84,6 +85,9 @@ function App() {
         </Route>
         <Route exact path='/login'>
           <Login></Login>
+        </Route>
+        <Route exact path='/registro'>
+          <Registro></Registro>
         </Route>
         <Route exact path="#">
           <Error404></Error404>

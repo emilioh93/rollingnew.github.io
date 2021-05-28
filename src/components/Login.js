@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import { Container, Form, Button } from "react-bootstrap";
-import { useParams, withRouter } from "react-router-dom";
+import { Link, useParams, withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Login = (props) => {
@@ -73,13 +73,16 @@ const Login = (props) => {
         <Form.Group className="my-3">
           <Form.Label>Contraseña</Form.Label>
           <Form.Control
-            type="text"
+            type="password"
             onChange={(e) => setPassword(parseFloat(e.target.value))}
           ></Form.Control>
         </Form.Group>
-        <Button className="my-3" type="submit">
-          Ingresar
-        </Button>
+        <Form.Group className="">
+          <Button className="" type="submit">
+            Ingresar
+          </Button>
+          <Link to="/registro" className='ms-3'>Registrate gratis</Link>
+        </Form.Group>
       </Form>
     </Container>
   );
