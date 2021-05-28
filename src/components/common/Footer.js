@@ -1,6 +1,8 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faInstagram, faTwitter, faFacebook} from "@fortawesome/free-brands-svg-icons";
+import Error404 from "../Error404";
+import {Link} from "react-router-dom";
 
 const Footer = () => {
   return (
@@ -10,17 +12,9 @@ const Footer = () => {
           <div className="col">
             <h4 className="mb-4">Contáctanos</h4>
             <ul className="list-unstyled">
-              <li>
-                <FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon>{" "}
-                RollingNews
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon> RollingNews
-              </li>
-              <li>
-                <FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon>{" "}
-                RollingNews
-              </li>
+              <li><Link to={Error404}><FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon></Link>{" "}RollingNews</li>
+              <li><Link to={Error404}><FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon></Link>{" "}RollingNews</li>
+              <li><Link to={Error404}><FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon></Link>{" "}RollingNews</li>
             </ul>
           </div>
           <div className="col">
@@ -33,15 +27,9 @@ const Footer = () => {
           <div className="col">
             <h4 className="mb-4">Otras páginas de interés</h4>
             <ul className="list-unstyled">
-              <a>
-                <li>https://www.infobae.com</li>
-              </a>
-              <a>
-                <li>https://www.lagaceta.com.ar</li>
-              </a>
-              <a>
-                <li>https://www.bbc.com/mundo</li>
-              </a>
+              <Link><li>https://www.infobae.com</li></Link>
+              <Link><li>https://www.lagaceta.com.ar</li></Link>
+              <Link><li>https://www.bbc.com/mundo</li></Link>
             </ul>
           </div>
         </div>
