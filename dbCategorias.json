@@ -1,0 +1,15 @@
+{
+    "categorias": [{
+            "titulo": "Actualidad"
+        },
+        {
+            "titulo": "Espectáculo"
+        },
+        {
+            "titulo": "Deportes"
+        },
+        {
+            "titulo": "Política"
+        }
+    ]
+}

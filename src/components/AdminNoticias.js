@@ -1,11 +1,7 @@
 import React from "react";
-import { Container, ListGroup, Button } from "react-bootstrap";
+import { Container, ListGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faPencilAlt,
-  faTrash,
-  faArrowLeft,
-} from "@fortawesome/free-solid-svg-icons";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import ItemNoticia from "./ItemNoticia";
 
