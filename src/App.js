@@ -17,14 +17,14 @@ import Suscripcion from "./components/Suscripcion";
 import Login from "./components/Login";
 import Error404 from "./components/Error404";
 import DetalleNoticia from "./components/DetalleNoticia";
-import {useState, useEffect} from 'react';
-
+import { useState, useEffect } from "react";
+import EditarNoticias from "./components/EditarNoticias";
 
 function App() {
   const URL = process.env.REACT_APP_API_URL;
   const [noticias, setNoticias] = useState([]);
 
-  const consultarAPI = async()=>{
+  const consultarAPI = async () => {
     try {
       const respuesta = await fetch(URL);
       console.log(respuesta);
@@ -33,15 +33,15 @@ function App() {
         const datos = await respuesta.json();
         setNoticias(datos);
       } else {
-        
       }
-
     } catch (error) {
-    console.log(error);
-      
+      console.log(error);
     }
-  }
+  };
 
+  useEffect(()=>{
+    consultarAPI();
+  },[]);
 
   return (
     <Router>
@@ -82,7 +82,7 @@ function App() {
         <Route exact path="/noticias/:id">
           <DetalleNoticia noticias={noticias} consultarAPI={consultarAPI}></DetalleNoticia>
         </Route>
-        <Route exact path='/login'>
+        <Route exact path="/login">
           <Login></Login>
         </Route>
         <Route exact path="#">
@@ -93,8 +93,11 @@ function App() {
         <Route exact path="/login/admin">
           <Admin version="1.0"></Admin>
         </Route>
-        <Route exact path="/login/admin/noticias/">
-          <AdminNoticias noticias={noticias} consultarAPI={consultarAPI}></AdminNoticias>
+        <Route exact path="/login/admin/noticias">
+          <AdminNoticias
+            consultarAPI={consultarAPI}
+            noticias={noticias}
+          ></AdminNoticias>
         </Route>
         <Route exact path="/login/admin/noticias/nueva">
           <FormNoticias consultarAPI={consultarAPI}></FormNoticias>
@@ -104,9 +107,12 @@ function App() {
         </Route>
         <Route exact path="/login/admin/categorias/nueva">
           <FormCategorias consultarAPI={consultarAPI}></FormCategorias>
-         </Route> 
+        </Route>
+        <Route exact path="/login/admin/noticias/editar/:id">
+          <EditarNoticias consultarAPI={consultarAPI}></EditarNoticias>
+        </Route>
         {/* fin del path */}
-         
+
         <Route exact path="/suscripcion">
           <Suscripcion></Suscripcion>
         </Route>
