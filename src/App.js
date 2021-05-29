@@ -79,8 +79,8 @@ function App() {
         <Route exact path="/fotografia">
           <PaginaCategoria tituloCategoria="Fotografía"></PaginaCategoria>
         </Route>
-        <Route exact path="/noticias">
-          <DetalleNoticia></DetalleNoticia>
+        <Route exact path="/noticias/:id">
+          <DetalleNoticia noticias={noticias} consultarAPI={consultarAPI}></DetalleNoticia>
         </Route>
         <Route exact path='/login'>
           <Login></Login>
