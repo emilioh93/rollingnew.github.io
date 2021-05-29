@@ -1,15 +1,14 @@
 {
   "noticias": [
     {
-      "id": 1,
-      "autor": "Armando Paredes",
-      "fecha": "26/5/2021",
+      "autor": "JJ",
+      "fecha": "0222-02-22",
       "titulo": "La palabra de Tinelli",
-      "categoria": "Espectáculos",
+      "categoria": "Seleccione la categoría",
       "resumen": "Luego de que trascendiera la noticia de la ola de contagios de Covid-19 en Showmatch: La Academia 2021 (El Trece), fue el mismo Marcelo Tinelli quien emitió un comunicado, también compartido por LaFlia, en la que se defiende de las nuevas críticas y asegura que no hubo negligencia.",
-      "contenido": "A raíz de las informaciones que circularon en las últimas horas, desde LaFlia queremos aclarar que los casos positivos de COVID-19 que involucran a trabajadores de la productora no se dieron de forma simultánea como producto de una negligencia, sino que han ido apareciendo alternadamente en las últimas semanas, incluso desde antes de que ShowMatch saliera al aire, y en cada caso hemos aplicado los protocolos de aislamiento recomendados, explicó Marcelo Tinelli a través de su cuenta oficial de Twitter.",
       "imgGrande": "https://www.contextotucuman.com//uploads/2021/05/26/13546_1.jpg",
-      "imgChica": "https://www.contextotucuman.com//uploads/2021/05/26/13546_1.jpg"
+      "imgChica": "https://www.contextotucuman.com//uploads/2021/05/26/13546_1.jpg",
+      "id": 1
     },
     {
       "id": 2,
@@ -32,17 +31,6 @@
       "contenido": "Desde que el presidente Alberto Fernández postuló por radio al país para organizar en soledad la Copa América, se sumaron voces en favor y en contra.El propio frente de gobierno no tiene bien en claro si quiere mostrarle al continente que puede albergar al torneo de selecciones más antiguo del mundo. La voluntad política de algunos sectores se choca contra la situación epidemiológica, que convenció al propio Fernández a confinar por nueve días a la mayoría de los argentinos.",
       "imgGrande": "https://www.contextotucuman.com//uploads/2021/05/26/73297_AA_AA_aa_copa.jpg",
       "imgChica": "https://www.contextotucuman.com//uploads/2021/05/26/73297_AA_AA_aa_copa.jpg"
-    },
-    {
-      "autor": "test",
-      "fecha": "4222-02-24",
-      "titulo": "test",
-      "categoria": "Actualidad",
-      "resumen": "test",
-      "contenido": "test",
-      "imgGrande": "http://localhost:3000/login/admin/noticias/nueva",
-      "imgChica": "http://localhost:3000/login/admin/noticias/nueva",
-      "id": 4
     },
     {
       "autor": "prueba",
@@ -87,6 +75,39 @@
       "imgGrande": "http://localhost:3000/login/admin/noticias/nueva",
       "imgChica": "http://localhost:3000/login/admin/noticias/nueva",
       "id": 8
+    },
+    {
+      "autor": "test",
+      "fecha": "2222-02-22",
+      "titulo": "test",
+      "categoria": "Actualidad",
+      "resumen": "test",
+      "contenido": "test",
+      "imgGrande": "http://localhost:3000/login/admin/noticias/nueva",
+      "imgChica": "http://localhost:3000/login/admin/noticias/nueva",
+      "id": 9
+    },
+    {
+      "autor": "jj",
+      "fecha": "0002-02-22",
+      "titulo": "jj",
+      "categoria": "Actualidad",
+      "resumen": "jj",
+      "contenido": "jj",
+      "imgGrande": "http://localhost:3000/login/admin/noticias/nueva",
+      "imgChica": "http://localhost:3000/login/admin/noticias/nueva",
+      "id": 11
+    },
+    {
+      "autor": "pp",
+      "fecha": "0002-02-22",
+      "titulo": "pp",
+      "categoria": "Actualidad",
+      "resumen": "p",
+      "contenido": "p",
+      "imgGrande": "http://localhost:3000/login/admin/noticias/nueva",
+      "imgChica": "http://localhost:3000/login/admin/noticias/nueva",
+      "id": 12
     }
   ]
 }
