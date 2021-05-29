@@ -94,7 +94,7 @@ function App() {
           <Admin version="1.0"></Admin>
         </Route>
         <Route exact path="/login/admin/noticias/">
-          <AdminNoticias noticias={noticias}></AdminNoticias>
+          <AdminNoticias noticias={noticias} consultarAPI={consultarAPI}></AdminNoticias>
         </Route>
         <Route exact path="/login/admin/noticias/nueva">
           <FormNoticias consultarAPI={consultarAPI}></FormNoticias>
@@ -103,7 +103,7 @@ function App() {
           <AdminCategorias></AdminCategorias>
         </Route>
         <Route exact path="/login/admin/categorias/nueva">
-          <FormCategorias></FormCategorias>
+          <FormCategorias consultarAPI={consultarAPI}></FormCategorias>
          </Route> 
         {/* fin del path */}
          

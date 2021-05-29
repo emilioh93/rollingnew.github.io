@@ -55,13 +55,14 @@ const FormNoticias = (props) => {
         imgGrande,
         imgChica,
       };
+      console.log("🚀 ~ file: FormNoticias.js ~ line 49 ~ handleSubmit ~ noticia", noticia)
       // Envío request POST
       try {
         // Estructura de datos a enviar
         const cabecera = {
           method: "POST",
           headers: {
-            "Content-Type": "application/json",
+            'Content-Type': 'application/json',
           },
           body: JSON.stringify(noticia),
         };
@@ -135,7 +136,7 @@ const FormNoticias = (props) => {
               <Form.Label>Título</Form.Label>
               <Form.Control
                 type="text"
-                placeholder="La palabra de Marcelo Tinelli luego de que se confirmaran contagios de coronavirus en ShowMatch"
+                placeholder="La palabra de Marcelo Tinelli luego de que..."
                 onChange={(e) => setTitulo(e.target.value)}
               ></Form.Control>
             </Form.Group>
@@ -167,7 +168,7 @@ const FormNoticias = (props) => {
           <Form.Control
             as="textarea"
             rows={3}
-            placeholder="Luego de que trascendiera la noticia de la ola de contagios de Covid-19 en Showmatch: La Academia 2021 (El Trece), fue el mismo Marcelo Tinelli quien emitió un comunicado, también compartido por LaFlia, en la que se defiende de las nuevas críticas y asegura que no hubo negligencia."
+            placeholder="Luego de que trascendiera la noticia de la ola de contagios de Covid-19 en Showmatch: La Academia 2021 (El Trece), fue el mismo Marcelo Tinelli quien emitió..."
             onChange={(e) => setResumen(e.target.value)}
           />
         </Form.Group>
@@ -176,8 +177,7 @@ const FormNoticias = (props) => {
           <Form.Control
             as="textarea"
             rows={10}
-            placeholder="A raíz de las informaciones que circularon en las últimas horas, desde LaFlia queremos aclarar que los casos positivos de COVID-19 que involucran a trabajadores de la productora no se dieron de forma simultánea como producto de una negligencia, sino que han ido apareciendo alternadamente en las últimas semanas, incluso desde antes de que ShowMatch saliera al aire, y en cada caso hemos aplicado los protocolos de aislamiento recomendados, explicó Marcelo Tinelli a través de su cuenta oficial de Twitter.
-            En los post siguientes, admitió: No estamos ajenos a la ola de contagios que atraviesa el país ni exentos de los riesgos de contraer el virus fuera del ámbito laboral, más allá de todas las medidas preventivas que venimos tomando y de los más de cien hisopados por día realizados entre trabajadores de producción, técnica y artística, manifestó, e indicó que,Seguiremos cuidándonos y tratando de alegrar  noche de los argentinos en este difícil momento que nos toca pasar, concluye el te Marcelo Tinelli."
+            placeholder="A raíz de las informaciones que circularon en las últimas horas, desde LaFlia queremos aclarar que los casos positivos de COVID-19 que involucran a trabajadores de la productora no se dieron de forma simultánea como producto de una negligencia, sino que han ido apareciendo alternadamente en las últimas semanas..."
             onChange={(e) => setContenido(e.target.value)}
           />
         </Form.Group>
