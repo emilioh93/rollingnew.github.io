@@ -1,11 +1,15 @@
 import React from "react";
 import { Container, ListGroup, Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencilAlt, faTrash, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import {
+  faPencilAlt,
+  faTrash,
+  faArrowLeft,
+} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
+import ItemNoticia from "./ItemNoticia";
 
-
-const AdminNoticias = () => {
+const AdminNoticias = (props) => {
   return (
     <Container className="my-5">
       <Link exact={true} to="/login/admin" className="nav-link">
@@ -19,42 +23,13 @@ const AdminNoticias = () => {
         </Link>
       </div>
       <ListGroup>
-        <ListGroup.Item className="d-flex justify-content-between">
-          <p>
-            Los contagios se disparan 40% y ponen al borde del colapso el
-            sistema
-          </p>
-          <div>
-            <Link className="mx-2 btn btn-warning text-light">
-              <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
-            </Link>
-            <Button variant="danger">
-              <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
-            </Button>
-          </div>
-        </ListGroup.Item>
-        <ListGroup.Item className="d-flex justify-content-between">
-          <p>Así celebró Luis Suárez tras ser campeón</p>
-          <div>
-            <Link className="mx-2 btn btn-warning text-light">
-              <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
-            </Link>
-            <Button variant="danger">
-              <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
-            </Button>
-          </div>
-        </ListGroup.Item>
-        <ListGroup.Item className="d-flex justify-content-between">
-          <p>Advierten por fuertes vientos y lluvias en Tucumán</p>
-          <div>
-            <Link className="mx-2 btn btn-warning text-light">
-              <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
-            </Link>
-            <Button variant="danger">
-              <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
-            </Button>
-          </div>
-        </ListGroup.Item>
+        {props.noticias.map((noticia) => (
+          <ItemNoticia
+            noticia={noticia}
+            key={noticia.id}
+            consultarAPI={props.consultarAPI}
+          ></ItemNoticia>
+        ))}
       </ListGroup>
     </Container>
   );

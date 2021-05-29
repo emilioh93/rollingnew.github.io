@@ -15,13 +15,14 @@ import FormNoticias from "./components/FormNoticias";
 import FormCategorias from "./components/FormCategorias";
 import Suscripcion from "./components/Suscripcion";
 import Login from "./components/Login";
+import Error404 from "./components/Error404";
 import DetalleNoticia from "./components/DetalleNoticia";
 import {useState, useEffect} from 'react';
 
 
 function App() {
   const URL = process.env.REACT_APP_API_URL;
-  const [noticia, setNoticia] = useState([]);
+  const [noticias, setNoticias] = useState([]);
 
   const consultarAPI = async()=>{
     try {
@@ -30,7 +31,7 @@ function App() {
       if (respuesta.status === 200) {
         // Guardar datos en el state
         const datos = await respuesta.json();
-        setNoticia(datos);
+        setNoticias(datos);
       } else {
         
       }
@@ -84,13 +85,16 @@ function App() {
         <Route exact path='/login'>
           <Login></Login>
         </Route>
+        <Route exact path="#">
+          <Error404></Error404>
+        </Route>
 
         {/* path del admin */}
         <Route exact path="/login/admin">
           <Admin version="1.0"></Admin>
         </Route>
         <Route exact path="/login/admin/noticias/">
-          <AdminNoticias></AdminNoticias>
+          <AdminNoticias noticias={noticias}></AdminNoticias>
         </Route>
         <Route exact path="/login/admin/noticias/nueva">
           <FormNoticias consultarAPI={consultarAPI}></FormNoticias>
