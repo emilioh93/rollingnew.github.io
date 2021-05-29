@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faInstagram, faTwitter, faFacebook} from "@fortawesome/free-brands-svg-icons";
 import Error404 from "../Error404";
 import {Link} from "react-router-dom";
+import googleplay from './badge-apple-store.svg';
+import applestore from './google-play-badge-bb.svg'
 
 const Footer = () => {
   return (
@@ -18,10 +20,10 @@ const Footer = () => {
             </ul>
           </div>
           <div className="col">
-            <h4>Descarga nuestra App</h4>
+            <h4 className="mb-4">Instala nuestra app</h4>
             <ul className="list-unstyled">
-              <li></li>
-              <li></li>
+              <li><Link><img className="w-50 mb-3" src={googleplay} alt="Google Play"/></Link></li>
+              <li><Link><img className="w-50" src={applestore} alt="Apple Store"/></Link></li>
             </ul>
           </div>
           <div className="col">

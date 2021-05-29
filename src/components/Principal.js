@@ -8,6 +8,9 @@ import noticiaTres from '../img/ciberdelito.jpeg';
 const Principal = () => {
   return (
     <Container className="my-5">
+      <section className="text-center">
+
+      </section>
       {/* <Card className="bg-dark text-white sombra">
         <Card.Img className="w-100 fondo" />
         <Card.ImgOverlay class="infoPrincipal">
