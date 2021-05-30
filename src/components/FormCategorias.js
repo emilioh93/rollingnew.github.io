@@ -7,14 +7,11 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 
 const FormCategorias = (props) => {
-  const [titulo, setTitulo] = useState("");
+  const [tituloCategoria, setTituloCategoria] = useState("");
   const [error, setError] = useState(false);
   // Traer variable de entorno
-  const URL = process.env.REACT_APP_API_URL;
-  console.log(
-    "🚀 ~ file: FormCategorias.js ~ line 12 ~ FormCategorias ~ URL",
-    URL
-  );
+  const URL = process.env.REACT_APP_API_URL_Categorias;
+  console.log(URL);
 
   // const leerCategoria = (e) => {
   //   setCategoria(e.target.value);
@@ -23,7 +20,7 @@ const FormCategorias = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Validaciones
-    if (titulo.trim() !== "") {
+    if (tituloCategoria.trim() !== "") {
       // Si está todo ok, envío los datos del producto a la API
       setError(false);
 
@@ -34,8 +31,9 @@ const FormCategorias = (props) => {
       //     categoria: categoria
       // }
       const categoria = {
-        titulo,
+        tituloCategoria,
       };
+      console.log(categoria);
       // Envío request POST
       try {
         // Estructura de datos a enviar
@@ -86,7 +84,8 @@ const FormCategorias = (props) => {
         <h3 className="my-5 text-center">Agregar Categoría</h3>
         <Form.Group>
           <Form.Label>Título</Form.Label>
-          <Form.Control type="text"></Form.Control>
+          <Form.Control type="text"
+          onChange={(e) => setTituloCategoria(e.target.value)}></Form.Control>
         </Form.Group>
         <Button
           type="submit"

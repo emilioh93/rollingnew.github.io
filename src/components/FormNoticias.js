@@ -144,6 +144,7 @@ const FormNoticias = (props) => {
           <div className="col-md-3 col-sm-12">
             <Form.Group controlId="exampleForm.ControlSelect1">
               <Form.Label>Categoría</Form.Label>
+              {/* TODO: traer categorías de BD */}
               <Form.Control
                 as="select"
                 onChange={(e) => setCategoria(e.target.value)}

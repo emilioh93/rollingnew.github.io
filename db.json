@@ -97,17 +97,6 @@
       "imgGrande": "http://localhost:3000/login/admin/noticias/nueva",
       "imgChica": "http://localhost:3000/login/admin/noticias/nueva",
       "id": 11
-    },
-    {
-      "autor": "pp",
-      "fecha": "0002-02-22",
-      "titulo": "pp",
-      "categoria": "Actualidad",
-      "resumen": "p",
-      "contenido": "p",
-      "imgGrande": "http://localhost:3000/login/admin/noticias/nueva",
-      "imgChica": "http://localhost:3000/login/admin/noticias/nueva",
-      "id": 12
     }
   ]
 }

@@ -1,15 +1,34 @@
 {
     "categorias": [{
-            "titulo": "Actualidad"
+            "tituloCategoria": "Actualidad",
+            "id": 1
         },
         {
-            "titulo": "Espectáculo"
+            "tituloCategoria": "Espectáculos",
+            "id": 2
         },
         {
-            "titulo": "Deportes"
+            "tituloCategoria": "Tecnología",
+            "id": 3
         },
         {
-            "titulo": "Política"
+            "tituloCategoria": "Deportes",
+            "id": 4
+        },
+        {
+            "tituloCategoria": "Política",
+            "id": 5
+        },
+        {
+            "tituloCategoria": "Economía",
+            "id": 6
+        },
+        {
+            "tituloCategoria": "Salud",
+            "id": 7
+        }, {
+            "tituloCategoria": "Fotografía",
+            "id": 8
         }
     ]
 }
