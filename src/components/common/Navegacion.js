@@ -8,7 +8,9 @@ const Navegacion = () => {
     <Navbar bg="dark" expand="lg" variant="dark">
       <Container>
         <Navbar.Brand id="logoLg" href="#home">
+          <NavLink exact={true} to="/">
           <img src={logo} alt="RollingNews" className="logoLgImg" />
+          </NavLink>
         </Navbar.Brand>
         {/* Logo para mobile */}
         <img id="logoSm" src={logo} alt="logo Rolling News" />
