@@ -16,7 +16,7 @@ const ItemCategoria = (props) => {
         <div>
           <Link
             className="mr-2 btn btn-info text-light"
-            to={`/login/admin/categorias/editar/${props.categoria.id}`}
+            to={`/login/admin/categorias/editar/${props.categoria._id}`}
           >
             <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>
           </Link>

@@ -19,7 +19,7 @@ const EditarNoticia = (props) => {
 
   const consultarProducto = async () => {
     try {
-      const respuesta = await fetch(URL + "/" + id);
+      const respuesta = await fetch(URL + "/" + _id);
       console.log(
         "🚀 ~ file: EditarProducto.js ~ line 16 ~ consultarProducto ~ respuesta",
         respuesta
@@ -63,7 +63,7 @@ const EditarNoticia = (props) => {
           categoria: _categoria,
         };
         // Realizar request
-        const respuesta = await fetch(`${URL}/${producto.id}`, {
+        const respuesta = await fetch(`${URL}/${producto._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(productoModificado)

@@ -22,7 +22,7 @@ const AdminNoticias = (props) => {
         {props.noticias.map((noticia) => (
           <ItemNoticia
             noticia={noticia}
-            key={noticia.id}
+            key={noticia._id}
             consultarAPI={props.consultarAPI}
           ></ItemNoticia>
         ))}

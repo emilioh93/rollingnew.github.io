@@ -67,13 +67,13 @@ const ItemNoticia = (props) => {
         <div>
           <Link
             className="mr-2 btn btn-warning text-light"
-            to={`/login/admin/noticias/editar/${props.noticia.id}`}
+            to={`/login/admin/noticias/editar/${props.noticia._id}`}
           >
             <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
           </Link>
           <Button
             variant="danger"
-            onClick={() => eliminarNoticia(props.noticia.id)}
+            onClick={() => eliminarNoticia(props.noticia._id)}
           >
             <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
           </Button>

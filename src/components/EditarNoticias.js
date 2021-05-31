@@ -68,7 +68,7 @@ const EditarNoticias = (props) => {
           imgChica: imgChicaRef.current.value,
         };
         // Realizar request
-        const respuesta = await fetch(`${URL}/${noticia.id}`, {
+        const respuesta = await fetch(`${URL}/${noticia._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(noticiaModificada),

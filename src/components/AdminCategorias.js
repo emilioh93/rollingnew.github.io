@@ -28,7 +28,7 @@ const AdminCategorias = (props) => {
         {props.categorias.map((categoria) => (
           <ItemCategoria
             categoria={categoria}
-            key={categoria.id}
+            key={categoria._id}
             consultarAPICat={props.consultarAPICat}
           ></ItemCategoria>
         ))}
