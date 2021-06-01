@@ -62,7 +62,7 @@ const Login = (props) => {
   return (
     <Container className="d-flex justify-content-center">
       <Form className="my-3" onSubmit={handleSubmit}>
-        <h1>Iniciar Sesion</h1>
+        <h1>Iniciar Sesión</h1>
         <Form.Group className="my-3">
           <Form.Label>Nombre de Usuario</Form.Label>
           <Form.Control

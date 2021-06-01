@@ -1,15 +1,15 @@
-import { Button, ListGroup } from "react-bootstrap";
 import React from "react";
+import { Container, ListGroup, Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
-import {Link} from "react-router-dom";
 
 const ItemNoticia = (props) => {
   const eliminarNoticia = (codigo) => {
     Swal.fire({
       title: "¿Estás seguro de eliminar esta noticia?",
-      text: "No puedes recuperar una noticia eliminada",
+      text: "No puedes recuperar una noticia que fue eliminada",
       icon: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
@@ -29,14 +29,14 @@ const ItemNoticia = (props) => {
           });
 
           console.log(respuesta);
-          if(respuesta.status === 200){
+          if (respuesta.status === 200) {
             Swal.fire(
               "¡Noticia eliminada!",
-              "La noticia fue eliminada correctamente.",
+              "La noticia seleccionada fue correctamente eliminada.",
               "success"
             );
             //  Volver a consultar la API
-            props.consultarAPI();  
+            props.consultarAPI();
           }
         } catch (error) {
           console.log(error);
@@ -48,7 +48,7 @@ const ItemNoticia = (props) => {
         }
         Swal.fire(
           "¡Noticia eliminada!",
-          "La noticia fue eliminada correctamente.",
+          "La noticia seleccionada fue correctamente eliminada.",
           "success"
         );
       }
@@ -59,18 +59,21 @@ const ItemNoticia = (props) => {
     <div>
       <ListGroup.Item className="d-flex justify-content-between">
         <p>
-          {props.noticia.titulo}{" "}
           <span className="font-weight-bold">
-            ${props.noticia.categoria}
+            Categoría: {props.noticia.categoria} -
           </span>
+          {props.noticia.titulo}{" "}
         </p>
         <div>
-          <Link className="mr-2 btn btn-warning text-light" to={`/noticias/editar/${props.noticia.id}`}>
+          <Link
+            className="mr-2 btn btn-warning text-light"
+            to={`/login/admin/noticias/editar/${props.noticia._id}`}
+          >
             <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
           </Link>
           <Button
             variant="danger"
-            onClick={() => eliminarNoticia(props.noticia.id)}
+            onClick={() => eliminarNoticia(props.noticia._id)}
           >
             <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
           </Button>

@@ -1,97 +1,96 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
+import { campoRequerido, rangoValor } from "./common/helpers";
 
-const FormNoticias = (props) => {
-  const [autor, setAutor] = useState("");
-  const [fecha, setFecha] = useState("");
-  const [titulo, setTitulo] = useState("");
-  const [categoria, setCategoria] = useState("");
-  const [resumen, setResumen] = useState("");
-  const [contenido, setContenido] = useState("");
-  const [imgGrande, setImgGrande] = useState("");
-  const [imgChica, setImgChica] = useState("");
+const EditarNoticias = (props) => {
+  const [noticia, setNoticia] = useState({});
+  const { id } = useParams();
+  const autorRef = useRef("");
+  const fechaRef = useRef("");
+  const tituloRef = useRef("");
+  const categoriaRef = useRef("");
+  const resumenRef = useRef("");
+  const contenidoRef = useRef("");
+  const imgGrandeRef = useRef("");
+  const imgChicaRef = useRef("");
   const [error, setError] = useState(false);
   // Traer variable de entorno
   const URL = process.env.REACT_APP_API_URL;
-  console.log("🚀 ~ file: FormNoticias.js ~ line 20 ~ FormNoticias ~ URL", URL)
+  console.log("🚀 ~ file: FormNoticias.js ~ line 20 ~ FormNoticias ~ URL", URL);
 
-  // const leerCategoria = (e) => {
-  //   setCategoria(e.target.value);
-  // };
+  useEffect(() => {
+    consultarNoticia();
+  }, []);
+
+  const consultarNoticia = async () => {
+    try {
+      const respuesta = await fetch(URL + "/" + id);
+      console.log(respuesta);
+      if (respuesta.status === 200) {
+        const noticiaEncontrada = await respuesta.json();
+        setNoticia(noticiaEncontrada);
+      }
+    } catch (error) {
+      console.log(error);
+      // Mostrar cartel al usuario
+    }
+  };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    // Validaciones
+    e.preventDefault(); // Validar datos
     if (
-      autor.trim() !== "" &&
-      fecha.trim() !== "" &&
-      titulo.trim() !== "" &&
-      // categoria.trim() !== "" &&
-      resumen.trim() !== "" &&
-      contenido.trim() !== "" &&
-      imgGrande.trim() !== "" &&
-      imgChica.trim() !== ""
+      campoRequerido(autorRef.current.value) &&
+      campoRequerido(fechaRef.current.value) &&
+      campoRequerido(tituloRef.current.value) &&
+      campoRequerido(categoriaRef.current.value) &&
+      campoRequerido(resumenRef.current.value) &&
+      campoRequerido(contenidoRef.current.value) &&
+      campoRequerido(imgGrandeRef.current.value) &&
+      campoRequerido(imgChicaRef.current.value)
+      // rangoValor(parseInt(precioProductoRef.current.value)) &&
+      // campoRequerido(_categoria)
     ) {
-      // Si está todo ok, envío los datos del producto a la API
+      // Ocultar cartel de error
       setError(false);
-
-      // Crear objeto
-      // const producto = {
-      //     nombreProducto: nombreProducto,
-      //     precioProducto: precioProducto,
-      //     categoria: categoria
-      // }
-      const noticia = {
-        autor,
-        fecha,
-        titulo,
-        categoria,
-        resumen,
-        contenido,
-        imgGrande,
-        imgChica,
-      };
-      console.log("🚀 ~ file: FormNoticias.js ~ line 49 ~ handleSubmit ~ noticia", noticia)
-      // Envío request POST
+      // Si está bien, envío request a API
       try {
-        // Estructura de datos a enviar
-        const cabecera = {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(noticia),
+        const noticiaModificada = {
+          autor: autorRef.current.value,
+          fecha: fechaRef.current.value,
+          titulo: tituloRef.current.value,
+          categoria: categoriaRef.current.value,
+          resumen: resumenRef.current.value,
+          imgGrande: imgGrandeRef.current.value,
+          imgChica: imgChicaRef.current.value,
         };
-
-        const response = await fetch(URL, cabecera);
-        console.log(response);
-        if (response.status === 201) {
+        // Realizar request
+        const respuesta = await fetch(`${URL}/${noticia._id}`, {
+          method: "PUT",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(noticiaModificada),
+        });
+        if (respuesta.status === 200) {
           Swal.fire(
-            "Noticia agregada",
-            "La noticia se cargó correctamente",
+            "Noticia editado",
+            "La noticia fue modificada correctamente",
             "success"
           );
-          // Reseteo form
-          e.target.reset();
           // Actualizar datos
           props.consultarAPI();
-          // Redireccionar al componente AdminNoticias
+          // Quiero redireccionar a otra ruta del sistema de rutas
+          props.history.push("/noticias");
         }
+        console.log(respuesta);
       } catch (error) {
-        Swal.fire(
-          "Ocurrió un error",
-          "Inténtelo nuevamente en unos minutos",
-          "error"
-        );
+        console.log(error);
+        // Mostrar cartel al usuario de que algo falló
       }
-
-      // Espero respuesta
     } else {
-      // Si no está todo ok, valido el error
+      // Si está mal, pido al usuario que revise los datos
       setError(true);
     }
   };
@@ -116,7 +115,8 @@ const FormNoticias = (props) => {
               <Form.Control
                 type="text"
                 placeholder="Armando Paredes"
-                onChange={(e) => setAutor(e.target.value)}
+                defaultValue={noticia.autor}
+                ref={autorRef}  
               ></Form.Control>
             </Form.Group>
           </div>
@@ -125,7 +125,8 @@ const FormNoticias = (props) => {
               <Form.Label>Fecha</Form.Label>
               <Form.Control
                 type="date"
-                onChange={(e) => setFecha(e.target.value)}
+                // defaultValue={fecha.autor}
+                ref={fechaRef}  
               ></Form.Control>
             </Form.Group>
           </div>
@@ -137,17 +138,18 @@ const FormNoticias = (props) => {
               <Form.Control
                 type="text"
                 placeholder="La palabra de Marcelo Tinelli luego de que..."
-                onChange={(e) => setTitulo(e.target.value)}
+                defaultValue={noticia.titulo}
+                ref={tituloRef}  
               ></Form.Control>
             </Form.Group>
           </div>
           <div className="col-md-3 col-sm-12">
             <Form.Group controlId="exampleForm.ControlSelect1">
               <Form.Label>Categoría</Form.Label>
-              {/* TODO: traer categorías de BD */}
               <Form.Control
                 as="select"
-                onChange={(e) => setCategoria(e.target.value)}
+                defaultValue={noticia.categoria}
+                ref={categoriaRef}  
               >
                 <option selected="true" disabled="disabled">
                   Seleccione la categoría
@@ -170,7 +172,8 @@ const FormNoticias = (props) => {
             as="textarea"
             rows={3}
             placeholder="Luego de que trascendiera la noticia de la ola de contagios de Covid-19 en Showmatch: La Academia 2021 (El Trece), fue el mismo Marcelo Tinelli quien emitió..."
-            onChange={(e) => setResumen(e.target.value)}
+            defaultValue={noticia.resumen}
+            ref={resumenRef}  
           />
         </Form.Group>
         <Form.Group className="mt-4">
@@ -179,7 +182,8 @@ const FormNoticias = (props) => {
             as="textarea"
             rows={10}
             placeholder="A raíz de las informaciones que circularon en las últimas horas, desde LaFlia queremos aclarar que los casos positivos de COVID-19 que involucran a trabajadores de la productora no se dieron de forma simultánea como producto de una negligencia, sino que han ido apareciendo alternadamente en las últimas semanas..."
-            onChange={(e) => setContenido(e.target.value)}
+            defaultValue={noticia.contenido}
+            ref={contenidoRef}  
           />
         </Form.Group>
         <Form.Group className="mt-4 row">
@@ -188,7 +192,8 @@ const FormNoticias = (props) => {
             <Form.Control
               type="url"
               placeholder="https://www.contextotucuman.com//uploads/2021/05/26/13546_1.jpg"
-              onChange={(e) => setImgGrande(e.target.value)}
+              defaultValue={noticia.imgGrande}
+              ref={imgGrandeRef}  
             />
             <Form.Text className="text-muted">
               Introduzca la URL de la imagen que quieras que aparezca en la
@@ -200,7 +205,8 @@ const FormNoticias = (props) => {
             <Form.Control
               type="url"
               placeholder="https://www.contextotucuman.com//uploads/2021/05/26/13546_1.jpg"
-              onChange={(e) => setImgChica(e.target.value)}
+              defaultValue={noticia.imgChica}
+              ref={imgChicaRef}  
             />
             <Form.Text className="text-muted">
               Introduzca la URL de la imagen que quieras que aparezca en la
@@ -208,12 +214,7 @@ const FormNoticias = (props) => {
             </Form.Text>
           </div>
         </Form.Group>
-        <Button
-          type="submit"
-          className="mt-5 w-100"
-          size="lg"
-          block
-        >
+        <Button type="submit" className="mt-5 w-100" size="lg" block>
           Agregar noticia
         </Button>
         {error === true ? (
@@ -226,4 +227,4 @@ const FormNoticias = (props) => {
   );
 };
 
-export default FormNoticias;
+export default withRouter(EditarNoticias);

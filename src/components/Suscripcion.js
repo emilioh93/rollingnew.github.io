@@ -85,7 +85,7 @@ const Suscripcion = () => {
         validated={validacion}
         noValidate
       >
-        <h1 className="text-center my-3">Formulario de Suscripcion</h1>
+        <h1 className="text-center my-3">Formulario de Suscripción</h1>
         <Form.Group className="my-3">
           <Form.Label>Nombre</Form.Label>
           <Form.Control
@@ -112,7 +112,7 @@ const Suscripcion = () => {
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="my-3">
-          <Form.Label>Direccion</Form.Label>
+          <Form.Label>Dirección</Form.Label>
           <Form.Control
             type="text"
             placeholder="San Martin 456"
@@ -136,7 +136,7 @@ const Suscripcion = () => {
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="my-3">
-          <Form.Label>Codigo Postal</Form.Label>
+          <Form.Label>Código Postal</Form.Label>
           <Form.Control
             type="number"
             placeholder="4107"
@@ -148,7 +148,7 @@ const Suscripcion = () => {
           </Form.Control.Feedback>
         </Form.Group>
         <Form.Group className="my-3">
-          <Form.Label>Telefono</Form.Label>
+          <Form.Label>Teléfono</Form.Label>
           <Form.Control
             type="number"
             placeholder="381 4564553"
@@ -174,7 +174,7 @@ const Suscripcion = () => {
         {/* Agregar terminos y condiciones */}
         <Form.Group>
           <Form.Check
-            label="Acepto los terminos y condiciones"
+            label="Acepto los términos y condiciones"
             feedback="Debe aceptar los terminos y condiciones"
             required
           ></Form.Check>
