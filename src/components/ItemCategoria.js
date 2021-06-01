@@ -6,6 +6,7 @@ import { faPencilAlt, faEye } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 
 const ItemCategoria = (props) => {
+  console.log(props.categoria.tituloCategoria)
 
   return (
     <div>

@@ -56,7 +56,7 @@ const FormCategorias = (props) => {
           // Reseteo form
           e.target.reset();
           // Actualizar datos
-          props.consultarAPI();
+          props.consultarAPICat();
           // Redireccionar al componente AdminNoticias
         }
       } catch (error) {

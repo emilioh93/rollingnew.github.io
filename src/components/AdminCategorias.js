@@ -29,7 +29,7 @@ const AdminCategorias = (props) => {
           <ItemCategoria
             categoria={categoria}
             key={categoria._id}
-            consultarAPICat={props.consultarAPICat}
+            consultarAPICat={props.consultarAPI}
           ></ItemCategoria>
         ))}
       </ListGroup>
