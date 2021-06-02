@@ -31,37 +31,6 @@ const Principal = (props) => {
         </Card.ImgOverlay>
       </Card> */}
       <Carousel fade>
-<<<<<<< HEAD
-  <Carousel.Item>
-    <img
-      className="d-block imgcarousel"
-      src={noticiaIsrael}
-      alt="Israel1"
-    />
-    <Carousel.Caption>
-      <h3>¿Qué está pasando entre Palestina e Israel? Las claves para entender el conflicto</h3>
-      <p className="ocultar">El actual enfrentamiento entre el Ejército israelí y Hamás en la franja de Gaza alcanza un nivel de violencia no visto desde 2014</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block imgcarousel"
-      src={noticiaDos}
-      alt="Covid1"
-    />
-
-    <Carousel.Caption>
-      <h3>Descubrieron el “talón de Aquiles” del coronavirus para evitar que se multiplique en el cuerpo</h3>
-      <p className="ocultar">Investigadores suizos e irlandeses hallaron un mecanismo por el que se podría inhibir la replicación del SARS-CoV-2 en el organismo.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block imgcarousel"
-      src={noticiaTres}
-      alt="Third slide"
-    />
-=======
         <Carousel.Item>
           <img className="d-block w-100" src={noticiaIsrael} alt="Israel1" />
           <Carousel.Caption>
@@ -92,7 +61,6 @@ const Principal = (props) => {
         </Carousel.Item>
         <Carousel.Item>
           <img className="d-block w-100" src={noticiaTres} alt="Third slide" />
->>>>>>> b9615519168af04a4c113ed80ab1f09816262d5a
 
           <Carousel.Caption>
             <h3>
