@@ -96,12 +96,17 @@ const FormNoticias = (props) => {
     }
   };
 
+const retornarNoticias = ({history})=>{
+window.location.href = '/login/admin/noticias'
+}
+
   return (
     <Container className="my-5">
-      <Link exact={true} to="/login/admin/noticias" className="nav-link">
+      {/* <Link exact={true} to="/login/admin/noticias" className="nav-link">
         <FontAwesomeIcon icon={faArrowLeft} className="me-2"></FontAwesomeIcon>
         Volver al administrador
-      </Link>
+      </Link> */}
+      <Button onClick={retornarNoticias}>Volver</Button>
       <Form onSubmit={handleSubmit}>
         <h3 className="my-5 text-center">Agregar Noticia</h3>
         <p>

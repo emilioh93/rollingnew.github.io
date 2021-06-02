@@ -9,14 +9,14 @@ const Login = (props) => {
   const [password, setPassword] = useState(0);
   const [sesion, setSesion] = useState(false);
 
-  console.log(props.noticias[0].autor)
-  console.log(props.noticias[0].fecha)
-  console.log(props.noticias[0].titulo)
-  console.log(props.noticias[0].categoria)
-  console.log(props.noticias[0].resumen)
-  console.log(props.noticias[0].contenido)
-  console.log(props.noticias[0].imgGrande)
-  console.log(props.noticias[0].imgChica)
+  // console.log(props.noticias[0].autor)
+  // console.log(props.noticias[0].fecha)
+  // console.log(props.noticias[0].titulo)
+  // console.log(props.noticias[0].categoria)
+  // console.log(props.noticias[0].resumen)
+  // console.log(props.noticias[0].contenido)
+  // console.log(props.noticias[0].imgGrande)
+  // console.log(props.noticias[0].imgChica)
   // console.log(props.categorias)
 
   const handleSubmit = (e) => {

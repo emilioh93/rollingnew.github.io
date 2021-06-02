@@ -14,11 +14,11 @@ const Categoria = (props) => {
       <h2 className="my-4 text-center">{props.titulo}</h2>
       <CardGroup>
         <Card className="mx-4 sombra">
-          <Card.Img variant="top" src={imgNoticia} />
+          <Card.Img variant="top" src={props.noticias[0].imgChica} />
           <Card.Body>
-            <Card.Title>{props.noticias[0].titulo}</Card.Title>
+            <Card.Title>asd</Card.Title>
             <Card.Text>
-            
+            {props.noticias[0].resumen}
             </Card.Text>
           </Card.Body>
           <Card.Footer>
@@ -26,9 +26,9 @@ const Categoria = (props) => {
           </Card.Footer>
         </Card>
         <Card className="mx-4 sombra">
-          <Card.Img variant="top" src={props.noticias[0].imgChica} />
+          <Card.Img variant="top"/>
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
+            <Card.Title>asd</Card.Title>
             <Card.Text>
               This card has supporting text below as a natural lead-in to
               additional content.{" "}
@@ -41,7 +41,7 @@ const Categoria = (props) => {
         <Card className="mx-4 sombra">
           <Card.Img variant="top" src={imgNoticia} />
           <Card.Body>
-            <Card.Title>Card title</Card.Title>
+            <Card.Title></Card.Title>
             <Card.Text>
               This is a wider card with supporting text below as a natural
               lead-in to additional content. This card has even longer content

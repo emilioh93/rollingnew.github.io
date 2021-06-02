@@ -51,6 +51,7 @@ function App() {
           // Guardar datos en el state
           const datos = await respuesta.json();
           setNoticias(datos);
+          console.log('asdasd')
         } else {
         }
       } catch (error) {
@@ -129,7 +130,7 @@ function App() {
         <Route exact path="/registro">
           <Registro></Registro>
         </Route>
-        <Route exact path="*">
+        <Route exact path="#">
           <Error404></Error404>
         </Route>
 
