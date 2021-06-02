@@ -17,52 +17,52 @@ import Suscripcion from "./components/Suscripcion";
 import Login from "./components/Login";
 import Error404 from "./components/Error404";
 import DetalleNoticia from "./components/DetalleNoticia";
-import {useState, useEffect} from 'react';
+import { useState, useEffect } from "react";
 import Registro from "./components/Registro";
 import EditarNoticias from "./components/EditarNoticias";
 
 function App() {
   const URL = process.env.REACT_APP_API_URL;
   const URLCat = process.env.REACT_APP_API_URL_Categorias;
-  const [noticias, setNoticias] = useState([]);
-  const [categorias, setCategorias] = useState([]);
-
-  const consultarAPI = async () => {
-    try {
-      const respuesta = await fetch(URL);
-      console.log(respuesta);
-      if (respuesta.status === 200) {
-        // Guardar datos en el state
-        const datos = await respuesta.json();
-        setNoticias(datos);
-      } else {
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const consultarAPICat = async () => {
-    try {
-      const respuesta = await fetch(URLCat);
-      console.log(respuesta);
-      if (respuesta.status === 200) {
-        // Guardar datos en el state
-        const datos = await respuesta.json();
-        setCategorias(datos);
-      } else {
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [noticias, setNoticias] = useState([{}]);
+  const [categorias, setCategorias] = useState([{}]);
 
   useEffect(() => {
+    const consultarAPICat = async () => {
+      try {
+        const respuesta = await fetch(URLCat);
+        console.log(respuesta);
+        if (respuesta.status === 200) {
+          // Guardar datos en el state
+          const datos = await respuesta.json();
+          setCategorias(datos);
+        } else {
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    const consultarAPI = async () => {
+      try {
+        const respuesta = await fetch(URL);
+        console.log(respuesta);
+        if (respuesta.status === 200) {
+          // Guardar datos en el state
+          const datos = await respuesta.json();
+          setNoticias(datos);
+        } else {
+        }
+      } catch (error) {
+        console.log(error);
+      }
+    };
     consultarAPI();
-  }, []);
-  useEffect(() => {
     consultarAPICat();
   }, []);
+
+  console.log(noticias);
+  console.log(categorias);
 
   return (
     <Router>
@@ -72,9 +72,21 @@ function App() {
           <Inicio></Inicio>
           <Principal></Principal>
           <Covid></Covid>
-          <Categoria titulo="Economía"></Categoria>
-          <Categoria titulo="Política"></Categoria>
-          <Categoria titulo="Salud"></Categoria>
+          <Categoria
+            titulo="Economia"
+            noticias={noticias}
+            categorias={categorias}
+          ></Categoria>
+          <Categoria
+            titulo="Política"
+            noticias={noticias}
+            categorias={categorias}
+          ></Categoria>
+          <Categoria
+            titulo="Salud"
+            noticias={noticias}
+            categorias={categorias}
+          ></Categoria>
         </Route>
         <Route exact path="/actualidad">
           <PaginaCategoria tituloCategoria="Actualidad"></PaginaCategoria>
@@ -103,16 +115,21 @@ function App() {
         <Route exact path="/noticias/:id">
           <DetalleNoticia
             noticias={noticias}
-            consultarAPI={consultarAPI}
+            /* consultarAPI={consultarAPI} */
           ></DetalleNoticia>
         </Route>
         <Route exact path="/login">
-          <Login></Login>
+          <Login
+            noticias={noticias}
+            categorias={categorias}
+            /* consultarAPI={consultarAPI} */
+            /* consultarAPICat={consultarAPICat} */
+          ></Login>
         </Route>
-        <Route exact path='/registro'>
+        <Route exact path="/registro">
           <Registro></Registro>
         </Route>
-        <Route exact path="#">
+        <Route exact path="*">
           <Error404></Error404>
         </Route>
 
@@ -122,24 +139,25 @@ function App() {
         </Route>
         <Route exact path="/login/admin/noticias">
           <AdminNoticias
-            consultarAPI={consultarAPI}
+            /* consultarAPI={consultarAPI} */
             noticias={noticias}
           ></AdminNoticias>
         </Route>
         <Route exact path="/login/admin/noticias/nueva">
-          <FormNoticias consultarAPI={consultarAPI}></FormNoticias>
+          <FormNoticias /* consultarAPI={consultarAPI} */></FormNoticias>
         </Route>
         <Route exact path="/login/admin/categorias/">
           <AdminCategorias
-            consultarAPICat={consultarAPICat}
+            /* consultarAPICat={consultarAPICat} */
             categorias={categorias}
           ></AdminCategorias>
         </Route>
         <Route exact path="/login/admin/categorias/nueva">
-          <FormCategorias consultarAPICat={consultarAPICat}></FormCategorias>
+          <FormCategorias /* consultarAPICat={consultarAPICat} */
+          ></FormCategorias>
         </Route>
         <Route exact path="/login/admin/noticias/editar/:id">
-          <EditarNoticias consultarAPI={consultarAPI}></EditarNoticias>
+          <EditarNoticias /* consultarAPI={consultarAPI} */></EditarNoticias>
         </Route>
         {/* fin del path admin */}
 
