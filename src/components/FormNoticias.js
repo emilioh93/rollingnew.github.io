@@ -157,14 +157,18 @@ window.location.href = '/login/admin/noticias'
                 <option selected="true" disabled="disabled">
                   Seleccione la categoría
                 </option>
-                <option>Actualidad</option>
-                <option>Espectáculos</option>
-                <option>Tecnología</option>
-                <option>Deportes</option>
-                <option>Economía</option>
+
+                {props.categorias.map(categoria =>{
+                  return <option>{categoria.tituloCategoria}</option>
+                })}
+              {/*   <option>Actualidad</option>
+                <option>Espectaculo</option>
+                <option>Tecnologia</option>
+                <option>Deporte</option>
+                <option>Economia</option>
                 <option>Salud</option>
-                <option>Política</option>
-                <option>Fotografía</option>
+                <option>Politica</option>
+                <option>Fotografia</option> */}
               </Form.Control>
             </Form.Group>
           </div>

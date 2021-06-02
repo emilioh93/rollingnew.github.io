@@ -13,7 +13,22 @@ const Categoria = (props) => {
     <Container className="my-5 borde">
       <h2 className="my-4 text-center">{props.titulo}</h2>
       <CardGroup>
-        <Card className="mx-4 sombra">
+
+        {props.noticias.map(noticia=>{
+          return <Card className="mx-4 sombra">
+          <Card.Img variant="top" src={noticia.imgChica} />
+          <Card.Body>
+            <Card.Title>{noticia.titulo}</Card.Title>
+            <Card.Text>
+            {noticia.resumen}
+            </Card.Text>
+          </Card.Body>
+          <Card.Footer>
+            <small className="text-muted">Last updated 3 mins ago</small>
+          </Card.Footer>
+        </Card>
+        })}
+        {/* <Card className="mx-4 sombra">
           <Card.Img variant="top" src={props.noticias[0].imgChica} />
           <Card.Body>
             <Card.Title>asd</Card.Title>
@@ -52,6 +67,7 @@ const Categoria = (props) => {
             <small className="text-muted">Last updated 3 mins ago</small>
           </Card.Footer>
         </Card>
+         */}
       </CardGroup>
     </Container>
   );

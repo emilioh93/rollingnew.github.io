@@ -73,7 +73,16 @@ function App() {
           <Inicio></Inicio>
           <Principal></Principal>
           <Covid></Covid>
-          <Categoria
+
+          {categorias.map(categoria =>{
+            return  <Categoria
+            titulo={categoria.tituloCategoria}
+            noticias={noticias.filter(noticia=>(noticia.categoria===categoria.tituloCategoria))    }
+            categorias={categorias}
+          ></Categoria>
+          })}
+
+        {/*   <Categoria
             titulo="Economia"
             noticias={noticias}
             categorias={categorias}
@@ -87,7 +96,7 @@ function App() {
             titulo="Salud"
             noticias={noticias}
             categorias={categorias}
-          ></Categoria>
+          ></Categoria> */}
         </Route>
         <Route exact path="/actualidad">
           <PaginaCategoria tituloCategoria="Actualidad"></PaginaCategoria>
@@ -145,7 +154,7 @@ function App() {
           ></AdminNoticias>
         </Route>
         <Route exact path="/login/admin/noticias/nueva">
-          <FormNoticias /* consultarAPI={consultarAPI} */></FormNoticias>
+          <FormNoticias /* consultarAPI={consultarAPI} */ categorias={categorias}></FormNoticias>
         </Route>
         <Route exact path="/login/admin/categorias/">
           <AdminCategorias
@@ -158,7 +167,7 @@ function App() {
           ></FormCategorias>
         </Route>
         <Route exact path="/login/admin/noticias/editar/:id">
-          <EditarNoticias /* consultarAPI={consultarAPI} */></EditarNoticias>
+          <EditarNoticias /* consultarAPI={consultarAPI} */ categorias={categorias}></EditarNoticias>
         </Route>
         {/* fin del path admin */}
 
