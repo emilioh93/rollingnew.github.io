@@ -129,7 +129,7 @@ function App() {
         <Route exact path="/registro">
           <Registro></Registro>
         </Route>
-        <Route exact path="#">
+        <Route exact path="*">
           <Error404></Error404>
         </Route>
 
