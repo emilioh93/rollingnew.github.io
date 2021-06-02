@@ -3,6 +3,7 @@ import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import { Container } from "react-bootstrap";
 import imgNoticia from '../img/imagenNoDisponible.png';
+import { Link } from "react-router-dom";
 
 
 const Categoria = (props) => {
@@ -13,6 +14,7 @@ const Categoria = (props) => {
     <Container className="my-5 borde">
       <h2 className="my-4 text-center">{props.titulo}</h2>
       <CardGroup>
+        <Link exact={true} to="/noticias/detalle">
         <Card className="mx-4 sombra">
           <Card.Img variant="top" src={imgNoticia} />
           <Card.Body>
@@ -25,6 +27,7 @@ const Categoria = (props) => {
             <small className="text-muted">Last updated 3 mins ago</small>
           </Card.Footer>
         </Card>
+        </Link>
         <Card className="mx-4 sombra">
           <Card.Img variant="top" src={props.noticias[0].imgChica} />
           <Card.Body>
