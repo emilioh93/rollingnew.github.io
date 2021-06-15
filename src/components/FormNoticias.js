@@ -81,7 +81,7 @@ const FormNoticias = (props) => {
           e.target.reset();
           // Actualizar datos
           props.consultarAPI();
-          // TODO: Redireccionar al componente AdminNoti/noticiascias
+          // TODO: Redireccionar al componente AdminNoticias
           props.history.push("/login/admin/noticias");
         }
       } catch (error) {

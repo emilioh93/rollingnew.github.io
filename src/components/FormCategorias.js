@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
@@ -57,7 +57,8 @@ const FormCategorias = (props) => {
           e.target.reset();
           // Actualizar datos
           props.consultarAPICat();
-          // Redireccionar al componente AdminNoticias
+          // Redireccionar al componente AdminCategorías
+          props.history.push("/login/admin/categorias");
         }
       } catch (error) {
         Swal.fire(
@@ -105,4 +106,5 @@ const FormCategorias = (props) => {
   );
 };
 
-export default FormCategorias;
+export default withRouter(FormCategorias);
+
