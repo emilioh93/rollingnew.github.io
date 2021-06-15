@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useParams, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
@@ -17,7 +17,7 @@ const FormNoticias = (props) => {
   const [error, setError] = useState(false);
   // Traer variable de entorno
   const URL = process.env.REACT_APP_API_URL;
-  console.log("🚀 ~ file: FormNoticias.js ~ line 20 ~ FormNoticias ~ URL", URL)
+  console.log("🚀 ~ file: FormNoticias.js ~ line 20 ~ FormNoticias ~ URL", URL);
 
   // const leerCategoria = (e) => {
   //   setCategoria(e.target.value);
@@ -55,14 +55,17 @@ const FormNoticias = (props) => {
         imgGrande,
         imgChica,
       };
-      console.log("🚀 ~ file: FormNoticias.js ~ line 49 ~ handleSubmit ~ noticia", noticia)
+      console.log(
+        "🚀 ~ file: FormNoticias.js ~ line 49 ~ handleSubmit ~ noticia",
+        noticia
+      );
       // Envío request POST
       try {
         // Estructura de datos a enviar
         const cabecera = {
           method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify(noticia),
         };
@@ -75,11 +78,11 @@ const FormNoticias = (props) => {
             "La noticia se cargó correctamente",
             "success"
           );
-          // Reseteo form
           e.target.reset();
           // Actualizar datos
           props.consultarAPI();
-          // Redireccionar al componente AdminNoticias
+          // TODO: Redireccionar al componente AdminNoti/noticiascias
+          props.history.push("/login/admin/noticias");
         }
       } catch (error) {
         Swal.fire(
@@ -96,9 +99,9 @@ const FormNoticias = (props) => {
     }
   };
 
-const retornarNoticias = ({history})=>{
-window.location.href = '/login/admin/noticias'
-}
+  const retornarNoticias = ({ history }) => {
+    window.location.href = "/login/admin/noticias";
+  };
 
   return (
     <Container className="my-5">
@@ -149,7 +152,6 @@ window.location.href = '/login/admin/noticias'
           <div className="col-md-3 col-sm-12">
             <Form.Group controlId="exampleForm.ControlSelect1">
               <Form.Label>Categoría</Form.Label>
-              {/* TODO: traer categorías de BD */}
               <Form.Control
                 as="select"
                 onChange={(e) => setCategoria(e.target.value)}
@@ -158,10 +160,10 @@ window.location.href = '/login/admin/noticias'
                   Seleccione la categoría
                 </option>
 
-                {props.categorias.map(categoria =>{
-                  return <option>{categoria.tituloCategoria}</option>
+                {props.categorias.map((categoria) => {
+                  return <option>{categoria.tituloCategoria}</option>;
                 })}
-              {/*   <option>Actualidad</option>
+                {/*   <option>Actualidad</option>
                 <option>Espectaculo</option>
                 <option>Tecnologia</option>
                 <option>Deporte</option>
@@ -217,12 +219,7 @@ window.location.href = '/login/admin/noticias'
             </Form.Text>
           </div>
         </Form.Group>
-        <Button
-          type="submit"
-          className="mt-5 w-100"
-          size="lg"
-          block
-        >
+        <Button type="submit" className="mt-5 w-100" size="lg" block>
           Agregar noticia
         </Button>
         {error === true ? (
@@ -235,4 +232,5 @@ window.location.href = '/login/admin/noticias'
   );
 };
 
-export default FormNoticias;
+export default withRouter(FormNoticias);
+

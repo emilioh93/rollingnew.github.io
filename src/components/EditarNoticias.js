@@ -82,7 +82,7 @@ const EditarNoticias = (props) => {
           // Actualizar datos
           props.consultarAPI();
           // Quiero redireccionar a otra ruta del sistema de rutas
-          props.history.push("/noticias");
+          props.history.push("/login/admin/noticias");
         }
         console.log(respuesta);
       } catch (error) {
@@ -102,9 +102,9 @@ const EditarNoticias = (props) => {
         Volver al administrador
       </Link>
       <Form onSubmit={handleSubmit}>
-        <h3 className="my-5 text-center">Agregar Noticia</h3>
+        <h3 className="my-5 text-center">Editar Noticia</h3>
         <p>
-          Complete todos los campos del siguiente formulario para agregar una
+          Complete todos los campos del siguiente formulario para editar la
           noticia.
         </p>
         <br />
