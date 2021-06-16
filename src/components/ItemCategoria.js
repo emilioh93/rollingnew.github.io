@@ -2,11 +2,59 @@ import React from "react";
 import { Container, ListGroup, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPencilAlt, faEye } from "@fortawesome/free-solid-svg-icons";
+import { faPencilAlt, faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 
 const ItemCategoria = (props) => {
-  console.log(props.categoria.tituloCategoria)
+  const eliminarCategoria = (codigo) => {
+    Swal.fire({
+      title: "¿Estás seguro de eliminar esta categoría?",
+      text: "No puedes recuperar una categoría que fue eliminada",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        // Agregar solicitud deleted
+        try {
+          const URL = process.env.REACT_APP_API_URL + "/" + codigo;
+          const respuesta = await fetch(URL, {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+
+          console.log(respuesta);
+          if (respuesta.status === 200) {
+            Swal.fire(
+              "Categoría eliminada!",
+              "La categoría seleccionada fue correctamente eliminada.",
+              "success"
+            );
+            //  Volver a consultar la API
+            props.consultarAPI();
+          }
+        } catch (error) {
+          console.log(error);
+          Swal.fire(
+            "Ocurrió un error!",
+            "Inténtelo nuevamente más tarde.",
+            "warning"
+          );
+        }
+        Swal.fire(
+          "¡Categoría eliminada!",
+          "La categoría seleccionada fue correctamente eliminada.",
+          "success"
+        );
+      }
+    });
+  };
+
 
   return (
     <div>
@@ -21,6 +69,18 @@ const ItemCategoria = (props) => {
           >
             <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>
           </Link>
+          <Link
+            className="mr-2 btn btn-warning text-light"
+            to={`/login/admin/categorias/editar/${props.categoria._id}`}
+          >
+            <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
+          </Link>
+          <Button
+            variant="danger"
+            onClick={() => eliminarCategoria(props.categoria._id)}
+          >
+            <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+          </Button>
         </div>
       </ListGroup.Item>
     </div>
