@@ -20,6 +20,7 @@ import DetalleNoticia from "./components/DetalleNoticia";
 import { useState, useEffect } from "react";
 import Registro from "./components/Registro";
 import EditarNoticias from "./components/EditarNoticias";
+import EditarCategorias from "./components/EditarCategorias";
 
 function App() {
   const URL = process.env.REACT_APP_API_URL;
@@ -168,6 +169,9 @@ function App() {
         </Route>
         <Route exact path="/login/admin/noticias/editar/:id">
           <EditarNoticias /* consultarAPI={consultarAPI} */ categorias={categorias}></EditarNoticias>
+        </Route>
+        <Route exact path="/login/admin/categorias/editar/:id">
+          <EditarCategorias /* consultarAPI={consultarAPI} */ categorias={categorias}></EditarCategorias>
         </Route>
         {/* fin del path admin */}
 
