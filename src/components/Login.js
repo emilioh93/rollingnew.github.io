@@ -21,22 +21,6 @@ const Login = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // if (sesion) {
-    //   let login = (
-    //     <button type="button" className="btn btn-danger" onClick={buttonHandler}>
-    //       SALIR
-    //     </button>
-    //   );
-    //   ReactDOM.render(login, document.getElementById("login"));
-    //   let suscripcion = <strong className="margenIzq"></strong>;
-    //   ReactDOM.render(suscripcion, document.getElementById("suscripcion"));
-    // } else {
-    //   let login = <strong className="margenIzq">Login</strong>;
-    //   ReactDOM.render(login, document.getElementById("login"));
-    //   let suscripcion = <strong>Suscripción</strong>;
-    //   ReactDOM.render(suscripcion, document.getElementById("suscripcion"));
-    //   setSesion(false);
-    // }
 
     if (usuario === "admin" && password === 1234) {
       alert("ingreso valido");
@@ -49,25 +33,6 @@ const Login = (props) => {
       console.log(sesion);
     }
   };
-
-  // Función para cerrar sesión
-  // buttonHandler() {
-  //   setSesion(false);
-  //   Swal.fire({
-  //     title: "¿Está seguro que desea salir de la sesión?",
-  //     icon: "warning",
-  //     showCancelButton: true,
-  //     confirmButtonColor: "#3085d6",
-  //     cancelButtonColor: "#d33",
-  //     confirmButtonText: "Si, salir",
-  //     cancelButtonText: "Cancelar",
-  //   }).then((result) => {
-  //     if (result.isConfirmed) {
-  //       Swal.fire("Ha salido de la sesión", " ", "success");
-  //       setSesion(false);
-  //     }
-  //   });
-  // }
 
   return (
     <Container className="d-flex justify-content-center">
