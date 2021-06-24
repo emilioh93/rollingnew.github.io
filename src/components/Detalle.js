@@ -7,7 +7,7 @@ const Detalle = (props) => {
     return (
         <Container>
             <ListGroup>
-                {props.noticia.map((noticia)=><FormNoticias noticia = {noticia} key = {noticia.id} consultarAPI={props.consultarAPI}></FormNoticias> )}
+                {props.noticias.map((noticia)=><FormNoticias noticia = {noticia} key = {noticia.id} consultarAPI={props.consultarAPI}></FormNoticias> )}
             </ListGroup>
         </Container>
     );
