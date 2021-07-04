@@ -123,18 +123,15 @@ function App() {
         <Route exact path="/fotografia">
           <PaginaCategoria tituloCategoria="Fotografía"></PaginaCategoria>
         </Route>
-        <Route exact path="/noticias/:id">
+        <Route exact path="/noticias/detalle">
           <DetalleNoticia
             noticias={noticias}
-            /* consultarAPI={consultarAPI} */
           ></DetalleNoticia>
         </Route>
         <Route exact path="/login">
           <Login
             noticias={noticias}
             categorias={categorias}
-            /* consultarAPI={consultarAPI} */
-            /* consultarAPICat={consultarAPICat} */
           ></Login>
         </Route>
         <Route exact path="/registro">

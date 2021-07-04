@@ -6,30 +6,10 @@ import noticiaDos from "../img/covid1.webp";
 import noticiaTres from "../img/ciberdelito.jpeg";
 
 const Principal = (props) => {
-  
-  // props.consultarAPI();
-  // prop.
-  // useEffect(() => {
-  //   props.consultarAPICat();
-  // useEffect(() => {
-  //   props.consultarAPI();
-  // }, []);
 
   return (
     <Container className="my-5">
       <section className="text-center"></section>
-      {/* <Card className="bg-dark text-white sombra">
-        <Card.Img className="w-100 fondo" />
-        <Card.ImgOverlay class="infoPrincipal">
-          <h1>Marcha por la inseguridad</h1>
-          <Card.Text className="mt-4 lead">
-            Nueve de cada 10 tucumanos, preocupados por la inseguridad. Descubre
-            los temos estructurales que más inquietan a al población según
-            Sociología y Mercado.
-          </Card.Text>
-          <Card.Text>Hace 1 hora</Card.Text>
-        </Card.ImgOverlay>
-      </Card> */}
       <Carousel fade>
         <Carousel.Item>
           <img className="d-block w-100" src={noticiaIsrael} alt="Israel1" />
