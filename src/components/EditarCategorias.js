@@ -12,26 +12,32 @@ const EditarCategorias = (props) => {
   const tituloCategoriaRef = useRef("");
   const [error, setError] = useState(false);
   // Traer variable de entorno
-  const URL = process.env.REACT_APP_API_URL;
-  console.log(URL);
+  const URLCat = process.env.REACT_APP_API_URL_Categorias;
+  console.log(URLCat);
 
   useEffect(() => {
     consultarCategoria();
+    console.log(categoria)
   }, []);
 
   const consultarCategoria = async () => {
     try {
-      const respuesta = await fetch(URL + "/" + id);
+      const respuesta = await fetch(URLCat + "/" + id);
       console.log(respuesta);
       if (respuesta.status === 200) {
         const categoriaEncontrada = await respuesta.json();
+        console.log(categoriaEncontrada);
         setCategoria(categoriaEncontrada);
+        console.log(categoria);
       }
     } catch (error) {
       console.log(error);
       // Mostrar cartel al usuario
     }
   };
+
+  console.log("Mi id después de renderizado:" + categoria);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Validar datos
@@ -46,7 +52,7 @@ const EditarCategorias = (props) => {
           tituloCategoria: tituloCategoriaRef.current.value,
         };
         // Realizar request
-        const respuesta = await fetch(`${URL}/${categoria._id}`, {
+        const respuesta = await fetch(`${URLCat}/${categoria._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(categoriaModificada),

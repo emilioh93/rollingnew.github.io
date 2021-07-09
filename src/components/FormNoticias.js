@@ -4,6 +4,7 @@ import { Link, useParams, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
+import moment from "moment";
 
 const FormNoticias = (props) => {
   const [autor, setAutor] = useState("");
@@ -15,6 +16,11 @@ const FormNoticias = (props) => {
   const [imgGrande, setImgGrande] = useState("");
   const [imgChica, setImgChica] = useState("");
   const [error, setError] = useState(false);
+
+  const fechaMoment = moment();
+  moment.locale('es');
+  fechaMoment.format('Do MMMM YYYY');
+  console.log("Fecha: "+ fechaMoment.format('Do MMMM YYYY'));
   // Traer variable de entorno
   const URL = process.env.REACT_APP_API_URL;
   console.log("🚀 ~ file: FormNoticias.js ~ line 20 ~ FormNoticias ~ URL", URL);
@@ -233,4 +239,3 @@ const FormNoticias = (props) => {
 };
 
 export default withRouter(FormNoticias);
-

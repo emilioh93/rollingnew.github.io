@@ -75,14 +75,16 @@ const EditarNoticias = (props) => {
         });
         if (respuesta.status === 200) {
           Swal.fire(
-            "Noticia editado",
+            "Noticia editada",
             "La noticia fue modificada correctamente",
             "success"
           );
           // Actualizar datos
           props.consultarAPI();
           // Quiero redireccionar a otra ruta del sistema de rutas
-          props.history.push("/login/admin/noticias");
+          // FIXME: problema al redireccionar al admin
+          props.history.push("./login/admin/noticias");
+          window.location.href = "http://localhost:3000/login/admin/noticias";
         }
         console.log(respuesta);
       } catch (error) {
@@ -94,6 +96,8 @@ const EditarNoticias = (props) => {
       setError(true);
     }
   };
+
+  console.log("Categoría de noticia: " + noticia.categoria);
 
   return (
     <Container className="my-5">
@@ -116,7 +120,7 @@ const EditarNoticias = (props) => {
                 type="text"
                 placeholder="Armando Paredes"
                 defaultValue={noticia.autor}
-                ref={autorRef}  
+                ref={autorRef}
               ></Form.Control>
             </Form.Group>
           </div>
@@ -125,8 +129,9 @@ const EditarNoticias = (props) => {
               <Form.Label>Fecha</Form.Label>
               <Form.Control
                 type="date"
+                // FIXME: error al recibir la fecha
                 // defaultValue={fecha.autor}
-                ref={fechaRef}  
+                ref={fechaRef}
               ></Form.Control>
             </Form.Group>
           </div>
@@ -139,7 +144,7 @@ const EditarNoticias = (props) => {
                 type="text"
                 placeholder="La palabra de Marcelo Tinelli luego de que..."
                 defaultValue={noticia.titulo}
-                ref={tituloRef}  
+                ref={tituloRef}
               ></Form.Control>
             </Form.Group>
           </div>
@@ -148,15 +153,16 @@ const EditarNoticias = (props) => {
               <Form.Label>Categoría</Form.Label>
               <Form.Control
                 as="select"
+                // FIXME: La  consola recibe la categoría, pero el input no la muestra
                 defaultValue={noticia.categoria}
-                ref={categoriaRef}  
+                ref={categoriaRef}
               >
                 <option selected="true" disabled="disabled">
                   Seleccione la categoría
                 </option>
 
-                {props.categorias.map(categoria =>{
-                  return <option>{categoria.tituloCategoria}</option>
+                {props.categorias.map((categoria) => {
+                  return <option>{categoria.tituloCategoria}</option>;
                 })}
                 {/* <option>Actualidad</option>
                 <option>Espectáculos</option>
@@ -177,7 +183,7 @@ const EditarNoticias = (props) => {
             rows={3}
             placeholder="Luego de que trascendiera la noticia de la ola de contagios de Covid-19 en Showmatch: La Academia 2021 (El Trece), fue el mismo Marcelo Tinelli quien emitió..."
             defaultValue={noticia.resumen}
-            ref={resumenRef}  
+            ref={resumenRef}
           />
         </Form.Group>
         <Form.Group className="mt-4">
@@ -187,7 +193,7 @@ const EditarNoticias = (props) => {
             rows={10}
             placeholder="A raíz de las informaciones que circularon en las últimas horas, desde LaFlia queremos aclarar que los casos positivos de COVID-19 que involucran a trabajadores de la productora no se dieron de forma simultánea como producto de una negligencia, sino que han ido apareciendo alternadamente en las últimas semanas..."
             defaultValue={noticia.contenido}
-            ref={contenidoRef}  
+            ref={contenidoRef}
           />
         </Form.Group>
         <Form.Group className="mt-4 row">
@@ -197,7 +203,7 @@ const EditarNoticias = (props) => {
               type="url"
               placeholder="https://www.contextotucuman.com//uploads/2021/05/26/13546_1.jpg"
               defaultValue={noticia.imgGrande}
-              ref={imgGrandeRef}  
+              ref={imgGrandeRef}
             />
             <Form.Text className="text-muted">
               Introduzca la URL de la imagen que quieras que aparezca en la
@@ -210,7 +216,7 @@ const EditarNoticias = (props) => {
               type="url"
               placeholder="https://www.contextotucuman.com//uploads/2021/05/26/13546_1.jpg"
               defaultValue={noticia.imgChica}
-              ref={imgChicaRef}  
+              ref={imgChicaRef}
             />
             <Form.Text className="text-muted">
               Introduzca la URL de la imagen que quieras que aparezca en la

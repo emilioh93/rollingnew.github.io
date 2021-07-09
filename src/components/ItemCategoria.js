@@ -20,8 +20,8 @@ const ItemCategoria = (props) => {
       if (result.isConfirmed) {
         // Agregar solicitud deleted
         try {
-          const URL = process.env.REACT_APP_API_URL + "/" + codigo;
-          const respuesta = await fetch(URL, {
+          const URLCat = process.env.REACT_APP_API_URL_Categorias + "/" + codigo;
+          const respuesta = await fetch(URLCat, {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",
@@ -36,7 +36,7 @@ const ItemCategoria = (props) => {
               "success"
             );
             //  Volver a consultar la API
-            props.consultarAPI();
+            // props.consultarAPI();
           }
         } catch (error) {
           console.log(error);
