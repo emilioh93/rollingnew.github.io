@@ -125,12 +125,15 @@ const EditarNoticias = (props) => {
             </Form.Group>
           </div>
           <div className="col-md-3 col-sm-12">
+            {
+              console.log("Fecha:", noticia.fecha)
+            }
             <Form.Group>
               <Form.Label>Fecha</Form.Label>
               <Form.Control
                 type="date"
                 // FIXME: error al recibir la fecha
-                // defaultValue={fecha.autor}
+                defaultValue={noticia.fecha}
                 ref={fechaRef}
               ></Form.Control>
             </Form.Group>

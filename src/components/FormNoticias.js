@@ -18,9 +18,9 @@ const FormNoticias = (props) => {
   const [error, setError] = useState(false);
 
   const fechaMoment = moment();
-  moment.locale('es');
-  fechaMoment.format('Do MMMM YYYY');
-  console.log("Fecha: "+ fechaMoment.format('Do MMMM YYYY'));
+  moment.locale("es");
+  fechaMoment.format("Do MMMM YYYY");
+  console.log("Fecha: " + fechaMoment.format("Do MMMM YYYY"));
   // Traer variable de entorno
   const URL = process.env.REACT_APP_API_URL;
   console.log("🚀 ~ file: FormNoticias.js ~ line 20 ~ FormNoticias ~ URL", URL);
@@ -139,7 +139,10 @@ const FormNoticias = (props) => {
               <Form.Label>Fecha</Form.Label>
               <Form.Control
                 type="date"
-                onChange={(e) => setFecha(e.target.value)}
+                onChange={(e) => {
+                  setFecha(e.target.value);
+                  console.log("Fecha: ", e.target.value);
+                }}
               ></Form.Control>
             </Form.Group>
           </div>

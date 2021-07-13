@@ -6,11 +6,7 @@ import { Link } from "react-router-dom";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import ItemCategoria from "./ItemCategoria";
 
-
 const AdminCategorias = (props) => {
-
-  props.consultarAPICat();
-
   return (
     <Container className="my-5">
       <Link exact={true} to="/login/admin" className="nav-link">
@@ -19,7 +15,7 @@ const AdminCategorias = (props) => {
       </Link>
       <h2 className="text-center">Administrador de Categorías</h2>
       <div className="d-flex justify-content-end">
-      <Link
+        <Link
           className="my-4 btn btn-primary"
           exact={true}
           to="/login/admin/categorias/nueva/"
