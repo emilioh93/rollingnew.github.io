@@ -8,6 +8,9 @@ import ItemCategoria from "./ItemCategoria";
 
 
 const AdminCategorias = (props) => {
+
+  props.consultarAPICat();
+
   return (
     <Container className="my-5">
       <Link exact={true} to="/login/admin" className="nav-link">

@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useHistory } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import { Link, useParams, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,15 +20,9 @@ const FormCategorias = (props) => {
     e.preventDefault();
     // Validaciones
     if (tituloCategoria.trim() !== "") {
-      // Si está todo ok, envío los datos del producto a la API
+      // Si está todo ok, envío los datos de la categoría a la API
       setError(false);
-
       // Crear objeto
-      // const producto = {
-      //     nombreProducto: nombreProducto,
-      //     precioProducto: precioProducto,
-      //     categoria: categoria
-      // }
       const categoria = {
         tituloCategoria,
       };

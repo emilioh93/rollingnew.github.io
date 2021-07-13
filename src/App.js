@@ -29,21 +29,6 @@ function App() {
   const [categorias, setCategorias] = useState([{}]);
 
   useEffect(() => {
-    const consultarAPICat = async () => {
-      try {
-        const respuesta = await fetch(URLCat);
-        console.log(respuesta);
-        if (respuesta.status === 200) {
-          // Guardar datos en el state
-          const datos = await respuesta.json();
-          setCategorias(datos);
-        } else {
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
     const consultarAPI = async () => {
       try {
         const respuesta = await fetch(URL);
@@ -62,6 +47,21 @@ function App() {
     consultarAPI();
     consultarAPICat();
   }, []);
+
+  const consultarAPICat = async () => {
+    try {
+      const respuesta = await fetch(URLCat);
+      console.log(respuesta);
+      if (respuesta.status === 200) {
+        // Guardar datos en el state
+        const datos = await respuesta.json();
+        setCategorias(datos);
+      } else {
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   console.log(noticias);
   console.log(categorias);
@@ -156,7 +156,7 @@ function App() {
         </Route>
         <Route exact path="/login/admin/categorias/">
           <AdminCategorias
-            /* consultarAPICat={consultarAPICat} */
+            consultarAPICat={consultarAPICat}
             categorias={categorias}
           ></AdminCategorias>
         </Route>
