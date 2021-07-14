@@ -30,21 +30,20 @@ function App() {
   const [categorias, setCategorias] = useState([{}]);
 
   useEffect(() => {
-    
-  const consultarAPICat = async () => {
-    try {
-      const respuesta = await fetch(URLCat);
-      console.log(respuesta);
-      if (respuesta.status === 200) {
-        // Guardar datos en el state
-        const datos = await respuesta.json();
-        setCategorias(datos);
-      } else {
+    const consultarAPICat = async () => {
+      try {
+        const respuesta = await fetch(URLCat);
+        console.log(respuesta);
+        if (respuesta.status === 200) {
+          // Guardar datos en el state
+          const datos = await respuesta.json();
+          setCategorias(datos);
+        } else {
+        }
+      } catch (error) {
+        console.log(error);
       }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+    };
 
     const consultarAPI = async () => {
       try {
@@ -76,29 +75,17 @@ function App() {
           <Principal></Principal>
           <Covid></Covid>
 
-          {categorias.map(categoria =>{
-            return  <Categoria
-            titulo={categoria.tituloCategoria}
-            noticias={noticias.filter(noticia=>(noticia.categoria===categoria.tituloCategoria))    }
-            categorias={categorias}
-          ></Categoria>
+          {categorias.map((categoria) => {
+            return (
+              <Categoria
+                titulo={categoria.tituloCategoria}
+                noticias={noticias.filter(
+                  (noticia) => noticia.categoria === categoria.tituloCategoria
+                )}
+                categorias={categorias}
+              ></Categoria>
+            );
           })}
-
-        {/*   <Categoria
-            titulo="Economia"
-            noticias={noticias}
-            categorias={categorias}
-          ></Categoria>
-          <Categoria
-            titulo="Política"
-            noticias={noticias}
-            categorias={categorias}
-          ></Categoria>
-          <Categoria
-            titulo="Salud"
-            noticias={noticias}
-            categorias={categorias}
-          ></Categoria> */}
         </Route>
         <Route exact path="/actualidad">
           <PaginaCategoria tituloCategoria="Actualidad"></PaginaCategoria>
@@ -125,15 +112,10 @@ function App() {
           <PaginaCategoria tituloCategoria="Fotografía"></PaginaCategoria>
         </Route>
         <Route exact path="/noticias/detalle">
-          <DetalleNoticia
-            noticias={noticias}
-          ></DetalleNoticia>
+          <DetalleNoticia noticias={noticias}></DetalleNoticia>
         </Route>
         <Route exact path="/login">
-          <Login
-            noticias={noticias}
-            categorias={categorias}
-          ></Login>
+          <Login noticias={noticias} categorias={categorias}></Login>
         </Route>
         <Route exact path="/registro">
           <Registro></Registro>
@@ -153,7 +135,9 @@ function App() {
           ></AdminNoticias>
         </Route>
         <Route exact path="/login/admin/noticias/nueva">
-          <FormNoticias /* consultarAPI={consultarAPI} */ categorias={categorias}></FormNoticias>
+          <FormNoticias
+            /* consultarAPI={consultarAPI} */ categorias={categorias}
+          ></FormNoticias>
         </Route>
         <Route exact path="/login/admin/categorias/">
           <AdminCategorias
@@ -166,13 +150,17 @@ function App() {
           ></FormCategorias>
         </Route>
         <Route exact path="/login/admin/noticias/editar/:id">
-          <EditarNoticias /* consultarAPI={consultarAPI} */ categorias={categorias}></EditarNoticias>
+          <EditarNoticias
+            /* consultarAPI={consultarAPI} */ categorias={categorias}
+          ></EditarNoticias>
         </Route>
         <Route exact path="/login/admin/categorias/editar/:id">
-          <EditarCategorias /* consultarAPI={consultarAPI} */ categorias={categorias}></EditarCategorias>
+          <EditarCategorias
+            /* consultarAPI={consultarAPI} */ categorias={categorias}
+          ></EditarCategorias>
         </Route>
         <Route exact path="/login/admin/categorias/ver/:id">
-          <VerCategoria categorias={categorias}></VerCategoria>
+          <VerCategoria noticias={noticias} categorias={categorias}></VerCategoria>
         </Route>
         {/* fin del path admin */}
 
