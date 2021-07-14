@@ -49,7 +49,7 @@ const FormCategorias = (props) => {
           // Reseteo form
           e.target.reset();
           // Actualizar datos
-          props.consultarAPICat();
+          // props.consultarAPICat();
           // Redireccionar al componente AdminCategorías
           props.history.push("/login/admin/categorias");
         }

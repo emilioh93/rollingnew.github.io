@@ -132,7 +132,6 @@ const EditarNoticias = (props) => {
               <Form.Label>Fecha</Form.Label>
               <Form.Control
                 type="date"
-                // FIXME: error al recibir la fecha
                 defaultValue={noticia.fecha}
                 ref={fechaRef}
               ></Form.Control>

@@ -79,23 +79,18 @@ const FormNoticias = (props) => {
         const response = await fetch(URL, cabecera);
         console.log(response);
         if (response.status === 201) {
+          console.log("Desde if", response.status);
           Swal.fire(
             "Noticia agregada",
             "La noticia se cargó correctamente",
             "success"
           );
           e.target.reset();
-          // Actualizar datos
-          props.consultarAPI();
-          // TODO: Redireccionar al componente AdminNoticias
           props.history.push("/login/admin/noticias");
         }
       } catch (error) {
-        Swal.fire(
-          "Ocurrió un error",
-          "Inténtelo nuevamente en unos minutos",
-          "error"
-        );
+        console.log(error);
+        Swal.fire("Error", "Inténtelo nuevamente en unos minutos", "error");
       }
 
       // Espero respuesta
