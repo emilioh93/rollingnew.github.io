@@ -20,7 +20,6 @@ const EditarNoticias = (props) => {
   const [error, setError] = useState(false);
   // Traer variable de entorno
   const URL = process.env.REACT_APP_API_URL;
-  console.log("🚀 ~ file: FormNoticias.js ~ line 20 ~ FormNoticias ~ URL", URL);
 
   useEffect(() => {
     consultarNoticia();
@@ -36,12 +35,12 @@ const EditarNoticias = (props) => {
       }
     } catch (error) {
       console.log(error);
-      // Mostrar cartel al usuario
     }
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Validar datos
+    e.preventDefault();
+    // Validar datos
     if (
       campoRequerido(autorRef.current.value) &&
       campoRequerido(fechaRef.current.value) &&
@@ -54,7 +53,6 @@ const EditarNoticias = (props) => {
       // rangoValor(parseInt(precioProductoRef.current.value)) &&
       // campoRequerido(_categoria)
     ) {
-      // Ocultar cartel de error
       setError(false);
       // Si está bien, envío request a API
       try {
@@ -80,10 +78,7 @@ const EditarNoticias = (props) => {
             "success"
           );
           // Actualizar datos
-          props.consultarAPI();
-          // Quiero redireccionar a otra ruta del sistema de rutas
-          // FIXME: problema al redireccionar al admin
-          props.history.push("./login/admin/noticias");
+          // props.consultarAPI();
           window.location.href = "http://localhost:3000/login/admin/noticias";
         }
         console.log(respuesta);
@@ -96,8 +91,6 @@ const EditarNoticias = (props) => {
       setError(true);
     }
   };
-
-  console.log("Categoría de noticia: " + noticia.categoria);
 
   return (
     <Container className="my-5">
@@ -125,9 +118,6 @@ const EditarNoticias = (props) => {
             </Form.Group>
           </div>
           <div className="col-md-3 col-sm-12">
-            {
-              console.log("Fecha:", noticia.fecha)
-            }
             <Form.Group>
               <Form.Label>Fecha</Form.Label>
               <Form.Control
@@ -160,20 +150,11 @@ const EditarNoticias = (props) => {
                 ref={categoriaRef}
               >
                 <option selected="true" disabled="disabled">
-                  Seleccione la categoría
+                  {noticia.categoria}
                 </option>
-
                 {props.categorias.map((categoria) => {
                   return <option>{categoria.tituloCategoria}</option>;
                 })}
-                {/* <option>Actualidad</option>
-                <option>Espectáculos</option>
-                <option>Tecnología</option>
-                <option>Deportes</option>
-                <option>Economía</option>
-                <option>Salud</option>
-                <option>Política</option>
-                <option>Fotografía</option> */}
               </Form.Control>
             </Form.Group>
           </div>
@@ -227,7 +208,7 @@ const EditarNoticias = (props) => {
           </div>
         </Form.Group>
         <Button type="submit" className="mt-5 w-100" size="lg" block>
-          Agregar noticia
+          Editar noticia
         </Button>
         {error === true ? (
           <Alert variant="danger" className="my-5">

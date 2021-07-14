@@ -36,7 +36,7 @@ const ItemNoticia = (props) => {
               "success"
             );
             //  Volver a consultar la API
-            props.consultarAPI();
+            // props.consultarAPI();
           }
         } catch (error) {
           console.log(error);
