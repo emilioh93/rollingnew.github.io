@@ -21,6 +21,7 @@ import { useState, useEffect } from "react";
 import Registro from "./components/Registro";
 import EditarNoticias from "./components/EditarNoticias";
 import EditarCategorias from "./components/EditarCategorias";
+import VerCategoria from "./components/VerCategoria";
 
 function App() {
   const URL = process.env.REACT_APP_API_URL;
@@ -53,7 +54,6 @@ function App() {
           // Guardar datos en el state
           const datos = await respuesta.json();
           setNoticias(datos);
-          console.log('asdasd')
         } else {
         }
       } catch (error) {
@@ -170,6 +170,9 @@ function App() {
         </Route>
         <Route exact path="/login/admin/categorias/editar/:id">
           <EditarCategorias /* consultarAPI={consultarAPI} */ categorias={categorias}></EditarCategorias>
+        </Route>
+        <Route exact path="/login/admin/categorias/ver/:id">
+          <VerCategoria categorias={categorias}></VerCategoria>
         </Route>
         {/* fin del path admin */}
 

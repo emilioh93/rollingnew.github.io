@@ -6,6 +6,7 @@ import { faPencilAlt, faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 
 const ItemCategoria = (props) => {
+
   const eliminarCategoria = (codigo) => {
     Swal.fire({
       title: "¿Estás seguro de eliminar esta categoría?",
@@ -20,7 +21,8 @@ const ItemCategoria = (props) => {
       if (result.isConfirmed) {
         // Agregar solicitud deleted
         try {
-          const URLCat = process.env.REACT_APP_API_URL_Categorias + "/" + codigo;
+          const URLCat =
+            process.env.REACT_APP_API_URL_Categorias + "/" + codigo;
           const respuesta = await fetch(URLCat, {
             method: "DELETE",
             headers: {
@@ -55,17 +57,14 @@ const ItemCategoria = (props) => {
     });
   };
 
-
   return (
     <div>
       <ListGroup.Item className="d-flex justify-content-between">
-        <p>
-          {props.categoria.tituloCategoria}{" "}
-        </p>
+        <p>{props.categoria.tituloCategoria} </p>
         <div>
           <Link
             className="mr-2 btn btn-info text-light"
-            to={`/login/admin/categorias/editar/${props.categoria._id}`}
+            to={`/login/admin/categorias/ver/${props.categoria._id}`}
           >
             <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>
           </Link>

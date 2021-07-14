@@ -145,7 +145,6 @@ const EditarNoticias = (props) => {
               <Form.Label>Categoría</Form.Label>
               <Form.Control
                 as="select"
-                // FIXME: La  consola recibe la categoría, pero el input no la muestra
                 defaultValue={noticia.categoria}
                 ref={categoriaRef}
               >
