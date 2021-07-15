@@ -7,6 +7,8 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import ItemCategoria from "./ItemCategoria";
 
 const AdminCategorias = (props) => {
+
+
   return (
     <Container className="my-5">
       <Link exact={true} to="/login/admin" className="nav-link">

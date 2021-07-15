@@ -86,7 +86,8 @@ const FormNoticias = (props) => {
             "success"
           );
           e.target.reset();
-          props.history.push("/login/admin/noticias");
+          // props.history.push("/login/admin/noticias");
+          window.location.href = "/login/admin/noticias";
         }
       } catch (error) {
         console.log(error);

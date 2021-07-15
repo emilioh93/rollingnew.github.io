@@ -51,7 +51,8 @@ const FormCategorias = (props) => {
           // Actualizar datos
           // props.consultarAPICat();
           // Redireccionar al componente AdminCategorías
-          props.history.push("/login/admin/categorias");
+          // props.history.push("/login/admin/categorias");
+          window.location.href = "/login/admin/categorias";
         }
       } catch (error) {
         Swal.fire(
