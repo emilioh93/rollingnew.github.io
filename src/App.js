@@ -120,6 +120,10 @@ function App() {
         <Route exact path="/registro">
           <Registro></Registro>
         </Route>
+<<<<<<< HEAD
+=======
+
+>>>>>>> developer
         {/* path del admin */}
         <Route exact path="/login/admin">
           <Admin version="1.0"></Admin>
