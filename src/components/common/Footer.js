@@ -14,9 +14,9 @@ const Footer = () => {
           <div className="col text-center">
             <h4 className="mb-4">Contáctanos</h4>
             <ul className="list-unstyled">
-              <li><Link to={Error404}><FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon></Link>{" "}RollingNews</li>
-              <li><Link to={Error404}><FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon></Link>{" "}RollingNews</li>
-              <li><Link to={Error404}><FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon></Link>{" "}RollingNews</li>
+              <li><Link to="*"><FontAwesomeIcon icon={faInstagram}></FontAwesomeIcon></Link>{" "}RollingNews</li>
+              <li><Link to="*"><FontAwesomeIcon icon={faTwitter}></FontAwesomeIcon></Link>{" "}RollingNews</li>
+              <li><Link to="*"><FontAwesomeIcon icon={faFacebook}></FontAwesomeIcon></Link>{" "}RollingNews</li>
             </ul>
           </div>
           <div className="col text-center">

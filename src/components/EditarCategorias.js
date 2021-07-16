@@ -66,7 +66,8 @@ const EditarCategorias = (props) => {
           // Actualizar datos
           // props.consultarAPI();
           // Quiero redireccionar a otra ruta del sistema de rutas
-          props.history.push("/login/admin/categorias");
+          // props.history.push("/login/admin/categorias");
+          window.location.href = "/login/admin/categorias"
         }
         console.log(respuesta);
       } catch (error) {

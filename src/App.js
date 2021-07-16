@@ -120,10 +120,6 @@ function App() {
         <Route exact path="/registro">
           <Registro></Registro>
         </Route>
-        <Route exact path="#">
-          <Error404></Error404>
-        </Route>
-
         {/* path del admin */}
         <Route exact path="/login/admin">
           <Admin version="1.0"></Admin>
@@ -166,6 +162,9 @@ function App() {
 
         <Route exact path="/suscripcion">
           <Suscripcion></Suscripcion>
+        </Route>
+        <Route path="*">
+          <Error404></Error404>
         </Route>
       </Switch>
       <Footer></Footer>
