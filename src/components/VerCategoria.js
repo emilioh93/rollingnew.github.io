@@ -1,50 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { Container } from "react-bootstrap";
+import React from "react";
+import { Container, ListGroup } from "react-bootstrap";
 import { useParams } from "react-router-dom";
-import Categoria from "./Categoria";
+import ItemNoticia from "./ItemNoticia";
 
-const VerCategoria = (props) => {
-  const [categoria, setCategoria] = useState({});
+const VerCategoria = ({ noticias }) => {
   const { id } = useParams();
-
-  const URL = process.env.REACT_APP_API_URL_Categorias;
-
-  useEffect(() => {
-    consultarCategoria();
-  }, []);
-
-  const consultarCategoria = async () => {
-    try {
-      const respuesta = await fetch(URL + "/" + id);
-      console.log(respuesta);
-      if (respuesta.status === 200) {
-        const categoriaEncontrada = await respuesta.json();
-        setCategoria(categoriaEncontrada);
-        console.log(categoriaEncontrada);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const arrayFiltrado =
+    noticias && noticias.filter((noticia) => noticia.categoria === id);
 
   return (
     <Container>
-      <h2 className="text-center my-4">
-        Noticias en categoría: {categoria.tituloCategoria}
-      </h2>
-      <div>
-        {props.categorias.map((categoria) => {
-          return (
-            <Categoria
-              titulo={categoria.tituloCategoria}
-              noticias={props.noticias.filter(
-                (noticia) => noticia.categoria === categoria.tituloCategoria
-              )}
-              categorias={props.categorias}
-            ></Categoria>
-          );
-        })}
-      </div>
+      <h2 className="text-center my-5">Noticias en categoría: {id}</h2>
+      <ListGroup>
+        {arrayFiltrado &&
+          arrayFiltrado.map((noticia, i) => (
+            <ItemNoticia noticia={noticia} key={i}></ItemNoticia>
+          ))}
+      </ListGroup>
     </Container>
   );
 };

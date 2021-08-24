@@ -37,8 +37,6 @@ const ItemCategoria = (props) => {
               "La categoría seleccionada fue correctamente eliminada.",
               "success"
             );
-            //  Volver a consultar la API
-            // props.consultarAPI();
           }
         } catch (error) {
           console.log(error);
@@ -64,7 +62,7 @@ const ItemCategoria = (props) => {
         <div>
           <Link
             className="mr-2 btn btn-info text-light"
-            to={`/login/admin/categorias/ver/${props.categoria._id}`}
+            to={`/login/admin/categorias/ver/${props.categoria.tituloCategoria}`}
           >
             <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>
           </Link>
