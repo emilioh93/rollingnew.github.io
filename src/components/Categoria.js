@@ -4,7 +4,6 @@ import Card from "react-bootstrap/Card";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import imgNoticia from "../img/imagenNoDisponible.png";
-//import { Link } from "react-router-dom";
 import Noticia from "./Noticia";
 const Categoria = (props) => {
   return (

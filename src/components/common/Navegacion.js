@@ -20,16 +20,16 @@ const Navegacion = () => {
             <NavLink exact={true} to="/" className="nav-link">
               Inicio
             </NavLink>
-            <NavLink exact={true} to="/actualidad" className="nav-link">
+            <NavLink exact={true} to="/Actualidad" className="nav-link">
               Actualidad
             </NavLink>
-            <NavLink exact={true} to="/espectaculos" className="nav-link">
+            <NavLink exact={true} to="/Espectáculos" className="nav-link">
               Espectáculos
             </NavLink>
-            <NavLink exact={true} to="/tecnologia" className="nav-link">
+            <NavLink exact={true} to="/Tecnologia" className="nav-link">
               Tecnología
             </NavLink>
-            <NavLink exact={true} to="/deportes" className="nav-link">
+            <NavLink exact={true} to="/Deportes" className="nav-link">
               Deportes
             </NavLink>
             {/* Otras categorías */}
@@ -37,7 +37,7 @@ const Navegacion = () => {
               <NavDropdown.Item>
                 <NavLink
                   exact={true}
-                  to="/economia"
+                  to="/Economía"
                   className="nav-link text-dark"
                 >
                   Economía
@@ -46,7 +46,7 @@ const Navegacion = () => {
               <NavDropdown.Item>
                 <NavLink
                   exact={true}
-                  to="/politica"
+                  to="/Política"
                   className="nav-link text-dark"
                 >
                   Política
@@ -55,7 +55,7 @@ const Navegacion = () => {
               <NavDropdown.Item>
                 <NavLink
                   exact={true}
-                  to="/salud"
+                  to="/Salud"
                   className="nav-link text-dark"
                 >
                   Salud
@@ -64,7 +64,7 @@ const Navegacion = () => {
               <NavDropdown.Item>
                 <NavLink
                   exact={true}
-                  to="/fotografia"
+                  to="/Fotografía"
                   className="nav-link text-dark"
                 >
                   Fotografía

@@ -62,9 +62,6 @@ function App() {
     consultarAPICat();
   }, []);
 
-  // console.log(noticias);
-  // console.log(categorias);
-
   return (
     <Router>
       <Navegacion></Navegacion>
@@ -86,28 +83,52 @@ function App() {
           })}
         </Route>
         <Route exact path="/actualidad">
-          <PaginaCategoria tituloCategoria="Actualidad"></PaginaCategoria>
+          <PaginaCategoria
+            noticias={noticias}
+            tituloCategoria="Actualidad"
+          ></PaginaCategoria>
         </Route>
-        <Route exact path="/espectaculos">
-          <PaginaCategoria tituloCategoria="Espectáculos"></PaginaCategoria>
+        <Route exact path="/Espectáculos">
+          <PaginaCategoria
+            noticias={noticias}
+            tituloCategoria="Espectáculos"
+          ></PaginaCategoria>
         </Route>
-        <Route exact path="/tecnologia">
-          <PaginaCategoria tituloCategoria="Tecnología"></PaginaCategoria>
+        <Route exact path="/Tecnologia">
+          <PaginaCategoria
+            noticias={noticias}
+            tituloCategoria="Tecnología"
+          ></PaginaCategoria>
         </Route>
-        <Route exact path="/deportes">
-          <PaginaCategoria tituloCategoria="Deportes"></PaginaCategoria>
+        <Route exact path="/Deportes">
+          <PaginaCategoria
+            noticias={noticias}
+            tituloCategoria="Deportes"
+          ></PaginaCategoria>
         </Route>
-        <Route exact path="/economia">
-          <PaginaCategoria tituloCategoria="Economía"></PaginaCategoria>
+        <Route exact path="/Economía">
+          <PaginaCategoria
+            noticias={noticias}
+            tituloCategoria="Economía"
+          ></PaginaCategoria>
         </Route>
-        <Route exact path="/politica">
-          <PaginaCategoria tituloCategoria="Política"></PaginaCategoria>
+        <Route exact path="/Política">
+          <PaginaCategoria
+            noticias={noticias}
+            tituloCategoria="Política"
+          ></PaginaCategoria>
         </Route>
-        <Route exact path="/salud">
-          <PaginaCategoria tituloCategoria="Salud"></PaginaCategoria>
+        <Route exact path="/Salud">
+          <PaginaCategoria
+            noticias={noticias}
+            tituloCategoria="Salud"
+          ></PaginaCategoria>
         </Route>
-        <Route exact path="/fotografia">
-          <PaginaCategoria tituloCategoria="Fotografía"></PaginaCategoria>
+        <Route exact path="/Fotografía">
+          <PaginaCategoria
+            noticias={noticias}
+            tituloCategoria="Fotografía"
+          ></PaginaCategoria>
         </Route>
         <Route exact path="/noticias/:id">
           <DetalleNoticia></DetalleNoticia>

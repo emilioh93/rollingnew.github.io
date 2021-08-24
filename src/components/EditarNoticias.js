@@ -62,6 +62,7 @@ const EditarNoticias = (props) => {
           titulo: tituloRef.current.value,
           categoria: categoriaRef.current.value,
           resumen: resumenRef.current.value,
+          contenido: contenidoRef.current.value,
           imgGrande: imgGrandeRef.current.value,
           imgChica: imgChicaRef.current.value,
         };
