@@ -1,7 +1,6 @@
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Inicio from "./components/Inicio";
 import Navegacion from "./components/common/Navegacion";
 import Footer from "./components/common/Footer";
 import Principal from "./components/Principal";
@@ -71,7 +70,6 @@ function App() {
       <Navegacion></Navegacion>
       <Switch>
         <Route exact path="/">
-          <Inicio></Inicio>
           <Principal></Principal>
           <Covid></Covid>
 
@@ -111,8 +109,8 @@ function App() {
         <Route exact path="/fotografia">
           <PaginaCategoria tituloCategoria="Fotografía"></PaginaCategoria>
         </Route>
-        <Route exact path="/noticias/detalle">
-          <DetalleNoticia noticias={noticias}></DetalleNoticia>
+        <Route exact path="/noticias/:id">
+          <DetalleNoticia></DetalleNoticia>
         </Route>
         <Route exact path="/login">
           <Login noticias={noticias} categorias={categorias}></Login>
@@ -120,50 +118,33 @@ function App() {
         <Route exact path="/registro">
           <Registro></Registro>
         </Route>
-<<<<<<< HEAD
-=======
-
->>>>>>> developer
-        {/* path del admin */}
         <Route exact path="/login/admin">
           <Admin version="1.0"></Admin>
         </Route>
         <Route exact path="/login/admin/noticias">
-          <AdminNoticias
-            /* consultarAPI={consultarAPI} */
-            noticias={noticias}
-          ></AdminNoticias>
+          <AdminNoticias noticias={noticias}></AdminNoticias>
         </Route>
         <Route exact path="/login/admin/noticias/nueva">
-          <FormNoticias
-            /* consultarAPI={consultarAPI} */ categorias={categorias}
-          ></FormNoticias>
+          <FormNoticias categorias={categorias}></FormNoticias>
         </Route>
         <Route exact path="/login/admin/categorias/">
-          <AdminCategorias
-            // consultarAPICat={consultarAPICat}
-            categorias={categorias}
-          ></AdminCategorias>
+          <AdminCategorias categorias={categorias}></AdminCategorias>
         </Route>
         <Route exact path="/login/admin/categorias/nueva">
-          <FormCategorias /* consultarAPICat={consultarAPICat} */
-          ></FormCategorias>
+          <FormCategorias></FormCategorias>
         </Route>
         <Route exact path="/login/admin/noticias/editar/:id">
-          <EditarNoticias
-            /* consultarAPI={consultarAPI} */ categorias={categorias}
-          ></EditarNoticias>
+          <EditarNoticias categorias={categorias}></EditarNoticias>
         </Route>
         <Route exact path="/login/admin/categorias/editar/:id">
-          <EditarCategorias
-            /* consultarAPI={consultarAPI} */ categorias={categorias}
-          ></EditarCategorias>
+          <EditarCategorias categorias={categorias}></EditarCategorias>
         </Route>
         <Route exact path="/login/admin/categorias/ver/:id">
-          <VerCategoria noticias={noticias} categorias={categorias}></VerCategoria>
+          <VerCategoria
+            noticias={noticias}
+            categorias={categorias}
+          ></VerCategoria>
         </Route>
-        {/* fin del path admin */}
-
         <Route exact path="/suscripcion">
           <Suscripcion></Suscripcion>
         </Route>

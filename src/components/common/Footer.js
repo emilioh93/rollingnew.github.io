@@ -1,7 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faInstagram, faTwitter, faFacebook} from "@fortawesome/free-brands-svg-icons";
-import Error404 from "../Error404";
 import {Link} from "react-router-dom";
 import googleplay from './badge-apple-store.svg';
 import applestore from './google-play-badge-bb.svg'
