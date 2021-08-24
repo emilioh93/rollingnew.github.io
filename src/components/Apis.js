@@ -1,11 +1,13 @@
 import React from "react";
 
-const Apis = ({ dolar }) => {
+const Apis = ({ dolar, clima }) => {
   const dolarOficial =
     dolar && dolar.find((element) => element.casa.nombre === "Dolar Oficial");
 
   const dolarBlue =
     dolar && dolar.find((element) => element.casa.nombre === "Dolar Blue");
+
+  console.log(clima);
 
   return (
     <div className="d-flex px-5 py-3">
@@ -20,7 +22,9 @@ const Apis = ({ dolar }) => {
         }`}</span>
       </div>
       <div>
-        <span>Link</span>
+        <strong>Tucuman: </strong>{" "}
+        <span>{`Temp-Máx: ${clima && clima.main.temp_max}/
+          Temp-Min: ${clima && clima.main.temp_min}`}</span>
       </div>
     </div>
   );

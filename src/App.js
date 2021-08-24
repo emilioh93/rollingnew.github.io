@@ -31,6 +31,7 @@ function App() {
   const [noticias, setNoticias] = useState([{}]);
   const [categorias, setCategorias] = useState([{}]);
   const [dolar, setDolar] = useState();
+  const [clima, setClima] = useState();
   const { setUser } = useContext(UserContext);
 
   const consultarAPICat = async () => {
@@ -77,11 +78,22 @@ function App() {
       .then((data) => setDolar(data));
   };
 
+  const consultarClima = async () => {
+    await fetch(
+      "http://api.openweathermap.org/data/2.5/weather?q=Tucuman&units=metric&appid=7df71142edc80b63d4340159dc295641"
+    )
+      .then((response) => response.json())
+      .then((data) => setClima(data));
+  };
+
+  console.log(clima);
+
   useEffect(() => {
     consultarAPI();
     consultarAPICat();
     consultarUser();
     consultarUSD();
+    consultarClima();
   }, []);
 
   return (
@@ -89,7 +101,7 @@ function App() {
       <Navegacion></Navegacion>
       <Switch>
         <Route exact path="/">
-          <Apis dolar={dolar}></Apis>
+          <Apis dolar={dolar} clima={clima}></Apis>
           <Principal></Principal>
           <Covid></Covid>
           {categorias.map((categoria) => {
