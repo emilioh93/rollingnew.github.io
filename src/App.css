@@ -24,6 +24,11 @@
     margin-left: 70px;
 }
 
+#logout {
+    background-color: transparent;
+    border: none;
+}
+
 
 /* TERMINA NAVBAR */
 

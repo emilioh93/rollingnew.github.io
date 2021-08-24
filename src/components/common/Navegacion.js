@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+import { Navbar, Nav, Container, NavDropdown, Button } from "react-bootstrap";
 import { NavLink, useHistory } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import logo from "../common/LogoRollingNews.png";
@@ -99,21 +99,20 @@ const Navegacion = () => {
               <>
                 <NavLink
                   exact={true}
-                  to="/"
-                  id="login"
-                  className="nav-link"
-                  onClick={handleLogout}
-                >
-                  <strong className="margenIzq">Logout</strong>
-                </NavLink>
-                <NavLink
-                  exact={true}
                   to="/login/admin"
                   id="login"
                   className="nav-link"
                 >
                   <strong className="margenIzq">Admin</strong>
                 </NavLink>
+                <Button
+                  exact={true}
+                  id="logout"
+                  className="nav-link"
+                  onClick={handleLogout}
+                >
+                  <strong className="margenIzq">Logout</strong>
+                </Button>
               </>
             ) : (
               <>
