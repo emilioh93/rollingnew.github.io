@@ -23,12 +23,14 @@ import EditarCategorias from "./components/EditarCategorias";
 import VerCategoria from "./components/VerCategoria";
 import { UserContext } from "./context/UserContext";
 import PrivateRoute from "./components/PrivateRoute";
+import Apis from "./components/Apis";
 
 function App() {
   const URL = process.env.REACT_APP_API_URL;
   const URLCat = process.env.REACT_APP_API_URL_Categorias;
   const [noticias, setNoticias] = useState([{}]);
   const [categorias, setCategorias] = useState([{}]);
+  const [dolar, setDolar] = useState();
   const { setUser } = useContext(UserContext);
 
   const consultarAPICat = async () => {
@@ -69,10 +71,17 @@ function App() {
     }
   };
 
+  const consultarUSD = async () => {
+    await fetch("https://www.dolarsi.com/api/api.php?type=valoresprincipales")
+      .then((response) => response.json())
+      .then((data) => setDolar(data));
+  };
+
   useEffect(() => {
     consultarAPI();
     consultarAPICat();
     consultarUser();
+    consultarUSD();
   }, []);
 
   return (
@@ -80,6 +89,7 @@ function App() {
       <Navegacion></Navegacion>
       <Switch>
         <Route exact path="/">
+          <Apis dolar={dolar}></Apis>
           <Principal></Principal>
           <Covid></Covid>
           {categorias.map((categoria) => {
