@@ -3,15 +3,29 @@ import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 import { NavLink, useHistory } from "react-router-dom";
 import { UserContext } from "../../context/UserContext";
 import logo from "../common/LogoRollingNews.png";
+import Swal from "sweetalert2";
 
 const Navegacion = () => {
   const { user, setUser } = useContext(UserContext);
   let history = useHistory();
 
   const handleLogout = () => {
-    history.push("/");
-    setUser(false);
-    localStorage.removeItem("user");
+    Swal.fire({
+      title: "¿Cerrar sesión?",
+      text: "¿Está seguro que desea cerrar sesión?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Cerrar sesión",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire("Cerraste sesión", "", "success");
+        setUser(false);
+        localStorage.removeItem("user");
+        history.push("/");
+      }
+    });
   };
 
   return (

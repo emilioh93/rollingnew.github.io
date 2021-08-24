@@ -1,7 +1,6 @@
 import React, { useContext, useState } from "react";
-import ReactDOM from "react-dom";
 import { Container, Form, Button } from "react-bootstrap";
-import { Link, useHistory, useParams, withRouter } from "react-router-dom";
+import { Link, useHistory, withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
 import { UserContext } from "../context/UserContext";
 
@@ -16,7 +15,7 @@ const Login = (props) => {
     e.preventDefault();
 
     if (usuario === "admin" && password === 1234) {
-      alert("ingreso valido");
+      Swal.fire("Bienvenido Admin", "", "success");
       history.push("/login/admin");
       setSesion(true);
       setUser(true);
