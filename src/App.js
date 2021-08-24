@@ -16,50 +16,63 @@ import Suscripcion from "./components/Suscripcion";
 import Login from "./components/Login";
 import Error404 from "./components/Error404";
 import DetalleNoticia from "./components/DetalleNoticia";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import Registro from "./components/Registro";
 import EditarNoticias from "./components/EditarNoticias";
 import EditarCategorias from "./components/EditarCategorias";
 import VerCategoria from "./components/VerCategoria";
+import { UserContext } from "./context/UserContext";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   const URL = process.env.REACT_APP_API_URL;
   const URLCat = process.env.REACT_APP_API_URL_Categorias;
   const [noticias, setNoticias] = useState([{}]);
   const [categorias, setCategorias] = useState([{}]);
+  const { setUser } = useContext(UserContext);
+
+  const consultarAPICat = async () => {
+    try {
+      const respuesta = await fetch(URLCat);
+      console.log(respuesta);
+      if (respuesta.status === 200) {
+        // Guardar datos en el state
+        const datos = await respuesta.json();
+        setCategorias(datos);
+      } else {
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const consultarAPI = async () => {
+    try {
+      const respuesta = await fetch(URL);
+      console.log(respuesta);
+      if (respuesta.status === 200) {
+        // Guardar datos en el state
+        const datos = await respuesta.json();
+        setNoticias(datos);
+      } else {
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const consultarUser = async () => {
+    if (localStorage.getItem("user")) {
+      setUser(true);
+    } else {
+      setUser(false);
+    }
+  };
 
   useEffect(() => {
-    const consultarAPICat = async () => {
-      try {
-        const respuesta = await fetch(URLCat);
-        console.log(respuesta);
-        if (respuesta.status === 200) {
-          // Guardar datos en el state
-          const datos = await respuesta.json();
-          setCategorias(datos);
-        } else {
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
-
-    const consultarAPI = async () => {
-      try {
-        const respuesta = await fetch(URL);
-        console.log(respuesta);
-        if (respuesta.status === 200) {
-          // Guardar datos en el state
-          const datos = await respuesta.json();
-          setNoticias(datos);
-        } else {
-        }
-      } catch (error) {
-        console.log(error);
-      }
-    };
     consultarAPI();
     consultarAPICat();
+    consultarUser();
   }, []);
 
   return (
@@ -69,7 +82,6 @@ function App() {
         <Route exact path="/">
           <Principal></Principal>
           <Covid></Covid>
-
           {categorias.map((categoria) => {
             return (
               <Categoria
@@ -82,7 +94,7 @@ function App() {
             );
           })}
         </Route>
-        <Route exact path="/actualidad">
+        <Route exact path="/Actualidad">
           <PaginaCategoria
             noticias={noticias}
             tituloCategoria="Actualidad"
@@ -94,7 +106,7 @@ function App() {
             tituloCategoria="Espectáculos"
           ></PaginaCategoria>
         </Route>
-        <Route exact path="/Tecnologia">
+        <Route exact path="/Tecnología">
           <PaginaCategoria
             noticias={noticias}
             tituloCategoria="Tecnología"
@@ -139,33 +151,33 @@ function App() {
         <Route exact path="/registro">
           <Registro></Registro>
         </Route>
-        <Route exact path="/login/admin">
+        <PrivateRoute exact path="/login/admin">
           <Admin version="1.0"></Admin>
-        </Route>
-        <Route exact path="/login/admin/noticias">
+        </PrivateRoute>
+        <PrivateRoute exact path="/login/admin/noticias">
           <AdminNoticias noticias={noticias}></AdminNoticias>
-        </Route>
-        <Route exact path="/login/admin/noticias/nueva">
+        </PrivateRoute>
+        <PrivateRoute exact path="/login/admin/noticias/nueva">
           <FormNoticias categorias={categorias}></FormNoticias>
-        </Route>
-        <Route exact path="/login/admin/categorias/">
+        </PrivateRoute>
+        <PrivateRoute exact path="/login/admin/categorias/">
           <AdminCategorias categorias={categorias}></AdminCategorias>
-        </Route>
-        <Route exact path="/login/admin/categorias/nueva">
+        </PrivateRoute>
+        <PrivateRoute exact path="/login/admin/categorias/nueva">
           <FormCategorias></FormCategorias>
-        </Route>
-        <Route exact path="/login/admin/noticias/editar/:id">
+        </PrivateRoute>
+        <PrivateRoute exact path="/login/admin/noticias/editar/:id">
           <EditarNoticias categorias={categorias}></EditarNoticias>
-        </Route>
-        <Route exact path="/login/admin/categorias/editar/:id">
+        </PrivateRoute>
+        <PrivateRoute exact path="/login/admin/categorias/editar/:id">
           <EditarCategorias categorias={categorias}></EditarCategorias>
-        </Route>
-        <Route exact path="/login/admin/categorias/ver/:id">
+        </PrivateRoute>
+        <PrivateRoute exact path="/login/admin/categorias/ver/:id">
           <VerCategoria
             noticias={noticias}
             categorias={categorias}
           ></VerCategoria>
-        </Route>
+        </PrivateRoute>
         <Route exact path="/suscripcion">
           <Suscripcion></Suscripcion>
         </Route>

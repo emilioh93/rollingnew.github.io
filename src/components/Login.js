@@ -1,31 +1,26 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import ReactDOM from "react-dom";
 import { Container, Form, Button } from "react-bootstrap";
-import { Link, useParams, withRouter } from "react-router-dom";
+import { Link, useHistory, useParams, withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
+import { UserContext } from "../context/UserContext";
 
 const Login = (props) => {
   const [usuario, setUsuario] = useState();
   const [password, setPassword] = useState(0);
   const [sesion, setSesion] = useState(false);
-
-  // console.log(props.noticias[0].autor)
-  // console.log(props.noticias[0].fecha)
-  // console.log(props.noticias[0].titulo)
-  // console.log(props.noticias[0].categoria)
-  // console.log(props.noticias[0].resumen)
-  // console.log(props.noticias[0].contenido)
-  // console.log(props.noticias[0].imgGrande)
-  // console.log(props.noticias[0].imgChica)
-  // console.log(props.categorias)
+  const { setUser } = useContext(UserContext);
+  let history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     if (usuario === "admin" && password === 1234) {
       alert("ingreso valido");
-      props.history.push("/login/admin");
+      history.push("/login/admin");
       setSesion(true);
+      setUser(true);
+      localStorage.setItem("user", usuario);
       console.log(sesion);
     } else {
       alert("ingreso invalido");
@@ -56,7 +51,9 @@ const Login = (props) => {
           <Button className="" type="submit">
             Ingresar
           </Button>
-          <Link to="/registro" className='ms-3'>Registrate gratis</Link>
+          <Link to="/registro" className="ms-3">
+            Registrate gratis
+          </Link>
         </Form.Group>
       </Form>
     </Container>

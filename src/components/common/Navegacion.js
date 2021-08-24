@@ -1,15 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
+import { UserContext } from "../../context/UserContext";
 import logo from "../common/LogoRollingNews.png";
 
 const Navegacion = () => {
+  const { user, setUser } = useContext(UserContext);
+  let history = useHistory();
+
+  const handleLogout = () => {
+    history.push("/");
+    setUser(false);
+    localStorage.removeItem("user");
+  };
+
   return (
     <Navbar bg="dark" expand="lg" variant="dark">
       <Container>
         <Navbar.Brand id="logoLg" href="#home">
           <NavLink exact={true} to="/">
-          <img src={logo} alt="RollingNews" className="logoLgImg" />
+            <img src={logo} alt="RollingNews" className="logoLgImg" />
           </NavLink>
         </Navbar.Brand>
         {/* Logo para mobile */}
@@ -26,7 +36,7 @@ const Navegacion = () => {
             <NavLink exact={true} to="/Espectáculos" className="nav-link">
               Espectáculos
             </NavLink>
-            <NavLink exact={true} to="/Tecnologia" className="nav-link">
+            <NavLink exact={true} to="/Tecnología" className="nav-link">
               Tecnología
             </NavLink>
             <NavLink exact={true} to="/Deportes" className="nav-link">
@@ -71,12 +81,46 @@ const Navegacion = () => {
                 </NavLink>
               </NavDropdown.Item>
             </NavDropdown>
-            <NavLink exact={true} to="/login" id="login" className="nav-link">
-              <strong className="margenIzq">Login</strong>
-            </NavLink>
-            <NavLink exact={true} to="/suscripcion" id="suscripcion" className="nav-link">
-              <strong>Suscripción</strong>
-            </NavLink>
+            {user ? (
+              <>
+                <NavLink
+                  exact={true}
+                  to="/"
+                  id="login"
+                  className="nav-link"
+                  onClick={handleLogout}
+                >
+                  <strong className="margenIzq">Logout</strong>
+                </NavLink>
+                <NavLink
+                  exact={true}
+                  to="/login/admin"
+                  id="login"
+                  className="nav-link"
+                >
+                  <strong className="margenIzq">Admin</strong>
+                </NavLink>
+              </>
+            ) : (
+              <>
+                <NavLink
+                  exact={true}
+                  to="/login"
+                  id="login"
+                  className="nav-link"
+                >
+                  <strong className="margenIzq">Login</strong>
+                </NavLink>
+                <NavLink
+                  exact={true}
+                  to="/suscripcion"
+                  id="suscripcion"
+                  className="nav-link"
+                >
+                  <strong>Suscripción</strong>
+                </NavLink>
+              </>
+            )}
           </Nav>
         </Navbar.Collapse>
       </Container>
