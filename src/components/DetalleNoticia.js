@@ -33,12 +33,18 @@ const DetalleNoticia = () => {
       <hr className="my-3"></hr>
       <p className="my-3">{noticia.categoria}</p>
       <hr className="my-3"></hr>
-      <h1 className="text-center my-3">{noticia.titulo}</h1>
-      <p className="my-3">{noticia.resumen}</p>
-      <Image className="my-3" src={noticia.imgGrande} fluid />
-      <p className="my-3">{noticia.contenido}</p>
-      <hr className="my-3" width="75%"></hr>
-      <hr className="my-3" width="25%"></hr>
+      <h1 className="text-center my-4">{noticia.titulo}</h1>
+      <article className='row'>
+      <Image className="my-3 col-sm-12 col-md-5" src={noticia.imgGrande} fluid />
+      <h3 className="my-5 col-sm-12 col-md-7">{noticia.resumen}</h3>
+      </article>
+      <hr className="my-3"></hr>
+      <hr className="my-3"></hr>
+      <hr className="my-3"></hr>
+      <hr className="my-3"></hr>
+      <h5 className="my-5">{noticia.contenido}</h5>
+      <hr className="my-3"></hr>
+      <hr className="my-3"></hr>
     </Container>
   );
 };
