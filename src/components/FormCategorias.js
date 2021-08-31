@@ -15,7 +15,7 @@ const FormCategorias = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validaciones
+
     if (tituloCategoria.trim() !== "") {
 
       setError(false);

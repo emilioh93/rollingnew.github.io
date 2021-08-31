@@ -21,36 +21,24 @@ const FormNoticias = (props) => {
   moment.locale("es");
   fechaMoment.format("Do MMMM YYYY");
   console.log("Fecha: " + fechaMoment.format("Do MMMM YYYY"));
-  // Traer variable de entorno
   const URL = process.env.REACT_APP_API_URL;
   console.log("🚀 ~ file: FormNoticias.js ~ line 20 ~ FormNoticias ~ URL", URL);
 
-  // const leerCategoria = (e) => {
-  //   setCategoria(e.target.value);
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validaciones
+    
     if (
       autor.trim() !== "" &&
       fecha.trim() !== "" &&
       titulo.trim() !== "" &&
-      // categoria.trim() !== "" &&
+    
       resumen.trim() !== "" &&
       contenido.trim() !== "" &&
       imgGrande.trim() !== "" &&
       imgChica.trim() !== ""
     ) {
-      // Si está todo ok, envío los datos del producto a la API
       setError(false);
 
-      // Crear objeto
-      // const producto = {
-      //     nombreProducto: nombreProducto,
-      //     precioProducto: precioProducto,
-      //     categoria: categoria
-      // }
       const noticia = {
         autor,
         fecha,
@@ -65,9 +53,8 @@ const FormNoticias = (props) => {
         "🚀 ~ file: FormNoticias.js ~ line 49 ~ handleSubmit ~ noticia",
         noticia
       );
-      // Envío request POST
+
       try {
-        // Estructura de datos a enviar
         const cabecera = {
           method: "POST",
           headers: {
@@ -86,7 +73,6 @@ const FormNoticias = (props) => {
             "success"
           );
           e.target.reset();
-          // props.history.push("/login/admin/noticias");
           window.location.href = "/login/admin/noticias";
         }
       } catch (error) {
@@ -94,9 +80,7 @@ const FormNoticias = (props) => {
         Swal.fire("Error", "Inténtelo nuevamente en unos minutos", "error");
       }
 
-      // Espero respuesta
     } else {
-      // Si no está todo ok, valido el error
       setError(true);
     }
   };
@@ -107,10 +91,6 @@ const FormNoticias = (props) => {
 
   return (
     <Container className="my-5">
-      {/* <Link exact={true} to="/login/admin/noticias" className="nav-link">
-        <FontAwesomeIcon icon={faArrowLeft} className="me-2"></FontAwesomeIcon>
-        Volver al administrador
-      </Link> */}
       <Button onClick={retornarNoticias}>Volver</Button>
       <Form onSubmit={handleSubmit}>
         <h3 className="my-5 text-center">Agregar Noticia</h3>
@@ -168,14 +148,6 @@ const FormNoticias = (props) => {
                 {props.categorias.map((categoria) => {
                   return <option>{categoria.tituloCategoria}</option>;
                 })}
-                {/*   <option>Actualidad</option>
-                <option>Espectaculo</option>
-                <option>Tecnologia</option>
-                <option>Deporte</option>
-                <option>Economia</option>
-                <option>Salud</option>
-                <option>Politica</option>
-                <option>Fotografia</option> */}
               </Form.Control>
             </Form.Group>
           </div>

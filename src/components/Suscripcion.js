@@ -16,7 +16,6 @@ const Suscripcion = () => {
   const [terminos, setTerminos] = useState();
   const [validacion, setValidacion] = useState(false);
 
-  //email js
   const enviarEmail = () => {
     emailjs.init("user_fbZqDWU5ahJrkgKSQZGX0");
 

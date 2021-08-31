@@ -11,7 +11,7 @@ const EditarCategorias = (props) => {
   const { id } = useParams();
   const tituloCategoriaRef = useRef("");
   const [error, setError] = useState(false);
-  // Traer variable de entorno
+  
   const URLCat = process.env.REACT_APP_API_URL_Categorias;
   console.log(URLCat);
 
@@ -32,7 +32,6 @@ const EditarCategorias = (props) => {
       }
     } catch (error) {
       console.log(error);
-      // Mostrar cartel al usuario
     }
   };
 
@@ -40,18 +39,15 @@ const EditarCategorias = (props) => {
 
 
   const handleSubmit = async (e) => {
-    e.preventDefault(); // Validar datos
+    e.preventDefault();
     if (
       campoRequerido(tituloCategoriaRef.current.value)
     ) {
-      // Ocultar cartel de error
       setError(false);
-      // Si está bien, envío request a API
       try {
         const categoriaModificada = {
           tituloCategoria: tituloCategoriaRef.current.value,
         };
-        // Realizar request
         const respuesta = await fetch(`${URLCat}/${categoria._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -63,18 +59,13 @@ const EditarCategorias = (props) => {
             "La categoría fue modificada correctamente",
             "success"
           );
-          // Actualizar datos
-          // props.consultarAPI();
-          // Quiero redireccionar a otra ruta del sistema de rutas
-          props.history.push("/login/admin/categorias");
+          window.location.href = "/login/admin/categorias"
         }
         console.log(respuesta);
       } catch (error) {
         console.log(error);
-        // Mostrar cartel al usuario de que algo falló
       }
     } else {
-      // Si está mal, pido al usuario que revise los datos
       setError(true);
     }
   };

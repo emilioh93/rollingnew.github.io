@@ -20,19 +20,12 @@ const Registro = () => {
   
   };
 
-  //crear cuenta con los valores del imput
   const crearCuenta = ()=>{
     const cuentaCreada = new Cuentas (usuarioCreado,passCreado)
     console.log(cuentaCreada)
     setCuenta(cuentaCreada);
     console.log(cuenta)
   }
-  
-  //agregar cuenta al arreglo de funciones
-  // const agregarCuenta = () => {
-  //   setListaCuentas(cuentaCreada)
-  //   console.log(listaCuentas)
-  // }
 
   return (
     <Container className="d-flex justify-content-center">
