@@ -19,7 +19,6 @@ const ItemCategoria = (props) => {
       cancelButtonText: "Cancelar",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        // Agregar solicitud deleted
         try {
           const URLCat =
             process.env.REACT_APP_API_URL_Categorias + "/" + codigo;

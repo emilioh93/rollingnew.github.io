@@ -18,7 +18,7 @@ const EditarNoticias = (props) => {
   const imgGrandeRef = useRef("");
   const imgChicaRef = useRef("");
   const [error, setError] = useState(false);
-  // Traer variable de entorno
+
   const URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
@@ -40,7 +40,6 @@ const EditarNoticias = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Validar datos
     if (
       campoRequerido(autorRef.current.value) &&
       campoRequerido(fechaRef.current.value) &&
@@ -50,11 +49,9 @@ const EditarNoticias = (props) => {
       campoRequerido(contenidoRef.current.value) &&
       campoRequerido(imgGrandeRef.current.value) &&
       campoRequerido(imgChicaRef.current.value)
-      // rangoValor(parseInt(precioProductoRef.current.value)) &&
-      // campoRequerido(_categoria)
+     
     ) {
       setError(false);
-      // Si está bien, envío request a API
       try {
         const noticiaModificada = {
           autor: autorRef.current.value,
@@ -66,7 +63,7 @@ const EditarNoticias = (props) => {
           imgGrande: imgGrandeRef.current.value,
           imgChica: imgChicaRef.current.value,
         };
-        // Realizar request
+
         const respuesta = await fetch(`${URL}/${noticia._id}`, {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -78,17 +75,13 @@ const EditarNoticias = (props) => {
             "La noticia fue modificada correctamente",
             "success"
           );
-          // Actualizar datos
-          // props.consultarAPI();
           window.location.href = "http://localhost:3000/login/admin/noticias";
         }
         console.log(respuesta);
       } catch (error) {
         console.log(error);
-        // Mostrar cartel al usuario de que algo falló
       }
     } else {
-      // Si está mal, pido al usuario que revise los datos
       setError(true);
     }
   };

@@ -1,10 +1,7 @@
 import React from "react";
-import CardGroup from "react-bootstrap/CardGroup";
 import Card from "react-bootstrap/Card";
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import imgNoticia from "../img/imagenNoDisponible.png";
-import Noticia from "./Noticia";
 const Categoria = (props) => {
   return (
     <Container className="my-5 borde">

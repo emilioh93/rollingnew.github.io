@@ -1,5 +1,3 @@
-// Agregar las validaciones
-
 const campoRequerido = (valor) => {
     if (valor.trim() === "") {
       return false;
