@@ -18,7 +18,7 @@ const ItemNoticia = (props) => {
       cancelButtonText: "Cancelar",
     }).then(async (result) => {
       if (result.isConfirmed) {
-        // Agregar solicitud deleted
+
         try {
           const URL = process.env.REACT_APP_API_URL + "/" + codigo;
           const respuesta = await fetch(URL, {
@@ -35,8 +35,6 @@ const ItemNoticia = (props) => {
               "La noticia seleccionada fue correctamente eliminada.",
               "success"
             );
-            //  Volver a consultar la API
-            // props.consultarAPI();
           }
         } catch (error) {
           console.log(error);

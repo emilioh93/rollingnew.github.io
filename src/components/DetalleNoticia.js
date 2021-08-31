@@ -1,10 +1,8 @@
 import React from 'react';
 import { Container} from 'react-bootstrap';
-import { withRouter } from 'react-router-dom';
 import Image from 'react-bootstrap/Image'
 
 const DetalleNoticia = (props) => {
-  props.history.push('./components/DetalleNoticia');
   return (
    <Container>
      <p className='my-3'>{props.noticias[0].fecha}</p>
@@ -22,4 +20,4 @@ const DetalleNoticia = (props) => {
   );
 };
 
-export default withRouter(DetalleNoticia);
+export default DetalleNoticia;

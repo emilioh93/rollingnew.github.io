@@ -35,7 +35,7 @@ function App() {
         const respuesta = await fetch(URLCat);
         console.log(respuesta);
         if (respuesta.status === 200) {
-          // Guardar datos en el state
+
           const datos = await respuesta.json();
           setCategorias(datos);
         } else {
@@ -50,7 +50,7 @@ function App() {
         const respuesta = await fetch(URL);
         console.log(respuesta);
         if (respuesta.status === 200) {
-          // Guardar datos en el state
+
           const datos = await respuesta.json();
           setNoticias(datos);
         } else {
@@ -62,9 +62,6 @@ function App() {
     consultarAPI();
     consultarAPICat();
   }, []);
-
-  // console.log(noticias);
-  // console.log(categorias);
 
   return (
     <Router>
@@ -121,45 +118,44 @@ function App() {
           <Registro></Registro>
         </Route>
 
-        {/* path del admin */}
         <Route exact path="/login/admin">
           <Admin version="1.0"></Admin>
         </Route>
         <Route exact path="/login/admin/noticias">
           <AdminNoticias
-            /* consultarAPI={consultarAPI} */
+
             noticias={noticias}
           ></AdminNoticias>
         </Route>
         <Route exact path="/login/admin/noticias/nueva">
           <FormNoticias
-            /* consultarAPI={consultarAPI} */ categorias={categorias}
+            categorias={categorias}
           ></FormNoticias>
         </Route>
         <Route exact path="/login/admin/categorias/">
           <AdminCategorias
-            // consultarAPICat={consultarAPICat}
+            
             categorias={categorias}
           ></AdminCategorias>
         </Route>
         <Route exact path="/login/admin/categorias/nueva">
-          <FormCategorias /* consultarAPICat={consultarAPICat} */
+          <FormCategorias 
           ></FormCategorias>
         </Route>
         <Route exact path="/login/admin/noticias/editar/:id">
           <EditarNoticias
-            /* consultarAPI={consultarAPI} */ categorias={categorias}
+             categorias={categorias}
           ></EditarNoticias>
         </Route>
         <Route exact path="/login/admin/categorias/editar/:id">
           <EditarCategorias
-            /* consultarAPI={consultarAPI} */ categorias={categorias}
+             categorias={categorias}
           ></EditarCategorias>
         </Route>
         <Route exact path="/login/admin/categorias/ver/:id">
           <VerCategoria noticias={noticias} categorias={categorias}></VerCategoria>
         </Route>
-        {/* fin del path admin */}
+        
 
         <Route exact path="/suscripcion">
           <Suscripcion></Suscripcion>

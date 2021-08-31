@@ -41,7 +41,6 @@ const Suscripcion = () => {
       );
   };
 
-  //validacion del formulario
   const handleSubmit = (e) => {
     e.preventDefault();
     setValidacion(true);
@@ -171,7 +170,7 @@ const Suscripcion = () => {
             Llenar el campo
           </Form.Control.Feedback>
         </Form.Group>
-        {/* Agregar terminos y condiciones */}
+
         <Form.Group>
           <Form.Check
             label="Acepto los términos y condiciones"

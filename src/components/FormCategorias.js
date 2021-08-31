@@ -8,28 +8,25 @@ import Swal from "sweetalert2";
 const FormCategorias = (props) => {
   const [tituloCategoria, setTituloCategoria] = useState("");
   const [error, setError] = useState(false);
-  // Traer variable de entorno
+
   const URL = process.env.REACT_APP_API_URL_Categorias;
   console.log(URL);
 
-  // const leerCategoria = (e) => {
-  //   setCategoria(e.target.value);
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     // Validaciones
     if (tituloCategoria.trim() !== "") {
-      // Si está todo ok, envío los datos de la categoría a la API
+
       setError(false);
-      // Crear objeto
+
       const categoria = {
         tituloCategoria,
       };
       console.log(categoria);
-      // Envío request POST
+
       try {
-        // Estructura de datos a enviar
+
         const cabecera = {
           method: "POST",
           headers: {
@@ -46,12 +43,9 @@ const FormCategorias = (props) => {
             "La categoría se cargó correctamente",
             "success"
           );
-          // Reseteo form
+
           e.target.reset();
-          // Actualizar datos
-          // props.consultarAPICat();
-          // Redireccionar al componente AdminCategorías
-          // props.history.push("/login/admin/categorias");
+          
           window.location.href = "/login/admin/categorias";
         }
       } catch (error) {
@@ -62,9 +56,8 @@ const FormCategorias = (props) => {
         );
       }
 
-      // Espero respuesta
     } else {
-      // Si no está todo ok, valido el error
+      
       setError(true);
     }
   };
