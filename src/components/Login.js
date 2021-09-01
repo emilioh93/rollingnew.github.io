@@ -7,7 +7,6 @@ import { UserContext } from "../context/UserContext";
 const Login = (props) => {
   const [usuario, setUsuario] = useState();
   const [password, setPassword] = useState(0);
-  const [sesion, setSesion] = useState(false);
   const { setUser } = useContext(UserContext);
   let history = useHistory();
 
@@ -17,12 +16,10 @@ const Login = (props) => {
     if (usuario === "admin" && password === 1234) {
       Swal.fire("Bienvenido Admin", "", "success");
       history.push("/login/admin");
-      setSesion(true);
       setUser(true);
       localStorage.setItem("user", usuario);
     } else {
       alert("ingreso invalido");
-      setSesion(false);
     }
   };
 
