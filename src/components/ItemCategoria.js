@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 
-const ItemCategoria = (props) => {
+const ItemCategoria = ({consultarAPICat, categoria}) => {
   const eliminarCategoria = (codigo) => {
     Swal.fire({
       title: "¿Estás seguro de eliminar esta categoría?",
@@ -28,14 +28,13 @@ const ItemCategoria = (props) => {
             },
           });
 
-          console.log(respuesta);
           if (respuesta.status === 200) {
             Swal.fire(
               "Categoría eliminada!",
               "La categoría seleccionada fue correctamente eliminada.",
               "success"
             );
-            // props.consultarAPI();
+            consultarAPICat();
           }
         } catch (error) {
           console.log(error);
@@ -57,23 +56,23 @@ const ItemCategoria = (props) => {
   return (
     <div>
       <ListGroup.Item className="d-flex justify-content-between">
-        <p>{props.categoria.tituloCategoria} </p>
+        <p>{categoria.tituloCategoria} </p>
         <div>
           <Link
             className="mr-2 btn btn-info text-light"
-            to={`/login/admin/categorias/ver/${props.categoria.tituloCategoria}`}
+            to={`/login/admin/categorias/ver/${categoria.tituloCategoria}`}
           >
             <FontAwesomeIcon icon={faEye}></FontAwesomeIcon>
           </Link>
           <Link
             className="mr-2 btn btn-warning text-light"
-            to={`/login/admin/categorias/editar/${props.categoria._id}`}
+            to={`/login/admin/categorias/editar/${categoria._id}`}
           >
             <FontAwesomeIcon icon={faPencilAlt}></FontAwesomeIcon>
           </Link>
           <Button
             variant="danger"
-            onClick={() => eliminarCategoria(props.categoria._id)}
+            onClick={() => eliminarCategoria(categoria._id)}
           >
             <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
           </Button>

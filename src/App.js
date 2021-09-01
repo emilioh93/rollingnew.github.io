@@ -184,7 +184,10 @@ function App() {
           <FormNoticias categorias={categorias}></FormNoticias>
         </PrivateRoute>
         <PrivateRoute exact path="/login/admin/categorias/">
-          <AdminCategorias categorias={categorias}></AdminCategorias>
+          <AdminCategorias
+            consultarAPICat={consultarAPICat}
+            categorias={categorias}
+          ></AdminCategorias>
         </PrivateRoute>
         <PrivateRoute exact path="/login/admin/categorias/nueva">
           <FormCategorias></FormCategorias>

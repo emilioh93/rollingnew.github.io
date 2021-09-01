@@ -23,7 +23,6 @@ const PaginaCategoria = ({ tituloCategoria, noticias }) => {
                 </Card.Body>
                 <Card.Footer>
                   <Link to={`/noticias/${noticia._id}`}>Leer más</Link>
-                  <small className="text-muted">Last updated 3 mins ago</small>
                 </Card.Footer>
               </Card>
             );

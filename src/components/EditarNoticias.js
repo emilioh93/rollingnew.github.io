@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
-import { Link, useParams, withRouter } from "react-router-dom";
+import { Link, useHistory, useParams, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
@@ -19,6 +19,7 @@ const EditarNoticias = (props) => {
   const imgChicaRef = useRef("");
   const [error, setError] = useState(false);
 
+  let history = useHistory();
   const URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
@@ -29,7 +30,6 @@ const EditarNoticias = (props) => {
   const consultarNoticia = async () => {
     try {
       const respuesta = await fetch(URL + "/" + id);
-      console.log(respuesta);
       if (respuesta.status === 200) {
         const noticiaEncontrada = await respuesta.json();
         setNoticia(noticiaEncontrada);
@@ -50,7 +50,6 @@ const EditarNoticias = (props) => {
       campoRequerido(contenidoRef.current.value) &&
       campoRequerido(imgGrandeRef.current.value) &&
       campoRequerido(imgChicaRef.current.value)
-     
     ) {
       setError(false);
       try {
@@ -76,9 +75,8 @@ const EditarNoticias = (props) => {
             "La noticia fue modificada correctamente",
             "success"
           );
-          window.location.href = "http://localhost:3000/login/admin/noticias";
+          history.push("/login/admin/noticias");
         }
-        console.log(respuesta);
       } catch (error) {
         console.log(error);
       }
@@ -89,7 +87,7 @@ const EditarNoticias = (props) => {
 
   return (
     <Container className="my-5">
-      <Link exact={true} to="/login/admin/noticias" className="nav-link">
+      <Link to="/login/admin/noticias" className="nav-link">
         <FontAwesomeIcon icon={faArrowLeft} className="me-2"></FontAwesomeIcon>
         Volver al administrador
       </Link>
@@ -143,11 +141,11 @@ const EditarNoticias = (props) => {
                 defaultValue={noticia.categoria}
                 ref={categoriaRef}
               >
-                <option selected="true" disabled="disabled">
+                <option defaultValue={noticia.categoria} disabled="disabled">
                   {noticia.categoria}
                 </option>
-                {props.categorias.map((categoria) => {
-                  return <option>{categoria.tituloCategoria}</option>;
+                {props.categorias.map((categoria, i) => {
+                  return <option key={i}>{categoria.tituloCategoria}</option>;
                 })}
               </Form.Control>
             </Form.Group>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
-import { Link, withRouter } from "react-router-dom";
+import { Link, useHistory, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
@@ -9,6 +9,7 @@ const FormCategorias = (props) => {
   const [tituloCategoria, setTituloCategoria] = useState("");
   const [error, setError] = useState(false);
 
+  let history = useHistory();
   const URL = process.env.REACT_APP_API_URL_Categorias;
 
   const handleSubmit = async (e) => {
@@ -20,7 +21,6 @@ const FormCategorias = (props) => {
       const categoria = {
         tituloCategoria,
       };
-      console.log(categoria);
 
       try {
         const cabecera = {
@@ -32,17 +32,14 @@ const FormCategorias = (props) => {
         };
 
         const response = await fetch(URL, cabecera);
-        console.log(response);
         if (response.status === 201) {
           Swal.fire(
             "Categoría agregada",
             "La categoría se cargó correctamente",
             "success"
           );
-
           e.target.reset();
-
-          window.location.href = "/login/admin/categorias";
+          history.push("/login/admin/categorias");
         }
       } catch (error) {
         Swal.fire(
@@ -58,7 +55,7 @@ const FormCategorias = (props) => {
 
   return (
     <Container className="my-5">
-      <Link exact={true} to="/login/admin/categorias/" className="nav-link">
+      <Link to="/login/admin/categorias/" className="nav-link">
         <FontAwesomeIcon icon={faArrowLeft} className="me-2"></FontAwesomeIcon>
         Volver al administrador
       </Link>

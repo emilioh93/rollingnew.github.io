@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, ListGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import ItemNoticia from "./ItemNoticia";
 
-const AdminNoticias = (props) => {
+const AdminNoticias = ({ consultarAPI, noticias }) => {
+  useEffect(() => {
+    consultarAPI();
+    // eslint-disable-next-line
+  }, []);
   return (
     <Container className="my-5">
       <Link to="/login/admin" className="nav-link">
@@ -19,11 +23,11 @@ const AdminNoticias = (props) => {
         </Link>
       </div>
       <ListGroup>
-        {props.noticias.map((noticia, i) => (
+        {noticias.map((noticia, i) => (
           <ItemNoticia
             noticia={noticia}
             key={i}
-            consultarAPI={props.consultarAPI}
+            consultarAPI={consultarAPI}
           ></ItemNoticia>
         ))}
       </ListGroup>

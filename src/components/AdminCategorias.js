@@ -1,16 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, ListGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import ItemCategoria from "./ItemCategoria";
 
-const AdminCategorias = (props) => {
-
+const AdminCategorias = ({ consultarAPICat, categorias }) => {
+  useEffect(() => {
+    consultarAPICat();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Container className="my-5">
-      <Link exact={true} to="/login/admin" className="nav-link">
+      <Link to="/login/admin" className="nav-link">
         <FontAwesomeIcon icon={faArrowLeft} className="me-2"></FontAwesomeIcon>
         Volver al administrador
       </Link>
@@ -18,18 +21,17 @@ const AdminCategorias = (props) => {
       <div className="d-flex justify-content-end">
         <Link
           className="my-4 btn btn-primary"
-          exact={true}
           to="/login/admin/categorias/nueva/"
         >
           Agregar Categoría
         </Link>
       </div>
       <ListGroup>
-        {props.categorias.map((categoria) => (
+        {categorias.map((categoria, i) => (
           <ItemCategoria
             categoria={categoria}
-            key={categoria._id}
-            consultarAPICat={props.consultarAPI}
+            key={i}
+            consultarAPICat={consultarAPICat}
           ></ItemCategoria>
         ))}
       </ListGroup>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
-import { withRouter } from "react-router-dom";
+import { useHistory, withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
 import moment from "moment";
 
@@ -18,9 +18,8 @@ const FormNoticias = (props) => {
   const fechaMoment = moment();
   moment.locale("es");
   fechaMoment.format("Do MMMM YYYY");
-  console.log("Fecha: " + fechaMoment.format("Do MMMM YYYY"));
   const URL = process.env.REACT_APP_API_URL;
-  console.log("🚀 ~ file: FormNoticias.js ~ line 20 ~ FormNoticias ~ URL", URL);
+  let history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,10 +45,6 @@ const FormNoticias = (props) => {
         imgGrande,
         imgChica,
       };
-      console.log(
-        "🚀 ~ file: FormNoticias.js ~ line 49 ~ handleSubmit ~ noticia",
-        noticia
-      );
 
       try {
         const cabecera = {
@@ -61,16 +56,14 @@ const FormNoticias = (props) => {
         };
 
         const response = await fetch(URL, cabecera);
-        console.log(response);
         if (response.status === 201) {
-          console.log("Desde if", response.status);
           Swal.fire(
             "Noticia agregada",
             "La noticia se cargó correctamente",
             "success"
           );
           e.target.reset();
-          window.location.href = "/login/admin/noticias";
+          history.push("/login/admin/noticias");
         }
       } catch (error) {
         console.log(error);
@@ -113,7 +106,6 @@ const FormNoticias = (props) => {
                 type="date"
                 onChange={(e) => {
                   setFecha(e.target.value);
-                  console.log("Fecha: ", e.target.value);
                 }}
               ></Form.Control>
             </Form.Group>
@@ -137,12 +129,12 @@ const FormNoticias = (props) => {
                 as="select"
                 onChange={(e) => setCategoria(e.target.value)}
               >
-                <option selected="true" disabled="disabled">
+                <option disabled="disabled">
                   Seleccione la categoría
                 </option>
 
-                {props.categorias.map((categoria) => {
-                  return <option>{categoria.tituloCategoria}</option>;
+                {props.categorias.map((categoria, i) => {
+                  return <option key={i}>{categoria.tituloCategoria}</option>;
                 })}
               </Form.Control>
             </Form.Group>

@@ -27,7 +27,6 @@ const ItemNoticia = (props) => {
             },
           });
 
-          console.log(respuesta);
           if (respuesta.status === 200) {
             Swal.fire(
               "¡Noticia eliminada!",
@@ -57,12 +56,10 @@ const ItemNoticia = (props) => {
     <div>
       <ListGroup.Item className="d-flex justify-content-between">
         <p>
-          <span className="font-weight-bold">
-            Categoría: {props.noticia.categoria} -
-          </span>
+          <strong>{props.noticia.categoria}: </strong>
           {props.noticia.titulo}{" "}
         </p>
-        <div>
+        <div className="d-flex h-50">
           <Link
             className="mr-2 btn btn-warning text-light"
             to={`/login/admin/noticias/editar/${props.noticia._id}`}
