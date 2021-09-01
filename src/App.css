@@ -1,38 +1,120 @@
-.App {
-  text-align: center;
+/* EMPIEZA NAVBAR */
+
+.logo {
+    width: 60%;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#logoLg {
+    width: 30%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.logoLgImg {
+    width: 60%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#logoSm {
+    display: none;
 }
 
-.App-link {
-  color: #61dafb;
+.nav-link {
+    margin: 0px 10px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.margenIzq {
+    margin-left: 70px;
+}
+
+#logout {
+    background-color: transparent;
+    border: none;
+}
+
+
+/* TERMINA NAVBAR */
+
+
+/* EMPIEZA PRINCIPAL */
+
+.sombra {
+    box-shadow: 10px 10px 50px -15px rgba(0, 0, 0, 0.75);
+}
+
+.imgcarousel {
+    width: 100%;
+}
+
+
+/* TERMINA PRINCIPAL */
+
+
+/* COMIENZA BANNER COVID */
+
+.anchoCovid {
+    width: 100%;
+}
+
+
+/* TERMINA BANNER COVID */
+
+
+/* COMIENZA CATEGORÍAS */
+
+.fondoVerde {
+    background-color: greenyellow;
+}
+
+
+/* TERMINA CATEGORÍAS */
+
+
+/*Footer*/
+
+.list-unstyled {
+    list-style-type: none;
+}
+
+
+/* MEDIA QUERIES */
+
+
+/* TELÉFONOS Y MÁS PEQUEÑOS*/
+
+@media (max-width: 767.98px) {
+    #logoSm {
+        display: block;
+        width: 30%;
+    }
+    #logoLg {
+        display: none;
+    }
+    .logo {
+        width: 30%;
+    }
+    .margenIzq {
+        margin: 0%;
+    }
+    .anchoCovid {
+        width: 100%;
+    }
+    .ocultar {
+        display: none;
+    }
+    .mtSM {
+        margin-top: 50px;
+    }
+}
+
+
+/* TABLETS */
+
+@media (min-width: 768px) and (max-width: 1198px) {
+    #logoSm {
+        display: none;
+    }
+    #logoLg {
+        display: block;
+    }
+    .margenIzq {
+        margin: 0%;
+    }
 }
