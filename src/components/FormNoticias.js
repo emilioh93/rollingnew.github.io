@@ -66,7 +66,6 @@ const FormNoticias = (props) => {
           history.push("/login/admin/noticias");
         }
       } catch (error) {
-        console.log(error);
         Swal.fire("Error", "Inténtelo nuevamente en unos minutos", "error");
       }
     } else {

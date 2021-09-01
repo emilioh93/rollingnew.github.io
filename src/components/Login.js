@@ -20,11 +20,9 @@ const Login = (props) => {
       setSesion(true);
       setUser(true);
       localStorage.setItem("user", usuario);
-      console.log(sesion);
     } else {
       alert("ingreso invalido");
       setSesion(false);
-      console.log(sesion);
     }
   };
 
