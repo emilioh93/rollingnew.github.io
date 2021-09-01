@@ -37,7 +37,6 @@ function App() {
   const consultarAPICat = async () => {
     try {
       const respuesta = await fetch(URLCat);
-      console.log(respuesta);
       if (respuesta.status === 200) {
         // Guardar datos en el state
         const datos = await respuesta.json();
@@ -52,7 +51,6 @@ function App() {
   const consultarAPI = async () => {
     try {
       const respuesta = await fetch(URL);
-      console.log(respuesta);
       if (respuesta.status === 200) {
         // Guardar datos en el state
         const datos = await respuesta.json();
@@ -86,14 +84,13 @@ function App() {
       .then((data) => setClima(data));
   };
 
-  console.log(clima);
-
   useEffect(() => {
     consultarAPI();
     consultarAPICat();
     consultarUser();
     consultarUSD();
     consultarClima();
+    // eslint-disable-next-line
   }, []);
 
   return (
@@ -104,9 +101,10 @@ function App() {
           <Apis dolar={dolar} clima={clima}></Apis>
           <Principal></Principal>
           <Covid></Covid>
-          {categorias.map((categoria) => {
+          {categorias.map((categoria, i) => {
             return (
               <Categoria
+                key={i}
                 titulo={categoria.tituloCategoria}
                 noticias={noticias.filter(
                   (noticia) => noticia.categoria === categoria.tituloCategoria
@@ -177,7 +175,10 @@ function App() {
           <Admin version="1.0"></Admin>
         </PrivateRoute>
         <PrivateRoute exact path="/login/admin/noticias">
-          <AdminNoticias noticias={noticias}></AdminNoticias>
+          <AdminNoticias
+            consultarAPI={consultarAPI}
+            noticias={noticias}
+          ></AdminNoticias>
         </PrivateRoute>
         <PrivateRoute exact path="/login/admin/noticias/nueva">
           <FormNoticias categorias={categorias}></FormNoticias>

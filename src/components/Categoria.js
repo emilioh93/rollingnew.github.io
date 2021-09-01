@@ -6,9 +6,9 @@ const Categoria = (props) => {
   return (
     <Container className="my-5 borde">
       <h2 className="my-4 text-center">{props.titulo}</h2>
-      {props.noticias.map((noticia) => {
+      {props.noticias.map((noticia, i) => {
         return (
-          <Card className="mx-4 sombra">
+          <Card key={i} className="mx-4 sombra">
             <Card.Img variant="top" src={noticia.imgChica} />
             <Card.Body>
               <Card.Title className='text-center my-3'>{noticia.titulo}</Card.Title>

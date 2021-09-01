@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, ListGroup, Button } from "react-bootstrap";
+import { ListGroup, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faTrash } from "@fortawesome/free-solid-svg-icons";
@@ -18,7 +18,6 @@ const ItemNoticia = (props) => {
       cancelButtonText: "Cancelar",
     }).then(async (result) => {
       if (result.isConfirmed) {
-
         try {
           const URL = process.env.REACT_APP_API_URL + "/" + codigo;
           const respuesta = await fetch(URL, {
@@ -35,6 +34,7 @@ const ItemNoticia = (props) => {
               "La noticia seleccionada fue correctamente eliminada.",
               "success"
             );
+            props.consultarAPI();
           }
         } catch (error) {
           console.log(error);

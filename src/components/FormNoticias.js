@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
-import { Link, useParams, withRouter } from "react-router-dom";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
 import moment from "moment";
 
@@ -26,12 +24,11 @@ const FormNoticias = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
+
     if (
       autor.trim() !== "" &&
       fecha.trim() !== "" &&
       titulo.trim() !== "" &&
-    
       resumen.trim() !== "" &&
       contenido.trim() !== "" &&
       imgGrande.trim() !== "" &&
@@ -79,7 +76,6 @@ const FormNoticias = (props) => {
         console.log(error);
         Swal.fire("Error", "Inténtelo nuevamente en unos minutos", "error");
       }
-
     } else {
       setError(true);
     }

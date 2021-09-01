@@ -7,16 +7,14 @@ const DetalleNoticia = () => {
   const [noticia, setNoticia] = useState({});
   const URL = process.env.REACT_APP_API_URL;
 
-  console.log(id);
-
   useEffect(() => {
     consultarNoticia();
+    // eslint-disable-next-line
   }, []);
 
   const consultarNoticia = async () => {
     try {
       const respuesta = await fetch(URL + "/" + id);
-      console.log(respuesta);
       if (respuesta.status === 200) {
         const noticiaEncontrada = await respuesta.json();
         setNoticia(noticiaEncontrada);

@@ -1,12 +1,11 @@
 import React from "react";
-import { Container, ListGroup, Button } from "react-bootstrap";
+import { ListGroup, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPencilAlt, faEye, faTrash } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
 
 const ItemCategoria = (props) => {
-
   const eliminarCategoria = (codigo) => {
     Swal.fire({
       title: "¿Estás seguro de eliminar esta categoría?",
@@ -36,6 +35,7 @@ const ItemCategoria = (props) => {
               "La categoría seleccionada fue correctamente eliminada.",
               "success"
             );
+            // props.consultarAPI();
           }
         } catch (error) {
           console.log(error);

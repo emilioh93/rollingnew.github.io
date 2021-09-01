@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Form, Container, Button } from "react-bootstrap";
 
 const Registro = () => {
   const [usuarioCreado, setUsuarioCreado] = useState("");
   const [passCreado, setPassCreado] = useState("");
   const [cuenta, setCuenta] = useState("");
-  const [listaCuentas, setListaCuentas] = useState("");
 
   class Cuentas {
     constructor(usuario, password) {
@@ -17,19 +16,18 @@ const Registro = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("desde formulario de cuentas");
-  
   };
 
-  const crearCuenta = ()=>{
-    const cuentaCreada = new Cuentas (usuarioCreado,passCreado)
-    console.log(cuentaCreada)
+  const crearCuenta = () => {
+    const cuentaCreada = new Cuentas(usuarioCreado, passCreado);
+    console.log(cuentaCreada);
     setCuenta(cuentaCreada);
-    console.log(cuenta)
-  }
+    console.log(cuenta);
+  };
 
   return (
     <Container className="d-flex justify-content-center">
-      <Form className="my-3" onSubmit={handleSubmit}  id="registro">
+      <Form className="my-3" onSubmit={handleSubmit} id="registro">
         <h1>Registrarse</h1>
         <Form.Group className="my-3">
           <Form.Label>Nombre de Usuario</Form.Label>

@@ -4,7 +4,7 @@ import { Link, useParams, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
-import { campoRequerido, rangoValor } from "./common/helpers";
+import { campoRequerido } from "./common/helpers";
 
 const EditarNoticias = (props) => {
   const [noticia, setNoticia] = useState({});
@@ -23,6 +23,7 @@ const EditarNoticias = (props) => {
 
   useEffect(() => {
     consultarNoticia();
+    // eslint-disable-next-line
   }, []);
 
   const consultarNoticia = async () => {

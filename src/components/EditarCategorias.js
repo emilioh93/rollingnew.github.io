@@ -4,7 +4,7 @@ import { Link, useParams, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
-import { campoRequerido, rangoValor } from "./common/helpers";
+import { campoRequerido } from "./common/helpers";
 
 const EditarCategorias = (props) => {
   const [categoria, setCategoria] = useState({});
@@ -17,7 +17,7 @@ const EditarCategorias = (props) => {
 
   useEffect(() => {
     consultarCategoria();
-    console.log(categoria)
+    // eslint-disable-next-line
   }, []);
 
   const consultarCategoria = async () => {

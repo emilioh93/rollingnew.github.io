@@ -5,11 +5,6 @@ import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const PaginaCategoria = ({ tituloCategoria, noticias }) => {
-  const removeAccents = (str) => {
-    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  };
-
-  console.log("noticias", noticias && noticias);
   const arrayFiltrado =
     noticias &&
     noticias.filter((noticia) => noticia.categoria === tituloCategoria);

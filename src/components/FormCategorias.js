@@ -1,6 +1,6 @@
-import React, { useState, useHistory } from "react";
+import React, { useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
-import { Link, useParams, withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import Swal from "sweetalert2";
@@ -10,14 +10,11 @@ const FormCategorias = (props) => {
   const [error, setError] = useState(false);
 
   const URL = process.env.REACT_APP_API_URL_Categorias;
-  console.log(URL);
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (tituloCategoria.trim() !== "") {
-
       setError(false);
 
       const categoria = {
@@ -26,7 +23,6 @@ const FormCategorias = (props) => {
       console.log(categoria);
 
       try {
-
         const cabecera = {
           method: "POST",
           headers: {
@@ -45,7 +41,7 @@ const FormCategorias = (props) => {
           );
 
           e.target.reset();
-          
+
           window.location.href = "/login/admin/categorias";
         }
       } catch (error) {
@@ -55,9 +51,7 @@ const FormCategorias = (props) => {
           "error"
         );
       }
-
     } else {
-      
       setError(true);
     }
   };
@@ -72,8 +66,10 @@ const FormCategorias = (props) => {
         <h3 className="my-5 text-center">Agregar Categoría</h3>
         <Form.Group>
           <Form.Label>Título</Form.Label>
-          <Form.Control type="text"
-          onChange={(e) => setTituloCategoria(e.target.value)}></Form.Control>
+          <Form.Control
+            type="text"
+            onChange={(e) => setTituloCategoria(e.target.value)}
+          ></Form.Control>
         </Form.Group>
         <Button
           type="submit"
@@ -94,4 +90,3 @@ const FormCategorias = (props) => {
 };
 
 export default withRouter(FormCategorias);
-

@@ -3,7 +3,6 @@ import { Button, Form } from "react-bootstrap";
 import "./Suscripcion.css";
 import Swal from "sweetalert2";
 import emailjs from "emailjs-com";
-import { init } from "emailjs-com";
 
 const Suscripcion = () => {
   const [nombre, setNombre] = useState("");
@@ -13,7 +12,6 @@ const Suscripcion = () => {
   const [codigo, setCodigo] = useState(0);
   const [telefono, setTelefono] = useState(0);
   const [email, setEmail] = useState("");
-  const [terminos, setTerminos] = useState();
   const [validacion, setValidacion] = useState(false);
 
   const enviarEmail = () => {

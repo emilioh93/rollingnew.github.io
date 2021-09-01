@@ -32,7 +32,7 @@ const Navegacion = () => {
     <Navbar bg="dark" expand="lg" variant="dark">
       <Container>
         <Navbar.Brand id="logoLg" href="#home">
-          <NavLink exact={true} to="/">
+          <NavLink to="/">
             <img src={logo} alt="RollingNews" className="logoLgImg" />
           </NavLink>
         </Navbar.Brand>
@@ -41,91 +41,59 @@ const Navegacion = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <NavLink exact={true} to="/" className="nav-link">
+            <NavLink to="/" className="nav-link">
               Inicio
             </NavLink>
-            <NavLink exact={true} to="/Actualidad" className="nav-link">
+            <NavLink to="/Actualidad" className="nav-link">
               Actualidad
             </NavLink>
-            <NavLink exact={true} to="/Espectáculos" className="nav-link">
+            <NavLink to="/Espectáculos" className="nav-link">
               Espectáculos
             </NavLink>
-            <NavLink exact={true} to="/Tecnología" className="nav-link">
+            <NavLink to="/Tecnología" className="nav-link">
               Tecnología
             </NavLink>
-            <NavLink exact={true} to="/Deportes" className="nav-link">
+            <NavLink to="/Deportes" className="nav-link">
               Deportes
             </NavLink>
             {/* Otras categorías */}
             <NavDropdown title="Categorías" id="basic-nav-dropdown">
               <NavDropdown.Item>
-                <NavLink
-                  exact={true}
-                  to="/Economía"
-                  className="nav-link text-dark"
-                >
+                <NavLink to="/Economía" className="nav-link text-dark">
                   Economía
                 </NavLink>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <NavLink
-                  exact={true}
-                  to="/Política"
-                  className="nav-link text-dark"
-                >
+                <NavLink to="/Política" className="nav-link text-dark">
                   Política
                 </NavLink>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <NavLink
-                  exact={true}
-                  to="/Salud"
-                  className="nav-link text-dark"
-                >
+                <NavLink to="/Salud" className="nav-link text-dark">
                   Salud
                 </NavLink>
               </NavDropdown.Item>
               <NavDropdown.Item>
-                <NavLink
-                  exact={true}
-                  to="/Fotografía"
-                  className="nav-link text-dark"
-                >
+                <NavLink to="/Fotografía" className="nav-link text-dark">
                   Fotografía
                 </NavLink>
               </NavDropdown.Item>
             </NavDropdown>
             {user ? (
               <>
-                <NavLink
-                  exact={true}
-                  to="/login/admin"
-                  id="login"
-                  className="nav-link"
-                >
+                <NavLink to="/login/admin" id="login" className="nav-link">
                   <strong className="margenIzq">Admin</strong>
                 </NavLink>
-                <Button
-                  exact={true}
-                  id="logout"
-                  className="nav-link"
-                  onClick={handleLogout}
-                >
+                <Button id="logout" className="nav-link" onClick={handleLogout}>
                   <strong className="margenIzq">Logout</strong>
                 </Button>
               </>
             ) : (
               <>
-                <NavLink
-                  exact={true}
-                  to="/login"
-                  id="login"
-                  className="nav-link"
-                >
+                <NavLink to="/login" id="login" className="nav-link">
                   <strong className="margenIzq">Login</strong>
                 </NavLink>
                 <NavLink
-                  exact={true}
                   to="/suscripcion"
                   id="suscripcion"
                   className="nav-link"

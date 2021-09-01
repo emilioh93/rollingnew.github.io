@@ -7,8 +7,6 @@ const Apis = ({ dolar, clima }) => {
   const dolarBlue =
     dolar && dolar.find((element) => element.casa.nombre === "Dolar Blue");
 
-  console.log(clima);
-
   return (
     <div className="d-flex px-5 py-3">
       <div className="me-auto">
