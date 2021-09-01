@@ -28,7 +28,6 @@ const EditarCategorias = (props) => {
         setCategoria(categoriaEncontrada);
       }
     } catch (error) {
-      console.log(error);
     }
   };
 
@@ -54,7 +53,6 @@ const EditarCategorias = (props) => {
           history.push("/login/admin/categorias/");
         }
       } catch (error) {
-        console.log(error);
       }
     } else {
       setError(true);

@@ -37,7 +37,6 @@ const ItemCategoria = ({consultarAPICat, categoria}) => {
             consultarAPICat();
           }
         } catch (error) {
-          console.log(error);
           Swal.fire(
             "Ocurrió un error!",
             "Inténtelo nuevamente más tarde.",

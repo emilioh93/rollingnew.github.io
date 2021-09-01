@@ -15,14 +15,11 @@ const Registro = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("desde formulario de cuentas");
   };
 
   const crearCuenta = () => {
     const cuentaCreada = new Cuentas(usuarioCreado, passCreado);
-    console.log(cuentaCreada);
     setCuenta(cuentaCreada);
-    console.log(cuenta);
   };
 
   return (
