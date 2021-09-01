@@ -13,13 +13,13 @@ const Registro = () => {
     }
   }
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
   const crearCuenta = () => {
     const cuentaCreada = new Cuentas(usuarioCreado, passCreado);
     setCuenta(cuentaCreada);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
   };
 
   return (
