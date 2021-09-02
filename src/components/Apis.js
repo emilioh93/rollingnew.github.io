@@ -1,4 +1,6 @@
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCloud } from "@fortawesome/free-solid-svg-icons";
 
 const Apis = ({ dolar, clima }) => {
   const dolarOficial =
@@ -20,9 +22,11 @@ const Apis = ({ dolar, clima }) => {
         }`}</span>
       </div>
       <div>
-        <strong>Tucuman: </strong>{" "}
-        <span>{`Temp-Máx: ${clima && clima.main.temp_max}/
-          Temp-Min: ${clima && clima.main.temp_min}`}</span>
+        <strong>Tucumán: </strong>{" "}
+        <span>
+          {`${clima && clima.main.temp}`}°{" "}
+          <FontAwesomeIcon icon={faCloud}></FontAwesomeIcon>
+        </span>
       </div>
     </div>
   );

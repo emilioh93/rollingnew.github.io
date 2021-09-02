@@ -55,10 +55,13 @@ const FormCategorias = (props) => {
 
   return (
     <Container className="my-5">
-      <Link to="/login/admin/categorias/" className="nav-link">
+      <Button
+        onClick={() => history.goBack()}
+        className="bg-light text-primary"
+      >
         <FontAwesomeIcon icon={faArrowLeft} className="me-2"></FontAwesomeIcon>
-        Volver al administrador
-      </Link>
+        Volver
+      </Button>
       <Form onSubmit={handleSubmit}>
         <h3 className="my-5 text-center">Agregar Categoría</h3>
         <Form.Group>

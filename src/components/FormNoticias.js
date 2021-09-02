@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import { useHistory, withRouter } from "react-router-dom";
 import Swal from "sweetalert2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import moment from "moment";
 
 const FormNoticias = (props) => {
@@ -73,13 +75,15 @@ const FormNoticias = (props) => {
     }
   };
 
-  const retornarNoticias = ({ history }) => {
-    window.location.href = "/login/admin/noticias";
-  };
-
   return (
     <Container className="my-5">
-      <Button onClick={retornarNoticias}>Volver</Button>
+      <Button
+        onClick={() => history.goBack()}
+        className="bg-light text-primary"
+      >
+        <FontAwesomeIcon icon={faArrowLeft} className="me-2"></FontAwesomeIcon>
+        Volver
+      </Button>
       <Form onSubmit={handleSubmit}>
         <h3 className="my-5 text-center">Agregar Noticia</h3>
         <p>
@@ -128,9 +132,7 @@ const FormNoticias = (props) => {
                 as="select"
                 onChange={(e) => setCategoria(e.target.value)}
               >
-                <option disabled="disabled">
-                  Seleccione la categoría
-                </option>
+                <option disabled="disabled">Seleccione la categoría</option>
 
                 {props.categorias.map((categoria, i) => {
                   return <option key={i}>{categoria.tituloCategoria}</option>;
