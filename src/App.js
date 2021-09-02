@@ -78,7 +78,7 @@ function App() {
 
   const consultarClima = async () => {
     await fetch(
-      "http://api.openweathermap.org/data/2.5/weather?q=Tucuman&units=metric&appid=7df71142edc80b63d4340159dc295641"
+      "https://api.openweathermap.org/data/2.5/weather?q=Tucuman&units=metric&appid=7df71142edc80b63d4340159dc295641"
     )
       .then((response) => response.json())
       .then((data) => setClima(data));
